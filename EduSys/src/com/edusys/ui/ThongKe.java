@@ -83,7 +83,7 @@ public class ThongKe extends javax.swing.JFrame {
 
         tblBangDiem.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
+                {"NH001", "Trần Thị Nụ", "9", "Xuất Săc"},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
@@ -116,7 +116,7 @@ public class ThongKe extends javax.swing.JFrame {
 
         tblNguoiHoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
+                {"2019", "5", "12-01-2019", "15-02-2019"},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
@@ -142,7 +142,7 @@ public class ThongKe extends javax.swing.JFrame {
 
         tblDiemChuyenDe.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
+                {"COME", "5", "5", "10", "7"},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null}
@@ -168,7 +168,7 @@ public class ThongKe extends javax.swing.JFrame {
 
         tblDoanhThu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
+                {"COME", "2", "5", "1000", "3000", "2000"},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null}

@@ -144,7 +144,7 @@ public class EduSysFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        lblBackground.setText("Background");
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/giadien.jpg"))); // NOI18N
 
         mnuHeThong.setText("Hệ thống");
 
@@ -246,7 +246,7 @@ public class EduSysFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lblBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 1321, Short.MAX_VALUE)
+            .addComponent(lblBackground)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

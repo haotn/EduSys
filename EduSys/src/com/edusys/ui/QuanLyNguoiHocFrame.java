@@ -5,6 +5,8 @@
  */
 package com.edusys.ui;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author user
@@ -108,8 +110,8 @@ public class QuanLyNguoiHocFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtGhiChu);
 
         btnThem.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Icon 24px/add.png"))); // NOI18N
-        btnThem.setText("Thêm");
+        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Icon 24px/Save.png"))); // NOI18N
+        btnThem.setText("Lưu");
 
         btnSua.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnSua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Icon 24px/Edit.png"))); // NOI18N
@@ -174,7 +176,7 @@ public class QuanLyNguoiHocFrame extends javax.swing.JFrame {
                         .addComponent(btnXoa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnMoi)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
                         .addComponent(btnFisrt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBack)
@@ -232,15 +234,24 @@ public class QuanLyNguoiHocFrame extends javax.swing.JFrame {
 
         tblNguoiHoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {"NH001", "Huỳnh Vỳnh C", "Nam", "2001", "qtrrwqtr@gmail.com", "09736327", "PS001", "2020"},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "MÃ NH", "Họ và Tên", "Giới Tính", "Ngày Sinh", "Email", "Số Điện Thoại", "Mã NV", "Ngày Đăng Ký"
             }
         ));
+        tblNguoiHoc.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tblNguoiHocAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jScrollPane2.setViewportView(tblNguoiHoc);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -277,13 +288,14 @@ public class QuanLyNguoiHocFrame extends javax.swing.JFrame {
         PnlDanhSach.setLayout(PnlDanhSachLayout);
         PnlDanhSachLayout.setHorizontalGroup(
             PnlDanhSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlDanhSachLayout.createSequentialGroup()
+            .addGroup(PnlDanhSachLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PnlDanhSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PnlDanhSachLayout.createSequentialGroup()
-                        .addComponent(lblTimKiem)
+                .addGroup(PnlDanhSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(PnlDanhSachLayout.createSequentialGroup()
+                        .addGroup(PnlDanhSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTimKiem))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -296,7 +308,7 @@ public class QuanLyNguoiHocFrame extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addGap(100, 100, 100))
         );
 
         pnsNguoiHoc.addTab("Danh Sách", PnlDanhSach);
@@ -309,10 +321,11 @@ public class QuanLyNguoiHocFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnsNguoiHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTieude))
+                .addComponent(lblTieude)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(pnsNguoiHoc)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,6 +339,11 @@ public class QuanLyNguoiHocFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+  DefaultTableModel model;
+    private void tblNguoiHocAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tblNguoiHocAncestorAdded
+        // TODO add your handling code here:
+         
+    }//GEN-LAST:event_tblNguoiHocAncestorAdded
 
     /**
      * @param args the command line arguments

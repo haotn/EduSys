@@ -218,7 +218,7 @@ public class QuanLyKhoaHoc extends javax.swing.JFrame {
 
         tblDanhSach.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
+                {"KH001", "3600", "3000", "20-02-2019", "PS001", "18-02-2019"},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null}

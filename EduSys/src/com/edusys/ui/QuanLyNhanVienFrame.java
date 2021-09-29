@@ -5,6 +5,10 @@
  */
 package com.edusys.ui;
 
+import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author user
@@ -18,6 +22,8 @@ public class QuanLyNhanVienFrame extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+         DefaultTableModel model;
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -117,8 +123,13 @@ public class QuanLyNhanVienFrame extends javax.swing.JFrame {
         });
 
         btnThem.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Icon 24px/add.png"))); // NOI18N
-        btnThem.setText("Thêm");
+        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Icon 24px/Save.png"))); // NOI18N
+        btnThem.setText("Lưu");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
 
         btnSua.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnSua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Icon 24px/Edit.png"))); // NOI18N
@@ -160,7 +171,7 @@ public class QuanLyNhanVienFrame extends javax.swing.JFrame {
                         .addComponent(btnXoa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnMoi)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                         .addComponent(btnFisrt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBack)
@@ -227,15 +238,25 @@ public class QuanLyNhanVienFrame extends javax.swing.JFrame {
 
         tblNhanVien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
+                {"PS001", "Trần Văn A", "Admin", "Trưởng Phòng"},
+                {"PS002", "NGuyễn Thanh E", "Admin1", "Nhân Viên"},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "MÃ NV", "Họ và Tên", "Mật Khẩu", "Vai Trò"
             }
         ));
+        tblNhanVien.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tblNhanVienAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jScrollPane1.setViewportView(tblNhanVien);
 
         javax.swing.GroupLayout PnlDanhSachLayout = new javax.swing.GroupLayout(PnlDanhSach);
@@ -268,7 +289,7 @@ public class QuanLyNhanVienFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTieuDe)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -280,7 +301,7 @@ public class QuanLyNhanVienFrame extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(lblTieuDe)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -306,6 +327,14 @@ public class QuanLyNhanVienFrame extends javax.swing.JFrame {
     private void rdoNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoNhanVienActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rdoNhanVienActionPerformed
+
+    private void tblNhanVienAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tblNhanVienAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblNhanVienAncestorAdded
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnThemActionPerformed
 
     /**
      * @param args the command line arguments

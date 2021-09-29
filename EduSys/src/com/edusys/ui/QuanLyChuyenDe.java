@@ -69,6 +69,7 @@ public class QuanLyChuyenDe extends javax.swing.JFrame {
 
         lblLogo.setBackground(new java.awt.Color(255, 51, 102));
         lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/JAva.jpg"))); // NOI18N
         lblLogo.setText("jLabel3");
         lblLogo.setOpaque(true);
 
@@ -157,33 +158,29 @@ public class QuanLyChuyenDe extends javax.swing.JFrame {
                     .addGroup(pnlCapNhatLayout.createSequentialGroup()
                         .addGroup(pnlCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlCapNhatLayout.createSequentialGroup()
-                                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
                                 .addGroup(pnlCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTenChuyenDe)
                                     .addGroup(pnlCapNhatLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(pnlCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtTenChuyenDe)
-                                            .addGroup(pnlCapNhatLayout.createSequentialGroup()
-                                                .addComponent(lblTenChuyenDe)
-                                                .addGap(0, 0, Short.MAX_VALUE))))
-                                    .addGroup(pnlCapNhatLayout.createSequentialGroup()
-                                        .addGroup(pnlCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(pnlCapNhatLayout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addGroup(pnlCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(jLabel3)
-                                                    .addComponent(txtThoiLuong)
-                                                    .addComponent(jLabel2)
-                                                    .addComponent(txtHocPhi, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
-                                            .addGroup(pnlCapNhatLayout.createSequentialGroup()
-                                                .addGap(19, 19, 19)
-                                                .addComponent(lblMaChuyenDe))
-                                            .addGroup(pnlCapNhatLayout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(txtMaChuyenDe, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(lblTenChuyenDe)
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(pnlCapNhatLayout.createSequentialGroup()
-                                .addComponent(lblAnhLogo)
+                                .addGroup(pnlCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlCapNhatLayout.createSequentialGroup()
+                                        .addGap(168, 168, 168)
+                                        .addGroup(pnlCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel3)
+                                            .addComponent(txtThoiLuong)
+                                            .addComponent(jLabel2)
+                                            .addComponent(txtHocPhi, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
+                                    .addGroup(pnlCapNhatLayout.createSequentialGroup()
+                                        .addGap(169, 169, 169)
+                                        .addComponent(lblMaChuyenDe))
+                                    .addGroup(pnlCapNhatLayout.createSequentialGroup()
+                                        .addGap(168, 168, 168)
+                                        .addComponent(txtMaChuyenDe, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblAnhLogo))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(pnlCapNhatLayout.createSequentialGroup()
@@ -194,7 +191,7 @@ public class QuanLyChuyenDe extends javax.swing.JFrame {
                         .addComponent(btnXoa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLamMoi)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                         .addComponent(btnFirst)
                         .addGap(18, 18, 18)
                         .addComponent(btnPrevious)
@@ -217,9 +214,6 @@ public class QuanLyChuyenDe extends javax.swing.JFrame {
                     .addComponent(lblMaChuyenDe))
                 .addGroup(pnlCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCapNhatLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlCapNhatLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtMaChuyenDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -233,11 +227,14 @@ public class QuanLyChuyenDe extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtHocPhi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addComponent(txtHocPhi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlCapNhatLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -257,7 +254,7 @@ public class QuanLyChuyenDe extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
+                {"CD001", "JAVa", "3600", "3000"},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
