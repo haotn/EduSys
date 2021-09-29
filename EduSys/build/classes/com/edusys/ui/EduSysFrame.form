@@ -11,11 +11,17 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mniDangNhap">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/Log in.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng nh&#x1ead;p"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniDangXuat">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/Log out.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
               </Properties>
             </MenuItem>
@@ -23,6 +29,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniDoiMatKhau">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/Password.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x1ed5;i m&#x1ead;t kh&#x1ea9;u"/>
               </Properties>
             </MenuItem>
@@ -30,6 +39,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniThoat">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/Delete.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Tho&#xe1;t"/>
               </Properties>
               <Events>
@@ -45,21 +57,33 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mniChuyenDe">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/Application form.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Chuy&#xea;n &#x111;&#x1ec1;"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniKhoaHoc">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/Address book.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Kh&#xf3;a h&#x1ecd;c"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniNguoiHoc">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/Case.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Ng&#x1b0;&#x1edd;i h&#x1ecd;c"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniHocVien">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/Man.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="H&#x1ecd;c vi&#xea;n"/>
               </Properties>
             </MenuItem>
@@ -67,6 +91,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniNhanVien">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/User.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nh&#xe2;n vi&#xea;n"/>
               </Properties>
             </MenuItem>
@@ -79,6 +106,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mniBangDiem">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/List.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="B&#x1ea3;ng &#x111;i&#x1ec3;m"/>
               </Properties>
             </MenuItem>
@@ -86,11 +116,17 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniLuongNguoiHoc">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/Team.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="L&#x1b0;&#x1ee3;ng ng&#x1b0;&#x1edd;i h&#x1ecd;c"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniDiemChuyenDe">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/Bar chart.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;i&#x1ec3;m chuy&#xea;n &#x111;&#x1ec1;"/>
               </Properties>
               <Events>
@@ -101,6 +137,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniDoanhThu">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/Dollar.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Doanh thu"/>
               </Properties>
             </MenuItem>
@@ -113,6 +152,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mniHuongDanSuDung">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/Billboard.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="H&#x1b0;&#x1edb;ng d&#x1eab;n s&#x1eed; d&#x1ee5;ng"/>
               </Properties>
             </MenuItem>
@@ -120,6 +162,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniGioiThieuSanPham">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/edusys/images/Icon 24px/Bubble.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Gi&#x1edb;i thi&#x1ec7;u s&#x1ea3;n ph&#x1ea9;m"/>
               </Properties>
             </MenuItem>
@@ -178,6 +223,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btnNhanVien">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/edusys/images/Icon 24px/User.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nh&#xe2;n vi&#xea;n"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -189,6 +237,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnChuyenDe">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/edusys/images/Icon 24px/Application form.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Chuy&#xea;n &#x111;&#x1ec1;"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -197,6 +248,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnKhoaHoc">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/edusys/images/Icon 24px/Address book.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Kh&#xf3;a h&#x1ecd;c"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -205,6 +259,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnHocVien">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/edusys/images/Icon 24px/Man.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="H&#x1ecd;c vi&#xea;n"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -213,6 +270,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnNguoiHoc">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/edusys/images/Icon 24px/Case.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Ng&#x1b0;&#x1edd;i h&#x1ecd;c"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -223,6 +283,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnHuongDan">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/com/edusys/images/Icon 24px/Billboard.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="H&#x1b0;&#x1edb;ng d&#x1eab;n"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
