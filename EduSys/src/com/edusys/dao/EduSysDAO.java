@@ -23,6 +23,6 @@ public abstract class EduSysDAO<E, K> {
 
     abstract public E selectById(K key);
 
-    abstract public List<E> selectBySql(String sql, Object... args);
+    abstract protected List<E> selectBySql(String sql, Object... args);
 
 }
