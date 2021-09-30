@@ -110,8 +110,8 @@ public class QuanLyNguoiHocFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtGhiChu);
 
         btnThem.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Icon 24px/Save.png"))); // NOI18N
-        btnThem.setText("Lưu");
+        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Icon 24px/add.png"))); // NOI18N
+        btnThem.setText("Thêm");
 
         btnSua.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnSua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Icon 24px/Edit.png"))); // NOI18N
@@ -176,7 +176,7 @@ public class QuanLyNguoiHocFrame extends javax.swing.JFrame {
                         .addComponent(btnXoa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnMoi)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
                         .addComponent(btnFisrt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBack)

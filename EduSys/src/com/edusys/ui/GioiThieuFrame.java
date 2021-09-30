@@ -21,6 +21,7 @@ public class GioiThieuFrame extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
          logo() ;
+         txtGioiThieu.setEditable(false);
                  
     }
 
@@ -33,26 +34,46 @@ public class GioiThieuFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtGioiThieu = new javax.swing.JTextArea();
         lblAnh = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        btnDong = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("GIỚI THIỆU");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtGioiThieu.setColumns(20);
+        txtGioiThieu.setRows(5);
+        txtGioiThieu.setText("Phần mềm quản lý đào tạo EduSys\nThành viên nhóm 5:\n\tNhựt Hào\n\tThiên Quốc\n\tTrọng Nhân\n\tThế Kỷ\n");
+        jScrollPane1.setViewportView(txtGioiThieu);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 630, 160));
         getContentPane().add(lblAnh, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 175, 150));
 
-        jLabel2.setText("jLabel2");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 630, 530));
+        btnDong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Icon 16px/Stop.png"))); // NOI18N
+        btnDong.setText("Đóng");
+        btnDong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDongActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDong, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel1.setOpaque(true);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -7, 650, 720));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -7, 650, 420));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDongActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnDongActionPerformed
 
     /**
      * @param args the command line arguments
@@ -90,9 +111,11 @@ public class GioiThieuFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDong;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAnh;
+    private javax.swing.JTextArea txtGioiThieu;
     // End of variables declaration//GEN-END:variables
 void logo() {
         

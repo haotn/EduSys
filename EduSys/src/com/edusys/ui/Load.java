@@ -37,7 +37,7 @@ public class Load extends javax.swing.JFrame {
                 prgLoad.setForeground(Color.blue);
                 if (curentTime == 100) {
                     timer.stop();
-                    dispose();
+                    //dispose();
                     //  JOptionPane.showMessageDialog(rootPane, "Successfully!");
                     // new Vidu3().setVisible(true);
                 }
@@ -59,6 +59,7 @@ public class Load extends javax.swing.JFrame {
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("LOAD");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         prgLoad.setMinimum(20);

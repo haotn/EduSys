@@ -68,6 +68,7 @@ public class EduSysFrame extends javax.swing.JFrame {
         mniGioiThieuSanPham = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("EduSys");
 
         jToolBar1.setRollover(true);
 

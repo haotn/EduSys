@@ -40,6 +40,7 @@ public class DoiMatKhau extends javax.swing.JFrame {
         txtXacNhanMatKhauMoi = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ĐỔI MẬT KHẨU");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
