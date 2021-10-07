@@ -29,7 +29,7 @@ public class GUI extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        // slideshow();
+         slideshow();
 //        tblNhanVien.setBackground(Color.white);
         layout = (CardLayout) pnlRight.getLayout();
 
@@ -81,7 +81,7 @@ public class GUI extends javax.swing.JFrame {
         lblImg2 = new javax.swing.JLabel();
         lblImg3 = new javax.swing.JLabel();
         pmlGioiThieu = new javax.swing.JPanel();
-        jLabel45 = new javax.swing.JLabel();
+        lblGioThieu = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jScrollPane15 = new javax.swing.JScrollPane();
@@ -91,7 +91,7 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblNhanVien = new javax.swing.JTable();
         pnlFormNhanVien = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblVaiTro = new javax.swing.JLabel();
         txtMaNhanVien = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -100,19 +100,15 @@ public class GUI extends javax.swing.JFrame {
         pwdXacNhanMatKhau = new javax.swing.JPasswordField();
         pwdMatKhau1 = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rdoNhanVien = new javax.swing.JRadioButton();
+        rdoTruongPhong = new javax.swing.JRadioButton();
         btnLamMoi_NhanVien = new javax.swing.JButton();
         btnThem_NhanVien = new javax.swing.JButton();
         btnXoa_NhanVien = new javax.swing.JButton();
         btnCapNhat_NhanVien = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtTimNhanVien = new javax.swing.JTextField();
         pnlCongCuBangNhanVien = new javax.swing.JPanel();
-        jLabel49 = new javax.swing.JLabel();
-        cboSapXep_NguoiHoc1 = new javax.swing.JComboBox<>();
-        jToggleButton7 = new javax.swing.JToggleButton();
-        jToggleButton8 = new javax.swing.JToggleButton();
         btnLast_NguoiHoc1 = new javax.swing.JButton();
         btnFirst_NguoiHoc1 = new javax.swing.JButton();
         btnPrevious_NguoiHoc1 = new javax.swing.JButton();
@@ -127,9 +123,9 @@ public class GUI extends javax.swing.JFrame {
         cboLocChuyenDe_HocVien = new javax.swing.JComboBox<>();
         lblLocKhoaHoc = new javax.swing.JLabel();
         cboLocKhoaHoc_HocVien = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        txtTimHocVien = new javax.swing.JTextField();
         btnThemVaoKhoaHoc = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        txtTimNguoiHoc = new javax.swing.JTextField();
         btnXoaKhoiKhoaHoc = new javax.swing.JButton();
         btnCapNhatDiem = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -160,22 +156,18 @@ public class GUI extends javax.swing.JFrame {
         btnCapNhatNguoiHoc = new javax.swing.JButton();
         btnXoa_NguoiHoc = new javax.swing.JButton();
         pnlCongCuBangNguoiHoc = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        cboSapXep_NguoiHoc = new javax.swing.JComboBox<>();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
         btnLast_NguoiHoc = new javax.swing.JButton();
         btnFirst_NguoiHoc = new javax.swing.JButton();
         btnPrevious_NguoiHoc = new javax.swing.JButton();
         btnNext_NguoiHoc = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
+        txtTimKiemNH = new javax.swing.JTextField();
         pnlQuanLyChuyenDe = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         tblChuyenDe = new javax.swing.JTable();
-        jTextField5 = new javax.swing.JTextField();
+        txtTimCD = new javax.swing.JTextField();
         pnlFormChuyenDe = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
+        lblLogoChuyenDe = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -192,29 +184,21 @@ public class GUI extends javax.swing.JFrame {
         btnXoa_ChuyenDe = new javax.swing.JButton();
         btnThem_ChuyenDe = new javax.swing.JButton();
         pnlCongCuBangChuyenDe = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        btnLast_ChuyenDe = new javax.swing.JButton();
+        btnFirst_ChuyenDE = new javax.swing.JButton();
+        btnNext_ChuyenDe = new javax.swing.JButton();
+        btnPrevious_ChuyenDe = new javax.swing.JButton();
         pnlQuanLyKhoaHoc = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
         tblKhoaHoc = new javax.swing.JTable();
-        jTextField6 = new javax.swing.JTextField();
+        txtTimKhoaHoc = new javax.swing.JTextField();
         pnlCongCuBangKhoaHoc = new javax.swing.JPanel();
-        jLabel28 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jToggleButton5 = new javax.swing.JToggleButton();
-        jToggleButton6 = new javax.swing.JToggleButton();
         btnLast_KhoaHoc = new javax.swing.JButton();
         btnFirst_KhoaHoc = new javax.swing.JButton();
         btnPrevious_KhoaHoc = new javax.swing.JButton();
         btnNextKhoaHoc = new javax.swing.JButton();
-        onlFormKhoaHoc = new javax.swing.JPanel();
+        pnlFormKhoaHoc = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         txtNgayTao_KhoaHoc = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
@@ -235,26 +219,26 @@ public class GUI extends javax.swing.JFrame {
         btnXoa_KHoaHoc = new javax.swing.JButton();
         btnCapNhat_KhoaHoc = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cboChonChuyenDe = new javax.swing.JComboBox<>();
         pnlBangDiem = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblBangDiem = new javax.swing.JTable();
         cboKhoaHoc_BangDiem = new javax.swing.JComboBox<>();
         jLabel48 = new javax.swing.JLabel();
         pnlLuongNguoiHoc = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblThongKeNguoiHoc = new javax.swing.JTable();
         pnlDiemTheoChuyenDe = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
         jScrollPane12 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tblThongKeDiemCD = new javax.swing.JTable();
         pnlDoanhThu = new javax.swing.JPanel();
         jLabel40 = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        tblDoanhThu = new javax.swing.JTable();
+        cboNam = new javax.swing.JComboBox<>();
         jLabel43 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -274,7 +258,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/user.png"))); // NOI18N
         jLabel1.setText("Use: Admin");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -294,7 +278,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel42.setText("Version 1.0");
         pnlHeader.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/header.jpg"))); // NOI18N
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/header_1.jpg"))); // NOI18N
         pnlHeader.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 50));
 
         Container.add(pnlHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 50));
@@ -310,7 +294,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblTrangChu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblTrangChu.setForeground(new java.awt.Color(255, 255, 255));
-        lblTrangChu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/TrangChu.png"))); // NOI18N
+        lblTrangChu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/TrangChu.png"))); // NOI18N
         lblTrangChu.setText("   Trang chủ");
         lblTrangChu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -324,7 +308,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblGioiThieu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblGioiThieu.setForeground(new java.awt.Color(255, 255, 255));
-        lblGioiThieu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/GioiThieu.png"))); // NOI18N
+        lblGioiThieu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/GioiThieu.png"))); // NOI18N
         lblGioiThieu.setText("   Giới thiệu");
         lblGioiThieu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -338,7 +322,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblHuongDan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblHuongDan.setForeground(new java.awt.Color(255, 255, 255));
-        lblHuongDan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/HuongDan.png"))); // NOI18N
+        lblHuongDan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/HuongDan.png"))); // NOI18N
         lblHuongDan.setText("   Hướng dẫn");
         lblHuongDan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -358,7 +342,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblQuanLyNhanVien.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblQuanLyNhanVien.setForeground(new java.awt.Color(255, 255, 255));
-        lblQuanLyNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nhanvien.png"))); // NOI18N
+        lblQuanLyNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/NhanVien.png"))); // NOI18N
         lblQuanLyNhanVien.setText("Quản lý nhân viên");
         lblQuanLyNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -372,7 +356,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblQuanLyHocVien.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblQuanLyHocVien.setForeground(new java.awt.Color(255, 255, 255));
-        lblQuanLyHocVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hocvien.png"))); // NOI18N
+        lblQuanLyHocVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/hocvien.png"))); // NOI18N
         lblQuanLyHocVien.setText(" Quản lý học viên");
         lblQuanLyHocVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -386,7 +370,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblQuanLyNguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblQuanLyNguoiHoc.setForeground(new java.awt.Color(255, 255, 255));
-        lblQuanLyNguoiHoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/NguoiHoc.png"))); // NOI18N
+        lblQuanLyNguoiHoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/NguoiHoc.png"))); // NOI18N
         lblQuanLyNguoiHoc.setText(" Quản lý người học");
         lblQuanLyNguoiHoc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -400,7 +384,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblQuanLyChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblQuanLyChuyenDe.setForeground(new java.awt.Color(255, 255, 255));
-        lblQuanLyChuyenDe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ChuyenDe.png"))); // NOI18N
+        lblQuanLyChuyenDe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/ChuyenDe.png"))); // NOI18N
         lblQuanLyChuyenDe.setText("Quản lý chuyên đề");
         lblQuanLyChuyenDe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -414,7 +398,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblQuanLyKhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblQuanLyKhoaHoc.setForeground(new java.awt.Color(255, 255, 255));
-        lblQuanLyKhoaHoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/KhoaHoc.png"))); // NOI18N
+        lblQuanLyKhoaHoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/KhoaHoc.png"))); // NOI18N
         lblQuanLyKhoaHoc.setText("Quản lý khóa học");
         lblQuanLyKhoaHoc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -434,7 +418,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblBangDiem.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblBangDiem.setForeground(new java.awt.Color(255, 255, 255));
-        lblBangDiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bangdiem.png"))); // NOI18N
+        lblBangDiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/bangdiem.png"))); // NOI18N
         lblBangDiem.setText("Bảng điểm");
         lblBangDiem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -448,7 +432,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblLuongNguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblLuongNguoiHoc.setForeground(new java.awt.Color(255, 255, 255));
-        lblLuongNguoiHoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/luongNguoiHoc.png"))); // NOI18N
+        lblLuongNguoiHoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/luongNguoiHoc.png"))); // NOI18N
         lblLuongNguoiHoc.setText("Lượng người học");
         lblLuongNguoiHoc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -462,7 +446,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblDiemTheoChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblDiemTheoChuyenDe.setForeground(new java.awt.Color(255, 255, 255));
-        lblDiemTheoChuyenDe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/diemTheoCD.png"))); // NOI18N
+        lblDiemTheoChuyenDe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/diemTheoCD.png"))); // NOI18N
         lblDiemTheoChuyenDe.setText("Điểm theo chuyên đề");
         lblDiemTheoChuyenDe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -476,7 +460,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblDoanhThu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblDoanhThu.setForeground(new java.awt.Color(255, 255, 255));
-        lblDoanhThu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DoanhThu.png"))); // NOI18N
+        lblDoanhThu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/DoanhThu.png"))); // NOI18N
         lblDoanhThu.setText("Doanh thu");
         lblDoanhThu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -492,7 +476,7 @@ public class GUI extends javax.swing.JFrame {
         lblDoiMatKhau.setBackground(new java.awt.Color(35, 75, 72));
         lblDoiMatKhau.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblDoiMatKhau.setForeground(new java.awt.Color(255, 255, 255));
-        lblDoiMatKhau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DoiMatKhau.png"))); // NOI18N
+        lblDoiMatKhau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/DoiMatKhau.png"))); // NOI18N
         lblDoiMatKhau.setText("Đổi mật khẩu");
         lblDoiMatKhau.setOpaque(true);
         lblDoiMatKhau.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -505,7 +489,7 @@ public class GUI extends javax.swing.JFrame {
         lblDangXuat.setBackground(new java.awt.Color(35, 75, 72));
         lblDangXuat.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblDangXuat.setForeground(new java.awt.Color(255, 255, 255));
-        lblDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DangXuat.png"))); // NOI18N
+        lblDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/DangXuat.png"))); // NOI18N
         lblDangXuat.setText("Đăng xuất");
         lblDangXuat.setOpaque(true);
         lblDangXuat.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -518,7 +502,7 @@ public class GUI extends javax.swing.JFrame {
         lblThoat.setBackground(new java.awt.Color(35, 75, 72));
         lblThoat.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblThoat.setForeground(new java.awt.Color(255, 255, 255));
-        lblThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Thoat.png"))); // NOI18N
+        lblThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Thoat.png"))); // NOI18N
         lblThoat.setText("Thoát");
         lblThoat.setOpaque(true);
         lblThoat.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -551,13 +535,13 @@ public class GUI extends javax.swing.JFrame {
         lblTitle.setText("EduSys");
         pnlSlideShow.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 325, 300, 100));
 
-        lblImg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/SlideShow1.png"))); // NOI18N
+        lblImg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/SlideShow1.png"))); // NOI18N
         pnlSlideShow.add(lblImg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 750));
 
-        lblImg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/SlideShow2.png"))); // NOI18N
+        lblImg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/SlideShow2.png"))); // NOI18N
         pnlSlideShow.add(lblImg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 0, 1200, 750));
 
-        lblImg3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/SlideShow3.png"))); // NOI18N
+        lblImg3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/SlideShow3.png"))); // NOI18N
         pnlSlideShow.add(lblImg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(2400, 0, 1200, 750));
 
         pnlTrangChu.add(pnlSlideShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -567,10 +551,10 @@ public class GUI extends javax.swing.JFrame {
         pmlGioiThieu.setBackground(new java.awt.Color(255, 255, 255));
         pmlGioiThieu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel45.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel45.setText("Giới thiệu về EduSys");
-        pmlGioiThieu.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, -1, -1));
+        lblGioThieu.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
+        lblGioThieu.setForeground(new java.awt.Color(153, 153, 153));
+        lblGioThieu.setText("Giới thiệu về EduSys");
+        pmlGioiThieu.add(lblGioThieu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
 
         jLabel46.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel46.setText("Mục tiêu chính huấn luyện sinh viên quy trình thực hiện dự án !!!");
@@ -640,10 +624,10 @@ public class GUI extends javax.swing.JFrame {
         pnlFormNhanVien.setBackground(new java.awt.Color(255, 255, 255));
         pnlFormNhanVien.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setText("Vai trò");
-        pnlFormNhanVien.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, -1, -1));
+        lblVaiTro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblVaiTro.setForeground(new java.awt.Color(102, 102, 102));
+        lblVaiTro.setText("Vai trò");
+        pnlFormNhanVien.add(lblVaiTro, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, -1, -1));
 
         txtMaNhanVien.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         pnlFormNhanVien.add(txtMaNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 250, -1));
@@ -677,17 +661,17 @@ public class GUI extends javax.swing.JFrame {
         jLabel6.setText("Xác nhân mật khẩu");
         pnlFormNhanVien.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, -1, -1));
 
-        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(102, 102, 102));
-        jRadioButton1.setText("Nhân viên");
-        pnlFormNhanVien.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, -1, -1));
+        rdoNhanVien.setBackground(new java.awt.Color(255, 255, 255));
+        rdoNhanVien.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        rdoNhanVien.setForeground(new java.awt.Color(102, 102, 102));
+        rdoNhanVien.setText("Nhân viên");
+        pnlFormNhanVien.add(rdoNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, -1, -1));
 
-        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(102, 102, 102));
-        jRadioButton2.setText("Trưởng phòng");
-        pnlFormNhanVien.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, -1, -1));
+        rdoTruongPhong.setBackground(new java.awt.Color(255, 255, 255));
+        rdoTruongPhong.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        rdoTruongPhong.setForeground(new java.awt.Color(102, 102, 102));
+        rdoTruongPhong.setText("Trưởng phòng");
+        pnlFormNhanVien.add(rdoTruongPhong, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, -1, -1));
 
         btnLamMoi_NhanVien.setBackground(new java.awt.Color(255, 255, 255));
         btnLamMoi_NhanVien.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
@@ -717,33 +701,16 @@ public class GUI extends javax.swing.JFrame {
         jLabel18.setText("Nhân viên");
         pnlQuanLyNhanVien.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
 
-        jTextField4.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField4.setText("Tìm nhân viên");
-        pnlQuanLyNhanVien.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 250, -1));
+        txtTimNhanVien.setForeground(new java.awt.Color(153, 153, 153));
+        txtTimNhanVien.setText("Tìm nhân viên");
+        pnlQuanLyNhanVien.add(txtTimNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 250, -1));
 
         pnlCongCuBangNhanVien.setBackground(new java.awt.Color(255, 255, 255));
         pnlCongCuBangNhanVien.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel49.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel49.setText("Sắp xếp theo");
-        pnlCongCuBangNhanVien.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, -1, -1));
-
-        cboSapXep_NguoiHoc1.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        cboSapXep_NguoiHoc1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tên" }));
-        pnlCongCuBangNhanVien.add(cboSapXep_NguoiHoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 216, -1));
-
-        jToggleButton7.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jToggleButton7.setText(">");
-        pnlCongCuBangNhanVien.add(jToggleButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 11, -1, -1));
-
-        jToggleButton8.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jToggleButton8.setText("^");
-        pnlCongCuBangNhanVien.add(jToggleButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 11, -1, -1));
-
         btnLast_NguoiHoc1.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         btnLast_NguoiHoc1.setText(">|");
-        pnlCongCuBangNhanVien.add(btnLast_NguoiHoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, -1, -1));
+        pnlCongCuBangNhanVien.add(btnLast_NguoiHoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, -1, -1));
 
         btnFirst_NguoiHoc1.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         btnFirst_NguoiHoc1.setText("|<");
@@ -752,15 +719,15 @@ public class GUI extends javax.swing.JFrame {
                 btnFirst_NguoiHoc1ActionPerformed(evt);
             }
         });
-        pnlCongCuBangNhanVien.add(btnFirst_NguoiHoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
+        pnlCongCuBangNhanVien.add(btnFirst_NguoiHoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
 
         btnPrevious_NguoiHoc1.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         btnPrevious_NguoiHoc1.setText("<<");
-        pnlCongCuBangNhanVien.add(btnPrevious_NguoiHoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
+        pnlCongCuBangNhanVien.add(btnPrevious_NguoiHoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
 
         btnNext_NguoiHoc1.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         btnNext_NguoiHoc1.setText(">>");
-        pnlCongCuBangNhanVien.add(btnNext_NguoiHoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, -1));
+        pnlCongCuBangNhanVien.add(btnNext_NguoiHoc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, -1, -1));
 
         pnlQuanLyNhanVien.add(pnlCongCuBangNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 1200, 50));
 
@@ -784,12 +751,14 @@ public class GUI extends javax.swing.JFrame {
             }
         ));
         tblHocVien.setGridColor(new java.awt.Color(255, 255, 255));
+        tblHocVien.setRowHeight(30);
         jScrollPane2.setViewportView(tblHocVien);
 
         pnlQuanLyHocVien.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1200, 250));
 
         jScrollPane3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
+        tblNguoiHoc_HocVien.setAutoCreateRowSorter(true);
         tblNguoiHoc_HocVien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -809,36 +778,40 @@ public class GUI extends javax.swing.JFrame {
         pnlLocHocVien.setBackground(new java.awt.Color(255, 255, 255));
         pnlLocHocVien.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblLocChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblLocChuyenDe.setForeground(new java.awt.Color(153, 153, 153));
         lblLocChuyenDe.setText("Chuyên đề");
-        pnlLocHocVien.add(lblLocChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, -1, 20));
+        pnlLocHocVien.add(lblLocChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, 20));
 
         cboLocChuyenDe_HocVien.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlLocHocVien.add(cboLocChuyenDe_HocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 300, -1));
+        pnlLocHocVien.add(cboLocChuyenDe_HocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 300, -1));
 
+        lblLocKhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblLocKhoaHoc.setForeground(new java.awt.Color(153, 153, 153));
         lblLocKhoaHoc.setText("Khóa học");
-        pnlLocHocVien.add(lblLocKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, -1, -1));
+        pnlLocHocVien.add(lblLocKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, -1, -1));
 
         cboLocKhoaHoc_HocVien.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlLocHocVien.add(cboLocKhoaHoc_HocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 300, -1));
+        pnlLocHocVien.add(cboLocKhoaHoc_HocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 300, -1));
 
-        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField1.setText("Tìm kiếm học viên");
-        pnlLocHocVien.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 250, -1));
+        txtTimHocVien.setForeground(new java.awt.Color(153, 153, 153));
+        txtTimHocVien.setText("Tìm kiếm học viên");
+        pnlLocHocVien.add(txtTimHocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, -1));
 
-        pnlQuanLyHocVien.add(pnlLocHocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1200, 30));
+        pnlQuanLyHocVien.add(pnlLocHocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1200, 40));
 
         btnThemVaoKhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         btnThemVaoKhoaHoc.setText("Thêm vào khóa học");
         pnlQuanLyHocVien.add(btnThemVaoKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 710, -1, -1));
 
-        jTextField2.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField2.setText("Tìm kiếm người học");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtTimNguoiHoc.setForeground(new java.awt.Color(153, 153, 153));
+        txtTimNguoiHoc.setText("Tìm kiếm người học");
+        txtTimNguoiHoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtTimNguoiHocActionPerformed(evt);
             }
         });
-        pnlQuanLyHocVien.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 250, -1));
+        pnlQuanLyHocVien.add(txtTimNguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 250, -1));
 
         btnXoaKhoiKhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         btnXoaKhoiKhoaHoc.setText("Xóa khỏi khóa học");
@@ -870,6 +843,7 @@ public class GUI extends javax.swing.JFrame {
 
         jScrollPane4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
+        tblNguoiHoc.setAutoCreateRowSorter(true);
         tblNguoiHoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -882,6 +856,7 @@ public class GUI extends javax.swing.JFrame {
             }
         ));
         tblNguoiHoc.setGridColor(new java.awt.Color(255, 255, 255));
+        tblNguoiHoc.setRowHeight(30);
         jScrollPane4.setViewportView(tblNguoiHoc);
 
         pnlQuanLyNguoiHoc.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1200, 250));
@@ -1009,30 +984,10 @@ public class GUI extends javax.swing.JFrame {
         pnlCongCuBangNguoiHoc.setBackground(new java.awt.Color(255, 255, 255));
         pnlCongCuBangNguoiHoc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Sắp xếp theo");
-        pnlCongCuBangNguoiHoc.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, -1, -1));
-
-        cboSapXep_NguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        cboSapXep_NguoiHoc.setForeground(new java.awt.Color(51, 51, 51));
-        cboSapXep_NguoiHoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlCongCuBangNguoiHoc.add(cboSapXep_NguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 216, -1));
-
-        jToggleButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jToggleButton1.setText(">");
-        pnlCongCuBangNguoiHoc.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 11, -1, -1));
-
-        jToggleButton2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jToggleButton2.setForeground(new java.awt.Color(51, 51, 51));
-        jToggleButton2.setText("^");
-        pnlCongCuBangNguoiHoc.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 11, -1, -1));
-
         btnLast_NguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnLast_NguoiHoc.setForeground(new java.awt.Color(51, 51, 51));
         btnLast_NguoiHoc.setText(">|");
-        pnlCongCuBangNguoiHoc.add(btnLast_NguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, -1, -1));
+        pnlCongCuBangNguoiHoc.add(btnLast_NguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, -1, -1));
 
         btnFirst_NguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnFirst_NguoiHoc.setForeground(new java.awt.Color(51, 51, 51));
@@ -1042,23 +997,23 @@ public class GUI extends javax.swing.JFrame {
                 btnFirst_NguoiHocActionPerformed(evt);
             }
         });
-        pnlCongCuBangNguoiHoc.add(btnFirst_NguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
+        pnlCongCuBangNguoiHoc.add(btnFirst_NguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
 
         btnPrevious_NguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnPrevious_NguoiHoc.setForeground(new java.awt.Color(51, 51, 51));
         btnPrevious_NguoiHoc.setText("<<");
-        pnlCongCuBangNguoiHoc.add(btnPrevious_NguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
+        pnlCongCuBangNguoiHoc.add(btnPrevious_NguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
 
         btnNext_NguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnNext_NguoiHoc.setForeground(new java.awt.Color(51, 51, 51));
         btnNext_NguoiHoc.setText(">>");
-        pnlCongCuBangNguoiHoc.add(btnNext_NguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, -1));
+        pnlCongCuBangNguoiHoc.add(btnNext_NguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, -1, -1));
 
         pnlQuanLyNguoiHoc.add(pnlCongCuBangNguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 1200, 50));
 
-        jTextField3.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField3.setText("Tìm người học");
-        pnlQuanLyNguoiHoc.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 250, -1));
+        txtTimKiemNH.setForeground(new java.awt.Color(153, 153, 153));
+        txtTimKiemNH.setText("Tìm người học");
+        pnlQuanLyNguoiHoc.add(txtTimKiemNH, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 250, -1));
 
         pnlRight.add(pnlQuanLyNguoiHoc, "cardQuanLyNguoiHoc");
 
@@ -1072,6 +1027,7 @@ public class GUI extends javax.swing.JFrame {
 
         jScrollPane6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
+        tblChuyenDe.setAutoCreateRowSorter(true);
         tblChuyenDe.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1084,54 +1040,73 @@ public class GUI extends javax.swing.JFrame {
             }
         ));
         tblChuyenDe.setGridColor(new java.awt.Color(255, 255, 255));
+        tblChuyenDe.setRowHeight(30);
         jScrollPane6.setViewportView(tblChuyenDe);
 
         pnlQuanLyChuyenDe.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1200, 250));
 
-        jTextField5.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField5.setText("Tìm kiếm chuyên đề");
-        pnlQuanLyChuyenDe.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 250, -1));
+        txtTimCD.setForeground(new java.awt.Color(153, 153, 153));
+        txtTimCD.setText("Tìm kiếm chuyên đề");
+        pnlQuanLyChuyenDe.add(txtTimCD, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 250, -1));
 
         pnlFormChuyenDe.setBackground(new java.awt.Color(255, 255, 255));
         pnlFormChuyenDe.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pnlFormChuyenDe.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 200, 250));
+        lblLogoChuyenDe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlFormChuyenDe.add(lblLogoChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 200, 250));
 
+        jLabel22.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(102, 102, 102));
         jLabel22.setText("Mô tả");
         pnlFormChuyenDe.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, -1));
 
+        jLabel23.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(102, 102, 102));
         jLabel23.setText("Mã chuyên đề");
         pnlFormChuyenDe.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
 
+        jLabel24.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(102, 102, 102));
         jLabel24.setText("Tên chuyên đề");
         pnlFormChuyenDe.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, -1, -1));
 
+        jLabel25.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(102, 102, 102));
         jLabel25.setText("Học phí");
         pnlFormChuyenDe.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, -1, -1));
 
+        jLabel26.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(102, 102, 102));
         jLabel26.setText("Thời lượng");
         pnlFormChuyenDe.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, -1, -1));
-        pnlFormChuyenDe.add(txtTenChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 40, 300, -1));
-        pnlFormChuyenDe.add(txtThoiLuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 80, 100, -1));
-        pnlFormChuyenDe.add(txtMaChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 100, -1));
-        pnlFormChuyenDe.add(txtHocPhi, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 150, -1));
+        pnlFormChuyenDe.add(txtTenChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 40, 300, -1));
+        pnlFormChuyenDe.add(txtThoiLuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 80, 100, -1));
+        pnlFormChuyenDe.add(txtMaChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 100, -1));
+        pnlFormChuyenDe.add(txtHocPhi, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 150, -1));
 
         txtMoTa_ChuyenDe.setColumns(20);
         txtMoTa_ChuyenDe.setRows(5);
         jScrollPane7.setViewportView(txtMoTa_ChuyenDe);
 
-        pnlFormChuyenDe.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 780, 140));
+        pnlFormChuyenDe.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 780, 140));
 
+        btnLamMoi_ChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnLamMoi_ChuyenDe.setForeground(new java.awt.Color(102, 102, 102));
         btnLamMoi_ChuyenDe.setText("Làm mới");
         pnlFormChuyenDe.add(btnLamMoi_ChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, -1, -1));
 
+        btnCapNhat_ChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnCapNhat_ChuyenDe.setForeground(new java.awt.Color(102, 102, 102));
         btnCapNhat_ChuyenDe.setText("Cập nhật");
         pnlFormChuyenDe.add(btnCapNhat_ChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, -1, -1));
 
+        btnXoa_ChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnXoa_ChuyenDe.setForeground(new java.awt.Color(102, 102, 102));
         btnXoa_ChuyenDe.setText("Xóa");
         pnlFormChuyenDe.add(btnXoa_ChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, -1, -1));
 
+        btnThem_ChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnThem_ChuyenDe.setForeground(new java.awt.Color(102, 102, 102));
         btnThem_ChuyenDe.setText("Thêm");
         pnlFormChuyenDe.add(btnThem_ChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, -1));
 
@@ -1140,34 +1115,26 @@ public class GUI extends javax.swing.JFrame {
         pnlCongCuBangChuyenDe.setBackground(new java.awt.Color(255, 255, 255));
         pnlCongCuBangChuyenDe.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel21.setText("Sắp xếp theo");
-        pnlCongCuBangChuyenDe.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, -1, -1));
+        btnLast_ChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnLast_ChuyenDe.setText(">|");
+        pnlCongCuBangChuyenDe.add(btnLast_ChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlCongCuBangChuyenDe.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 12, 216, -1));
-
-        jToggleButton3.setText(">");
-        pnlCongCuBangChuyenDe.add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 11, -1, -1));
-
-        jToggleButton4.setText("^");
-        pnlCongCuBangChuyenDe.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 11, -1, -1));
-
-        jButton12.setText(">|");
-        pnlCongCuBangChuyenDe.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, -1, -1));
-
-        jButton13.setText("|<");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        btnFirst_ChuyenDE.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnFirst_ChuyenDE.setText("|<");
+        btnFirst_ChuyenDE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                btnFirst_ChuyenDEActionPerformed(evt);
             }
         });
-        pnlCongCuBangChuyenDe.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
+        pnlCongCuBangChuyenDe.add(btnFirst_ChuyenDE, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
 
-        jButton14.setText("<<");
-        pnlCongCuBangChuyenDe.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
+        btnNext_ChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnNext_ChuyenDe.setText("<<");
+        pnlCongCuBangChuyenDe.add(btnNext_ChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
 
-        jButton15.setText(">>");
-        pnlCongCuBangChuyenDe.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, -1));
+        btnPrevious_ChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnPrevious_ChuyenDe.setText(">>");
+        pnlCongCuBangChuyenDe.add(btnPrevious_ChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, -1));
 
         pnlQuanLyChuyenDe.add(pnlCongCuBangChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 1200, 50));
 
@@ -1183,6 +1150,7 @@ public class GUI extends javax.swing.JFrame {
 
         jScrollPane8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
+        tblKhoaHoc.setAutoCreateRowSorter(true);
         tblKhoaHoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1195,98 +1163,124 @@ public class GUI extends javax.swing.JFrame {
             }
         ));
         tblKhoaHoc.setGridColor(new java.awt.Color(255, 255, 255));
+        tblKhoaHoc.setRowHeight(30);
         jScrollPane8.setViewportView(tblKhoaHoc);
 
         pnlQuanLyKhoaHoc.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1200, 250));
 
-        jTextField6.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField6.setText("Tìm kiếm khóa học");
-        pnlQuanLyKhoaHoc.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 250, -1));
+        txtTimKhoaHoc.setForeground(new java.awt.Color(153, 153, 153));
+        txtTimKhoaHoc.setText("Tìm kiếm khóa học");
+        pnlQuanLyKhoaHoc.add(txtTimKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 250, -1));
 
         pnlCongCuBangKhoaHoc.setBackground(new java.awt.Color(255, 255, 255));
         pnlCongCuBangKhoaHoc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel28.setText("Sắp xếp theo");
-        pnlCongCuBangKhoaHoc.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, -1, -1));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlCongCuBangKhoaHoc.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 12, 216, -1));
-
-        jToggleButton5.setText(">");
-        pnlCongCuBangKhoaHoc.add(jToggleButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 11, -1, -1));
-
-        jToggleButton6.setText("^");
-        pnlCongCuBangKhoaHoc.add(jToggleButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 11, -1, -1));
-
+        btnLast_KhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnLast_KhoaHoc.setForeground(new java.awt.Color(102, 102, 102));
         btnLast_KhoaHoc.setText(">|");
         pnlCongCuBangKhoaHoc.add(btnLast_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, -1, -1));
 
+        btnFirst_KhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnFirst_KhoaHoc.setForeground(new java.awt.Color(102, 102, 102));
         btnFirst_KhoaHoc.setText("|<");
         pnlCongCuBangKhoaHoc.add(btnFirst_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
 
+        btnPrevious_KhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnPrevious_KhoaHoc.setForeground(new java.awt.Color(102, 102, 102));
         btnPrevious_KhoaHoc.setText("<<");
         pnlCongCuBangKhoaHoc.add(btnPrevious_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
 
+        btnNextKhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnNextKhoaHoc.setForeground(new java.awt.Color(102, 102, 102));
         btnNextKhoaHoc.setText(">>");
         pnlCongCuBangKhoaHoc.add(btnNextKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, -1));
 
         pnlQuanLyKhoaHoc.add(pnlCongCuBangKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 1200, 50));
 
-        onlFormKhoaHoc.setBackground(new java.awt.Color(255, 255, 255));
-        onlFormKhoaHoc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlFormKhoaHoc.setBackground(new java.awt.Color(255, 255, 255));
+        pnlFormKhoaHoc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel30.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(102, 102, 102));
         jLabel30.setText("Ngày tạo");
-        onlFormKhoaHoc.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, -1, -1));
-        onlFormKhoaHoc.add(txtNgayTao_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 110, 320, -1));
+        pnlFormKhoaHoc.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, -1, -1));
+        pnlFormKhoaHoc.add(txtNgayTao_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 110, 320, -1));
 
+        jLabel31.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(102, 102, 102));
         jLabel31.setText("Chuyên đề");
-        onlFormKhoaHoc.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
+        pnlFormKhoaHoc.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
 
+        jLabel32.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(102, 102, 102));
         jLabel32.setText("Học phí");
-        onlFormKhoaHoc.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
+        pnlFormKhoaHoc.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
 
+        jLabel33.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(102, 102, 102));
         jLabel33.setText("Ghi chú");
-        onlFormKhoaHoc.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
+        pnlFormKhoaHoc.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
 
+        jLabel34.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(102, 102, 102));
         jLabel34.setText("Ngày khai giảng");
-        onlFormKhoaHoc.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, -1));
+        pnlFormKhoaHoc.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, -1));
 
+        jLabel35.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(102, 102, 102));
         jLabel35.setText("Thời lượng");
-        onlFormKhoaHoc.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, -1, -1));
-        onlFormKhoaHoc.add(txtChuyenDe_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 320, -1));
-        onlFormKhoaHoc.add(txtHocPhi_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 320, -1));
-        onlFormKhoaHoc.add(txtNguoiTao_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 320, -1));
-        onlFormKhoaHoc.add(txtNgayKhaiGiang_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 30, 320, -1));
-        onlFormKhoaHoc.add(txtThoiLuong_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 70, 320, -1));
+        pnlFormKhoaHoc.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, -1, -1));
+        pnlFormKhoaHoc.add(txtChuyenDe_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 320, -1));
+        pnlFormKhoaHoc.add(txtHocPhi_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 320, -1));
+        pnlFormKhoaHoc.add(txtNguoiTao_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 320, -1));
+        pnlFormKhoaHoc.add(txtNgayKhaiGiang_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 30, 320, -1));
+        pnlFormKhoaHoc.add(txtThoiLuong_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 70, 320, -1));
 
+        jLabel36.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(102, 102, 102));
         jLabel36.setText("Người tạo");
-        onlFormKhoaHoc.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
+        pnlFormKhoaHoc.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
 
         txtGhiChu_KhoaHoc.setColumns(20);
         txtGhiChu_KhoaHoc.setRows(5);
         jScrollPane9.setViewportView(txtGhiChu_KhoaHoc);
 
-        onlFormKhoaHoc.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 830, 110));
+        pnlFormKhoaHoc.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 830, 110));
 
+        btnThem_KhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnThem_KhoaHoc.setForeground(new java.awt.Color(102, 102, 102));
         btnThem_KhoaHoc.setText("Thêm");
-        onlFormKhoaHoc.add(btnThem_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, -1));
+        pnlFormKhoaHoc.add(btnThem_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, -1));
 
+        btnLamMoi_KhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnLamMoi_KhoaHoc.setForeground(new java.awt.Color(102, 102, 102));
         btnLamMoi_KhoaHoc.setText("Làm mới");
-        onlFormKhoaHoc.add(btnLamMoi_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, -1, -1));
+        pnlFormKhoaHoc.add(btnLamMoi_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, -1, -1));
 
+        btnXoa_KHoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnXoa_KHoaHoc.setForeground(new java.awt.Color(102, 102, 102));
         btnXoa_KHoaHoc.setText("Xóa");
-        onlFormKhoaHoc.add(btnXoa_KHoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, -1, -1));
+        pnlFormKhoaHoc.add(btnXoa_KHoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, -1, -1));
 
+        btnCapNhat_KhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnCapNhat_KhoaHoc.setForeground(new java.awt.Color(102, 102, 102));
         btnCapNhat_KhoaHoc.setText("Cập nhật");
-        onlFormKhoaHoc.add(btnCapNhat_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, -1, -1));
+        pnlFormKhoaHoc.add(btnCapNhat_KhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, -1, -1));
 
-        pnlQuanLyKhoaHoc.add(onlFormKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 1200, 350));
+        pnlQuanLyKhoaHoc.add(pnlFormKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 1200, 350));
 
+        jLabel29.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(102, 102, 102));
         jLabel29.setText("Chuyên đề");
         pnlQuanLyKhoaHoc.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlQuanLyKhoaHoc.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 250, -1));
+        cboChonChuyenDe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboChonChuyenDe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboChonChuyenDeActionPerformed(evt);
+            }
+        });
+        pnlQuanLyKhoaHoc.add(cboChonChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 250, -1));
 
         pnlRight.add(pnlQuanLyKhoaHoc, "cardQuanLyKhoaHoc");
 
@@ -1300,7 +1294,8 @@ public class GUI extends javax.swing.JFrame {
 
         jScrollPane10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblBangDiem.setAutoCreateRowSorter(true);
+        tblBangDiem.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1311,8 +1306,9 @@ public class GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane10.setViewportView(jTable1);
+        tblBangDiem.setGridColor(new java.awt.Color(255, 255, 255));
+        tblBangDiem.setRowHeight(30);
+        jScrollPane10.setViewportView(tblBangDiem);
 
         pnlBangDiem.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1200, 630));
 
@@ -1336,7 +1332,8 @@ public class GUI extends javax.swing.JFrame {
 
         jScrollPane11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblThongKeNguoiHoc.setAutoCreateRowSorter(true);
+        tblThongKeNguoiHoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1347,8 +1344,9 @@ public class GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable2.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane11.setViewportView(jTable2);
+        tblThongKeNguoiHoc.setGridColor(new java.awt.Color(255, 255, 255));
+        tblThongKeNguoiHoc.setRowHeight(30);
+        jScrollPane11.setViewportView(tblThongKeNguoiHoc);
 
         pnlLuongNguoiHoc.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1200, 700));
 
@@ -1364,7 +1362,8 @@ public class GUI extends javax.swing.JFrame {
 
         jScrollPane12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblThongKeDiemCD.setAutoCreateRowSorter(true);
+        tblThongKeDiemCD.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1375,8 +1374,9 @@ public class GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable3.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane12.setViewportView(jTable3);
+        tblThongKeDiemCD.setGridColor(new java.awt.Color(255, 255, 255));
+        tblThongKeDiemCD.setRowHeight(30);
+        jScrollPane12.setViewportView(tblThongKeDiemCD);
 
         pnlDiemTheoChuyenDe.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1200, 700));
 
@@ -1392,7 +1392,8 @@ public class GUI extends javax.swing.JFrame {
 
         jScrollPane13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tblDoanhThu.setAutoCreateRowSorter(true);
+        tblDoanhThu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1403,14 +1404,15 @@ public class GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable4.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane13.setViewportView(jTable4);
+        tblDoanhThu.setGridColor(new java.awt.Color(255, 255, 255));
+        tblDoanhThu.setRowHeight(30);
+        jScrollPane13.setViewportView(tblDoanhThu);
 
         pnlDoanhThu.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1200, 620));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pnlDoanhThu.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 460, 30));
+        cboNam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboNam.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlDoanhThu.add(cboNam, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 460, 30));
 
         jLabel43.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(153, 153, 153));
@@ -1426,9 +1428,9 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtTimNguoiHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimNguoiHocActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtTimNguoiHocActionPerformed
 
     private void btnFirst_NguoiHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirst_NguoiHocActionPerformed
         // TODO add your handling code here:
@@ -1450,9 +1452,9 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHoTenNguoiHocActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void btnFirst_ChuyenDEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirst_ChuyenDEActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_btnFirst_ChuyenDEActionPerformed
 
     private void lblTrangChuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTrangChuMouseClicked
         // TODO add your handling code here:
@@ -1602,6 +1604,10 @@ public class GUI extends javax.swing.JFrame {
         ChuyenCard(lblThoat);
     }//GEN-LAST:event_lblThoatMousePressed
 
+    private void cboChonChuyenDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboChonChuyenDeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboChonChuyenDeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1628,7 +1634,6 @@ public class GUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1645,6 +1650,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnCapNhat_ChuyenDe;
     private javax.swing.JButton btnCapNhat_KhoaHoc;
     private javax.swing.JButton btnCapNhat_NhanVien;
+    private javax.swing.JButton btnFirst_ChuyenDE;
     private javax.swing.JButton btnFirst_KhoaHoc;
     private javax.swing.JButton btnFirst_NguoiHoc;
     private javax.swing.JButton btnFirst_NguoiHoc1;
@@ -1652,12 +1658,15 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnLamMoi_KhoaHoc;
     private javax.swing.JButton btnLamMoi_NguoiHoc;
     private javax.swing.JButton btnLamMoi_NhanVien;
+    private javax.swing.JButton btnLast_ChuyenDe;
     private javax.swing.JButton btnLast_KhoaHoc;
     private javax.swing.JButton btnLast_NguoiHoc;
     private javax.swing.JButton btnLast_NguoiHoc1;
     private javax.swing.JButton btnNextKhoaHoc;
+    private javax.swing.JButton btnNext_ChuyenDe;
     private javax.swing.JButton btnNext_NguoiHoc;
     private javax.swing.JButton btnNext_NguoiHoc1;
+    private javax.swing.JButton btnPrevious_ChuyenDe;
     private javax.swing.JButton btnPrevious_KhoaHoc;
     private javax.swing.JButton btnPrevious_NguoiHoc;
     private javax.swing.JButton btnPrevious_NguoiHoc1;
@@ -1671,21 +1680,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnXoa_KHoaHoc;
     private javax.swing.JButton btnXoa_NguoiHoc;
     private javax.swing.JButton btnXoa_NhanVien;
+    private javax.swing.JComboBox<String> cboChonChuyenDe;
     private javax.swing.JComboBox<String> cboKhoaHoc_BangDiem;
     private javax.swing.JComboBox<String> cboLocChuyenDe_HocVien;
     private javax.swing.JComboBox<String> cboLocKhoaHoc_HocVien;
-    private javax.swing.JComboBox<String> cboSapXep_NguoiHoc;
-    private javax.swing.JComboBox<String> cboSapXep_NguoiHoc1;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> cboNam;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -1695,16 +1695,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -1723,18 +1719,14 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -1750,31 +1742,14 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JToggleButton jToggleButton5;
-    private javax.swing.JToggleButton jToggleButton6;
-    private javax.swing.JToggleButton jToggleButton7;
-    private javax.swing.JToggleButton jToggleButton8;
     private javax.swing.JLabel lblBackgroundLeft;
     private javax.swing.JLabel lblBangDiem;
     private javax.swing.JLabel lblDangXuat;
     private javax.swing.JLabel lblDiemTheoChuyenDe;
     private javax.swing.JLabel lblDoanhThu;
     private javax.swing.JLabel lblDoiMatKhau;
+    private javax.swing.JLabel lblGioThieu;
     private javax.swing.JLabel lblGioiThieu;
     private javax.swing.JLabel lblHeThong;
     private javax.swing.JLabel lblHuongDan;
@@ -1783,6 +1758,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblImg3;
     private javax.swing.JLabel lblLocChuyenDe;
     private javax.swing.JLabel lblLocKhoaHoc;
+    private javax.swing.JLabel lblLogoChuyenDe;
     private javax.swing.JLabel lblLuongNguoiHoc;
     private javax.swing.JLabel lblQuanLy;
     private javax.swing.JLabel lblQuanLyChuyenDe;
@@ -1794,7 +1770,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblThongKe;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTrangChu;
-    private javax.swing.JPanel onlFormKhoaHoc;
+    private javax.swing.JLabel lblVaiTro;
     private javax.swing.JPanel pmlGioiThieu;
     private javax.swing.JPanel pnlBangDiem;
     private javax.swing.JPanel pnlCongCuBangChuyenDe;
@@ -1804,6 +1780,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel pnlDiemTheoChuyenDe;
     private javax.swing.JPanel pnlDoanhThu;
     private javax.swing.JPanel pnlFormChuyenDe;
+    private javax.swing.JPanel pnlFormKhoaHoc;
     private javax.swing.JPanel pnlFormNguoiHoc;
     private javax.swing.JPanel pnlFormNhanVien;
     private javax.swing.JPanel pnlHeader;
@@ -1822,13 +1799,19 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPasswordField pwdMatKhau1;
     private javax.swing.JPasswordField pwdXacNhanMatKhau;
     private javax.swing.JRadioButton rdoNam;
+    private javax.swing.JRadioButton rdoNhanVien;
     private javax.swing.JRadioButton rdoNu;
+    private javax.swing.JRadioButton rdoTruongPhong;
+    private javax.swing.JTable tblBangDiem;
     private javax.swing.JTable tblChuyenDe;
+    private javax.swing.JTable tblDoanhThu;
     private javax.swing.JTable tblHocVien;
     private javax.swing.JTable tblKhoaHoc;
     private javax.swing.JTable tblNguoiHoc;
     private javax.swing.JTable tblNguoiHoc_HocVien;
     private javax.swing.JTable tblNhanVien;
+    private javax.swing.JTable tblThongKeDiemCD;
+    private javax.swing.JTable tblThongKeNguoiHoc;
     private javax.swing.JTextField txtChuyenDe_KhoaHoc;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextArea txtGhiChu_KhoaHoc;
@@ -1849,6 +1832,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtTenChuyenDe;
     private javax.swing.JTextField txtThoiLuong;
     private javax.swing.JTextField txtThoiLuong_KhoaHoc;
+    private javax.swing.JTextField txtTimCD;
+    private javax.swing.JTextField txtTimHocVien;
+    private javax.swing.JTextField txtTimKhoaHoc;
+    private javax.swing.JTextField txtTimKiemNH;
+    private javax.swing.JTextField txtTimNguoiHoc;
+    private javax.swing.JTextField txtTimNhanVien;
     // End of variables declaration//GEN-END:variables
 
     public void ChuyenCard(JLabel lbl) {
