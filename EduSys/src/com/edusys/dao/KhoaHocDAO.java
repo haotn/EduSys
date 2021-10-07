@@ -58,7 +58,6 @@ public class KhoaHocDAO {
         return this.selectBySql(SELECT_ALL_SQL);
     }
 
-
     public KhoaHoc selectById(Integer id) {
         List<KhoaHoc> list = this.selectBySql(SELECT_BY_ID_SQL, id); // đang lỗi 
         if (list.isEmpty()) {
@@ -79,7 +78,7 @@ public class KhoaHocDAO {
                 entity.setNgayKG(result.getDate("NGAYKG"));
                 entity.setGhiChu(result.getString("GHICHU"));
                 entity.setMaNV(result.getString("MaNV"));
-                //entity.setNgayTao(result.getDate("NgayTao"));
+                entity.setNgayTao(result.getDate("NgayTao"));
 
                 entity.setMaCD(result.getString("MACD"));
 
