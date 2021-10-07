@@ -6,6 +6,7 @@
 package com.edusys.ui;
 
 import java.awt.Color;
+import java.awt.Component;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -19,12 +20,13 @@ public class DangNhap extends javax.swing.JFrame {
      * Creates new form DangNhap
      */
     boolean showPass = false;
+
     public DangNhap() {
         initComponents();
         setLocationRelativeTo(null);
-        txtUser.setBackground(new Color(0,0,0,1));
-        pwdPass.setBackground(new Color(0,0,0,1));
-      
+        txtUser.setBackground(new Color(0, 0, 0, 1));
+        pwdPass.setBackground(new Color(0, 0, 0, 1));
+
     }
 
     /**
@@ -130,6 +132,11 @@ public class DangNhap extends javax.swing.JFrame {
         btnDangNhap.setBackground(new java.awt.Color(255, 255, 255));
         btnDangNhap.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnDangNhap.setText("Đăng nhập");
+        btnDangNhap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDangNhapActionPerformed(evt);
+            }
+        });
         right.add(btnDangNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
         right.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 240, 10));
 
@@ -175,7 +182,7 @@ public class DangNhap extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có chắc muốn thoát không?");
 //        if (confirm == JOptionPane.YES_OPTION) {
-            System.exit(0);
+        System.exit(0);
 //        }
     }//GEN-LAST:event_closeMouseClicked
 
@@ -189,16 +196,21 @@ public class DangNhap extends javax.swing.JFrame {
 
     private void lblAn_HienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAn_HienMouseClicked
         // TODO add your handling code here:
-        if(showPass==false){
-        pwdPass.setEchoChar((char)0);
-        lblAn_Hien.setIcon(new ImageIcon("src/com/edusys/images/AnMatKhau.png"));
-        showPass=true;
-        }else{
-        pwdPass.setEchoChar('*');
-         lblAn_Hien.setIcon(new ImageIcon("src/com/edusys/images/HienMatKhau.png"));
-        showPass=false;
+        if (showPass == false) {
+            pwdPass.setEchoChar((char) 0);
+            lblAn_Hien.setIcon(new ImageIcon("src/com/edusys/images/AnMatKhau.png"));
+            showPass = true;
+        } else {
+            pwdPass.setEchoChar('*');
+            lblAn_Hien.setIcon(new ImageIcon("src/com/edusys/images/HienMatKhau.png"));
+            showPass = false;
         }
     }//GEN-LAST:event_lblAn_HienMouseClicked
+
+    private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
+        // TODO add your handling code here:
+        kiemTra();
+    }//GEN-LAST:event_btnDangNhapActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,4 +270,55 @@ public class DangNhap extends javax.swing.JFrame {
     private javax.swing.JLabel taiKhoan1;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
+
+    boolean kiemTra() {
+        if (txtUser.getText().equals("") && pwdPass.getText().equals("")) {
+            alert(this, "Xin hãy nhập tên đăng nhập và mật khẩu.");
+
+            txtUser.requestFocus();
+        } else if (txtUser.getText().equals("")) {
+            alert(this, "Bạn chưa nhập tên đăng nhập.");
+
+            txtUser.requestFocus();
+        } else if (pwdPass.getText().equals("")) {
+            alert(this, "Bạn chưa nhập mật khẩu.");
+
+            pwdPass.requestFocus();
+        } else {
+            new GUI().setVisible(true);
+            this.dispose();
+        }
+        return true;
+    }
+
+    // Phần đăng nhập chưa đưa vào nên không kiểm tra được
+//   void dangNhap(){
+//       String tendangnhap = txtTenDangNhap.getText();
+//       String matkhau = pswMatKhau.getText();
+//       NhanVien nhanvien = dao.selectByld(manv);
+//       if(nhanVien == null) {
+//           alert(this, "Tên đăng nhập không đúng.");
+//       }
+//       else if(!matkhau.equals(nhanvien.getMatKhau())){
+//           alert(this, "Mật khẩu không đúng.");
+//       }
+//       else {
+//           Auth.user = nhanvien;
+//           this.dispose();
+//       }
+//   }
+//    void ketThuc() {
+//        if (confirm(this, "Bạn có muốn kết thúc ứng dụng?")) {
+//            System.exit(0);
+//        }
+//    }
+
+    public static boolean confirm(Component parent, String message) {
+        int result = JOptionPane.showConfirmDialog(parent, message, "Hệ thống quản lý đào tạo", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        return result == JOptionPane.YES_OPTION;
+    }
+
+    public static void alert(Component parent, String message) {
+        JOptionPane.showMessageDialog(parent, message, "Hệ thống quản lý đào tạo", JOptionPane.INFORMATION_MESSAGE);
+    }
 }

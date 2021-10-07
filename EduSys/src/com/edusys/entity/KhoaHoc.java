@@ -14,17 +14,17 @@ import java.sql.Date;
  */
 public class KhoaHoc {
 
-    public int maKH;
-    public String maCD;
-    public double hocPhi;
-    public int thoiLuong;
-    public Date ngayKG;
-    public String ghiChu;
-    public String maNV;
-    //public Date ngayTao = XDate.now();
+    private int maKH;
+    private String maCD;
+    private double hocPhi;
+    private int thoiLuong;
+    private Date ngayKG;
+    private String ghiChu;
+    private String maNV;
+    private Date ngayTao;
 
     public String toString() {
-        return this.maCD + "(" + this.ngayKG + ")";
+        return this.getMaCD() + "(" + this.getNgayKG() + ")";
     }
 
     public KhoaHoc(int maKH, String maCD, double hocPhi, int thoiLuong, Date ngayKG, String ghiChu, String maNV) {
@@ -96,12 +96,12 @@ public class KhoaHoc {
         this.maNV = maNV;
     }
 
-//    public Date getNgayTao() {
-//        return ngayTao;
-//    }
-//
-//    public void setNgayTao(Date ngayTao) {
-//        this.ngayTao = ngayTao;
-//    }
+    public Date getNgayTao() {
+        return ngayTao;
+    }
+
+    public void setNgayTao(Date ngayTao) {
+        this.ngayTao = ngayTao;
+    }
 
 }

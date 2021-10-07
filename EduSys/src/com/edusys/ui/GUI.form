@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane15">
+      <Properties>
+        <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea2">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="18" style="0"/>
+            </Property>
+            <Property name="lineWrap" type="boolean" value="true"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="    &#xa;    &#x110;&#x1ec3; ho&#xe0;ng th&#xe0;nh t&#x1ed1;t d&#x1ef1; &#xe1;n, ch&#xfa;ng em &#x111;&#xe3; h&#x1ee3;p t&#xe1;c v&#x1edb;i nhau, ch&#x1ecd;n c&#xe1;ch l&#xe0;m&#xa;    vi&#x1ec7;c theo nh&#xf3;m &#x111;&#x1ec3; c&#xf3; m&#x1ed9;t k&#x1ebf;t qu&#x1ea3; t&#x1ed1;t nh&#x1ea5;t !!!&#xa;&#x9;&#x9;&#xa;&#x9;           V&#x1edb;i s&#x1ef1; g&#xf3;p s&#x1ee9;c c&#x1ee7;a c&#xe1;c th&#xe0;nh vi&#xea;n :&#xa;&#xa;     1 . Ti&#xea;u Nh&#x1ef1;t H&#xe0;o &#x111;&#x1ea3;m nhi&#x1ec7;m vai tr&#xf2; nh&#xf3;m tr&#x1b0;&#x1edf;ng, l&#xe0; m&#x169;i t&#xe0;u c&#x1ee7;a c&#x1ea3; &#xa;     &#x111;&#x1ed9;i .&#xa;     2 . &#x110;&#xe0;o Thi&#xea;n Qu&#x1ed1;c &#xa;     3. Tr&#x1ea7;n Th&#x1ebf; K&#x1ef7;&#xa;     4. B&#xf9;i Tr&#x1ecd;ng Nh&#xe2;n &#xa;&#xa;      - d&#x1b0;&#x1edb;i s&#x1ef1; l&#xe3;nh &#x111;&#x1ea1;o c&#x1ee7;a nh&#xf3;m tr&#x1b0;&#x1edf;ng c&#xe1;c th&#xe0;nh vi&#xea;n c&#xf2;n l&#x1ea1;i c&#x169;ng &#x111;&#xe3; ho&#xe0;n &#xa;      th&#xe0;nh t&#x1ed1;t c&#xe1;c ph&#x1ea7;n &#x111;&#x1b0;&#x1ee3;c giao ph&#xf3; .&#xa;&#xa;      B&#xea;n c&#x1ea1;nh &#x111;&#xf3; c&#x169;ng ph&#x1ea3;i c&#x1ea3;m &#x1a1;n &#x111;&#x1ebf;n c&#xf4; v&#xe0; th&#x1ea7;y : &#xa;      - L&#xe0; ng&#x1b0;&#x1edd;i h&#x1b0;&#x1edb;ng d&#x1eab;n tr&#x1ef1;c ti&#x1ebf;p c&#x1ee7;a b&#x1ed9; m&#xf4;n d&#x1ef1; &#xe1;n m&#x1eab;u !!! &#xa;      - C&#x1ea3;m &#x1a1;n c&#xf4; th&#x1ea7;y r&#x1ea5;t nhi&#x1ec1;u !!!&#xa;&#xa;&#xa;&#x9;                "/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Default Cursor"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -684,102 +717,6 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="pmlGioiThieu">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                  <CardConstraints cardName="cardGioiThieu"/>
-                </Constraint>
-              </Constraints>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-                <Property name="useNullLayout" type="boolean" value="false"/>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="lblGioThieu">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="SansSerif" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="99" green="99" red="99" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Gi&#x1edb;i thi&#x1ec7;u v&#x1ec1; EduSys"/>
-                  </Properties>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="380" y="40" width="-1" height="-1"/>
-                    </Constraint>
-                  </Constraints>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel46">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="18" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="M&#x1ee5;c ti&#xea;u ch&#xed;nh hu&#x1ea5;n luy&#x1ec7;n sinh vi&#xea;n quy tr&#xec;nh th&#x1ef1;c hi&#x1ec7;n d&#x1ef1; &#xe1;n !!!"/>
-                  </Properties>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="330" y="140" width="-1" height="-1"/>
-                    </Constraint>
-                  </Constraints>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel47">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="18" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="EduSys l&#xe0; ch&#x1b0;&#x1a1;ng tr&#xec;nh d&#x1ef1; &#xe1;n m&#x1eab;u d&#xe0;nh cho sinh vi&#xea;n FPT Polytechnic !!!"/>
-                  </Properties>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="300" y="110" width="-1" height="-1"/>
-                    </Constraint>
-                  </Constraints>
-                </Component>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane15">
-                  <Properties>
-                    <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder/>
-                      </Border>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="270" y="190" width="600" height="470"/>
-                    </Constraint>
-                  </Constraints>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea2">
-                      <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                        <Property name="columns" type="int" value="20"/>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Times New Roman" size="18" style="0"/>
-                        </Property>
-                        <Property name="lineWrap" type="boolean" value="true"/>
-                        <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="    &#xa;    &#x110;&#x1ec3; ho&#xe0;ng th&#xe0;nh t&#x1ed1;t d&#x1ef1; &#xe1;n, ch&#xfa;ng em &#x111;&#xe3; h&#x1ee3;p t&#xe1;c v&#x1edb;i nhau, ch&#x1ecd;n c&#xe1;ch l&#xe0;m&#xa;    vi&#x1ec7;c theo nh&#xf3;m &#x111;&#x1ec3; c&#xf3; m&#x1ed9;t k&#x1ebf;t qu&#x1ea3; t&#x1ed1;t nh&#x1ea5;t !!!&#xa;&#x9;&#x9;&#xa;&#x9;           V&#x1edb;i s&#x1ef1; g&#xf3;p s&#x1ee9;c c&#x1ee7;a c&#xe1;c th&#xe0;nh vi&#xea;n :&#xa;&#xa;     1 . Ti&#xea;u Nh&#x1ef1;t H&#xe0;o &#x111;&#x1ea3;m nhi&#x1ec7;m vai tr&#xf2; nh&#xf3;m tr&#x1b0;&#x1edf;ng, l&#xe0; m&#x169;i t&#xe0;u c&#x1ee7;a c&#x1ea3; &#xa;     &#x111;&#x1ed9;i .&#xa;     2 . &#x110;&#xe0;o Thi&#xea;n Qu&#x1ed1;c &#xa;     3. Tr&#x1ea7;n Th&#x1ebf; K&#x1ef7;&#xa;     4. B&#xf9;i Tr&#x1ecd;ng Nh&#xe2;n &#xa;&#xa;      - d&#x1b0;&#x1edb;i s&#x1ef1; l&#xe3;nh &#x111;&#x1ea1;o c&#x1ee7;a nh&#xf3;m tr&#x1b0;&#x1edf;ng c&#xe1;c th&#xe0;nh vi&#xea;n c&#xf2;n l&#x1ea1;i c&#x169;ng &#x111;&#xe3; ho&#xe0;n &#xa;      th&#xe0;nh t&#x1ed1;t c&#xe1;c ph&#x1ea7;n &#x111;&#x1b0;&#x1ee3;c giao ph&#xf3; .&#xa;&#xa;      B&#xea;n c&#x1ea1;nh &#x111;&#xf3; c&#x169;ng ph&#x1ea3;i c&#x1ea3;m &#x1a1;n &#x111;&#x1ebf;n c&#xf4; v&#xe0; th&#x1ea7;y : &#xa;      - L&#xe0; ng&#x1b0;&#x1edd;i h&#x1b0;&#x1edb;ng d&#x1eab;n tr&#x1ef1;c ti&#x1ebf;p c&#x1ee7;a b&#x1ed9; m&#xf4;n d&#x1ef1; &#xe1;n m&#x1eab;u !!! &#xa;      - C&#x1ea3;m &#x1a1;n c&#xf4; th&#x1ea7;y r&#x1ea5;t nhi&#x1ec1;u !!!&#xa;&#xa;&#xa;&#x9;                "/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-              </SubComponents>
-            </Container>
             <Container class="javax.swing.JPanel" name="pnlHuongDan">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -795,6 +732,32 @@
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
                 <Property name="useNullLayout" type="boolean" value="false"/>
               </Layout>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane16">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="130" y="120" width="950" height="390"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="jTextArea3">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Arial" size="24" style="2"/>
+                        </Property>
+                        <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="&#x110;&#xe2;y l&#xe0; c&#x1eed;a s&#x1ed5; h&#x1b0;&#x1edb;ng d&#x1eab;n!!!"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="pnlQuanLyNhanVien">
               <Properties>
@@ -3273,6 +3236,90 @@
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="290" y="50" width="50" height="30"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="pmlGioiThieu">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                  <CardConstraints cardName="cardGioiThieu"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                <Property name="useNullLayout" type="boolean" value="false"/>
+              </Layout>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane14">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="290" y="210" width="580" height="320"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="jTextArea1">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Arial" size="18" style="1"/>
+                        </Property>
+                        <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="C&#xf2;n n&#x1eef;a!!!"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="lblGioThieu">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="SansSerif" size="36" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="99" green="99" red="99" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Gi&#x1edb;i thi&#x1ec7;u v&#x1ec1; EduSys"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="380" y="40" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel46">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Times New Roman" size="18" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="M&#x1ee5;c ti&#xea;u ch&#xed;nh hu&#x1ea5;n luy&#x1ec7;n sinh vi&#xea;n quy tr&#xec;nh th&#x1ef1;c hi&#x1ec7;n d&#x1ef1; &#xe1;n !!!"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="330" y="140" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel47">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Times New Roman" size="18" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="EduSys l&#xe0; ch&#x1b0;&#x1a1;ng tr&#xec;nh d&#x1ef1; &#xe1;n m&#x1eab;u d&#xe0;nh cho sinh vi&#xea;n FPT Polytechnic !!!"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="300" y="110" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>

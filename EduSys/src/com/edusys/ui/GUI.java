@@ -10,6 +10,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -29,7 +30,7 @@ public class GUI extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-         slideshow();
+        slideshow();
 //        tblNhanVien.setBackground(Color.white);
         layout = (CardLayout) pnlRight.getLayout();
 
@@ -46,6 +47,8 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane15 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         Container = new javax.swing.JPanel();
         pnlHeader = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -80,13 +83,9 @@ public class GUI extends javax.swing.JFrame {
         lblImg1 = new javax.swing.JLabel();
         lblImg2 = new javax.swing.JLabel();
         lblImg3 = new javax.swing.JLabel();
-        pmlGioiThieu = new javax.swing.JPanel();
-        lblGioThieu = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        jScrollPane15 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
         pnlHuongDan = new javax.swing.JPanel();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
         pnlQuanLyNhanVien = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblNhanVien = new javax.swing.JTable();
@@ -240,6 +239,23 @@ public class GUI extends javax.swing.JFrame {
         tblDoanhThu = new javax.swing.JTable();
         cboNam = new javax.swing.JComboBox<>();
         jLabel43 = new javax.swing.JLabel();
+        pmlGioiThieu = new javax.swing.JPanel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        lblGioThieu = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+
+        jScrollPane15.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jTextArea2.setEditable(false);
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("    \n    Để hoàng thành tốt dự án, chúng em đã hợp tác với nhau, chọn cách làm\n    việc theo nhóm để có một kết quả tốt nhất !!!\n\t\t\n\t           Với sự góp sức của các thành viên :\n\n     1 . Tiêu Nhựt Hào đảm nhiệm vai trò nhóm trưởng, là mũi tàu của cả \n     đội .\n     2 . Đào Thiên Quốc \n     3. Trần Thế Kỷ\n     4. Bùi Trọng Nhân \n\n      - dưới sự lãnh đạo của nhóm trưởng các thành viên còn lại cũng đã hoàn \n      thành tốt các phần được giao phó .\n\n      Bên cạnh đó cũng phải cảm ơn đến cô và thầy : \n      - Là người hướng dẫn trực tiếp của bộ môn dự án mẫu !!! \n      - Cảm ơn cô thầy rất nhiều !!!\n\n\n\t                ");
+        jTextArea2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane15.setViewportView(jTextArea2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -548,39 +564,17 @@ public class GUI extends javax.swing.JFrame {
 
         pnlRight.add(pnlTrangChu, "cardTrangChu");
 
-        pmlGioiThieu.setBackground(new java.awt.Color(255, 255, 255));
-        pmlGioiThieu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblGioThieu.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
-        lblGioThieu.setForeground(new java.awt.Color(153, 153, 153));
-        lblGioThieu.setText("Giới thiệu về EduSys");
-        pmlGioiThieu.add(lblGioThieu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
-
-        jLabel46.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel46.setText("Mục tiêu chính huấn luyện sinh viên quy trình thực hiện dự án !!!");
-        pmlGioiThieu.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, -1));
-
-        jLabel47.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel47.setText("EduSys là chương trình dự án mẫu dành cho sinh viên FPT Polytechnic !!!");
-        pmlGioiThieu.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
-
-        jScrollPane15.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("    \n    Để hoàng thành tốt dự án, chúng em đã hợp tác với nhau, chọn cách làm\n    việc theo nhóm để có một kết quả tốt nhất !!!\n\t\t\n\t           Với sự góp sức của các thành viên :\n\n     1 . Tiêu Nhựt Hào đảm nhiệm vai trò nhóm trưởng, là mũi tàu của cả \n     đội .\n     2 . Đào Thiên Quốc \n     3. Trần Thế Kỷ\n     4. Bùi Trọng Nhân \n\n      - dưới sự lãnh đạo của nhóm trưởng các thành viên còn lại cũng đã hoàn \n      thành tốt các phần được giao phó .\n\n      Bên cạnh đó cũng phải cảm ơn đến cô và thầy : \n      - Là người hướng dẫn trực tiếp của bộ môn dự án mẫu !!! \n      - Cảm ơn cô thầy rất nhiều !!!\n\n\n\t                ");
-        jTextArea2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane15.setViewportView(jTextArea2);
-
-        pmlGioiThieu.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 600, 470));
-
-        pnlRight.add(pmlGioiThieu, "cardGioiThieu");
-
         pnlHuongDan.setBackground(new java.awt.Color(255, 255, 255));
         pnlHuongDan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Arial", 2, 24)); // NOI18N
+        jTextArea3.setRows(5);
+        jTextArea3.setText("Đây là cửa sổ hướng dẫn!!!");
+        jScrollPane16.setViewportView(jTextArea3);
+
+        pnlHuongDan.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 950, 390));
+
         pnlRight.add(pnlHuongDan, "cardHuongDan");
 
         pnlQuanLyNhanVien.setBackground(new java.awt.Color(255, 255, 255));
@@ -1421,6 +1415,32 @@ public class GUI extends javax.swing.JFrame {
 
         pnlRight.add(pnlDoanhThu, "cardDoanhThu");
 
+        pmlGioiThieu.setBackground(new java.awt.Color(255, 255, 255));
+        pmlGioiThieu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Còn nữa!!!");
+        jScrollPane14.setViewportView(jTextArea1);
+
+        pmlGioiThieu.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 580, 320));
+
+        lblGioThieu.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
+        lblGioThieu.setForeground(new java.awt.Color(153, 153, 153));
+        lblGioThieu.setText("Giới thiệu về EduSys");
+        pmlGioiThieu.add(lblGioThieu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
+
+        jLabel46.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel46.setText("Mục tiêu chính huấn luyện sinh viên quy trình thực hiện dự án !!!");
+        pmlGioiThieu.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, -1));
+
+        jLabel47.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel47.setText("EduSys là chương trình dự án mẫu dành cho sinh viên FPT Polytechnic !!!");
+        pmlGioiThieu.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
+
+        pnlRight.add(pmlGioiThieu, "cardGioiThieu");
+
         Container.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 1200, 750));
 
         getContentPane().add(Container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 800));
@@ -1458,118 +1478,130 @@ public class GUI extends javax.swing.JFrame {
 
     private void lblTrangChuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTrangChuMouseClicked
         // TODO add your handling code here:
-        layout.show(pnlRight, "cardTrangChu");
+        //layout.show(pnlRight, "cardTrangChu");
+        chuyenCard("cardTrangChu");
     }//GEN-LAST:event_lblTrangChuMouseClicked
 
     private void lblGioiThieuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGioiThieuMouseClicked
         // TODO add your handling code here:
-        layout.show(pnlRight, "cardGioiThieu");
+        //layout.show(pnlRight, "cardGioiThieu");
+        chuyenCard("cardGioiThieu");
     }//GEN-LAST:event_lblGioiThieuMouseClicked
 
     private void lblHuongDanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHuongDanMouseClicked
         // TODO add your handling code here:
-        layout.show(pnlRight, "cardHuongDan");
+        //layout.show(pnlRight, "cardHuongDan");
+        chuyenCard("cardHuongDan");
     }//GEN-LAST:event_lblHuongDanMouseClicked
 
     private void lblQuanLyNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMouseClicked
         // TODO add your handling code here:
-        layout.show(pnlRight, "cardQuanLyNhanVien");
+        //layout.show(pnlRight, "cardQuanLyNhanVien");
+        chuyenCard("cardQuanLyNhanVien");
     }//GEN-LAST:event_lblQuanLyNhanVienMouseClicked
 
     private void lblQuanLyHocVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHocVienMouseClicked
         // TODO add your handling code here:
-        layout.show(pnlRight, "cardQuanLyHocVien");
+        //layout.show(pnlRight, "cardQuanLyHocVien");
+        chuyenCard("cardQuanLyHocVien");
     }//GEN-LAST:event_lblQuanLyHocVienMouseClicked
 
     private void lblQuanLyNguoiHocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNguoiHocMouseClicked
         // TODO add your handling code here:
-        layout.show(pnlRight, "cardQuanLyNguoiHoc");
+        //layout.show(pnlRight, "cardQuanLyNguoiHoc");
+        chuyenCard("cardQuanLyNguoiHoc");
     }//GEN-LAST:event_lblQuanLyNguoiHocMouseClicked
 
     private void lblQuanLyChuyenDeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyChuyenDeMouseClicked
         // TODO add your handling code here:
-        layout.show(pnlRight, "cardQuanLyChuyenDe");
+        //layout.show(pnlRight, "cardQuanLyChuyenDe");
+        chuyenCard("cardQuanLyChuyenDe");
     }//GEN-LAST:event_lblQuanLyChuyenDeMouseClicked
 
     private void lblQuanLyKhoaHocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyKhoaHocMouseClicked
         // TODO add your handling code here:
-        layout.show(pnlRight, "cardQuanLyKhoaHoc");
+        //layout.show(pnlRight, "cardQuanLyKhoaHoc");
+        chuyenCard("cardQuanLyKhoaHoc");
     }//GEN-LAST:event_lblQuanLyKhoaHocMouseClicked
 
     private void lblBangDiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBangDiemMouseClicked
         // TODO add your handling code here:
-        layout.show(pnlRight, "cardBangDiem");
+        //layout.show(pnlRight, "cardBangDiem");
+        chuyenCard("cardBangDiem");
     }//GEN-LAST:event_lblBangDiemMouseClicked
 
     private void lblLuongNguoiHocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLuongNguoiHocMouseClicked
         // TODO add your handling code here:
-        layout.show(pnlRight, "cardLuongNguoiHoc");
+        //layout.show(pnlRight, "cardLuongNguoiHoc");
+        chuyenCard("cardLuongNguoiHoc");
     }//GEN-LAST:event_lblLuongNguoiHocMouseClicked
 
     private void lblDiemTheoChuyenDeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDiemTheoChuyenDeMouseClicked
         // TODO add your handling code here:
-        layout.show(pnlRight, "cardDiemTheoChuyenDe");
+        //layout.show(pnlRight, "cardDiemTheoChuyenDe");
+        chuyenCard("cardDiemTheoChuyenDe");
     }//GEN-LAST:event_lblDiemTheoChuyenDeMouseClicked
 
     private void lblDoanhThuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDoanhThuMouseClicked
         // TODO add your handling code here:
-        layout.show(pnlRight, "cardDoanhThu");
+        //layout.show(pnlRight, "cardDoanhThu");
+        chuyenCard("cardDoanhThu");
 
     }//GEN-LAST:event_lblDoanhThuMouseClicked
 
     private void lblTrangChuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTrangChuMousePressed
         // TODO add your handling code here:
         // lblTrangChu.setBackground(new Color(153, 153, 153));
-        ChuyenCard(lblTrangChu);
+        doiMauLabel(lblTrangChu);
     }//GEN-LAST:event_lblTrangChuMousePressed
 
     private void lblQuanLyHocVienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyHocVienMousePressed
         // TODO add your handling code here:
         //  lblQuanLyHocVien.setBackground(new Color(153, 153, 153));
-        ChuyenCard(lblQuanLyHocVien);
+        doiMauLabel(lblQuanLyHocVien);
     }//GEN-LAST:event_lblQuanLyHocVienMousePressed
 
     private void lblQuanLyNhanVienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNhanVienMousePressed
         // TODO add your handling code here:
         // lblQuanLyNhanVien.setBackground(new Color(153, 153, 153));
-        ChuyenCard(lblQuanLyNhanVien);
+        doiMauLabel(lblQuanLyNhanVien);
 
     }//GEN-LAST:event_lblQuanLyNhanVienMousePressed
 
     private void lblQuanLyNguoiHocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyNguoiHocMousePressed
-        ChuyenCard(lblQuanLyNguoiHoc);
+        doiMauLabel(lblQuanLyNguoiHoc);
     }//GEN-LAST:event_lblQuanLyNguoiHocMousePressed
 
     private void lblQuanLyChuyenDeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyChuyenDeMousePressed
-        ChuyenCard(lblQuanLyChuyenDe);
+        doiMauLabel(lblQuanLyChuyenDe);
     }//GEN-LAST:event_lblQuanLyChuyenDeMousePressed
 
     private void lblQuanLyKhoaHocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuanLyKhoaHocMousePressed
-        ChuyenCard(lblQuanLyKhoaHoc);
+        doiMauLabel(lblQuanLyKhoaHoc);
     }//GEN-LAST:event_lblQuanLyKhoaHocMousePressed
 
     private void lblBangDiemMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBangDiemMousePressed
-        ChuyenCard(lblBangDiem);
+        doiMauLabel(lblBangDiem);
     }//GEN-LAST:event_lblBangDiemMousePressed
 
     private void lblLuongNguoiHocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLuongNguoiHocMousePressed
-        ChuyenCard(lblLuongNguoiHoc);
+        doiMauLabel(lblLuongNguoiHoc);
     }//GEN-LAST:event_lblLuongNguoiHocMousePressed
 
     private void lblDiemTheoChuyenDeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDiemTheoChuyenDeMousePressed
-        ChuyenCard(lblDiemTheoChuyenDe);
+        doiMauLabel(lblDiemTheoChuyenDe);
     }//GEN-LAST:event_lblDiemTheoChuyenDeMousePressed
 
     private void lblDoanhThuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDoanhThuMousePressed
-        ChuyenCard(lblDoanhThu);
+        doiMauLabel(lblDoanhThu);
     }//GEN-LAST:event_lblDoanhThuMousePressed
 
     private void lblGioiThieuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGioiThieuMousePressed
-        ChuyenCard(lblGioiThieu);
+        doiMauLabel(lblGioiThieu);
     }//GEN-LAST:event_lblGioiThieuMousePressed
 
     private void lblHuongDanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHuongDanMousePressed
-        ChuyenCard(lblHuongDan);
+        doiMauLabel(lblHuongDan);
     }//GEN-LAST:event_lblHuongDanMousePressed
 
     private void btnFirst_NguoiHoc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirst_NguoiHoc1ActionPerformed
@@ -1591,17 +1623,17 @@ public class GUI extends javax.swing.JFrame {
 
     private void lblDoiMatKhauMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDoiMatKhauMousePressed
         // TODO add your handling code here:
-        ChuyenCard(lblDoiMatKhau);
+        doiMauLabel(lblDoiMatKhau);
     }//GEN-LAST:event_lblDoiMatKhauMousePressed
 
     private void lblDangXuatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDangXuatMousePressed
         // TODO add your handling code here:
-        ChuyenCard(lblDangXuat);
+        doiMauLabel(lblDangXuat);
     }//GEN-LAST:event_lblDangXuatMousePressed
 
     private void lblThoatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThoatMousePressed
         // TODO add your handling code here:
-        ChuyenCard(lblThoat);
+        doiMauLabel(lblThoat);
     }//GEN-LAST:event_lblThoatMousePressed
 
     private void cboChonChuyenDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboChonChuyenDeActionPerformed
@@ -1732,7 +1764,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1742,7 +1776,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JLabel lblBackgroundLeft;
     private javax.swing.JLabel lblBangDiem;
     private javax.swing.JLabel lblDangXuat;
@@ -1840,7 +1876,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtTimNhanVien;
     // End of variables declaration//GEN-END:variables
 
-    public void ChuyenCard(JLabel lbl) {
+    public void doiMauLabel(JLabel lbl) {
         lblTrangChu.setBackground(new Color(36, 75, 72));
         lblGioiThieu.setBackground(new Color(36, 75, 72));
         lblHuongDan.setBackground(new Color(36, 75, 72));
@@ -1863,6 +1899,10 @@ public class GUI extends javax.swing.JFrame {
         lbl.setOpaque(true);
     }
 
+    public void chuyenCard(String cardName) {
+        layout.show(pnlRight, cardName);
+    }
+
     public void mouseEnter(JLabel lbl) {
         lbl.setForeground(new Color(0, 204, 153));
     }
@@ -1871,9 +1911,9 @@ public class GUI extends javax.swing.JFrame {
         lbl.setForeground(Color.WHITE);
     }
 
-    public void openUserPanel() {
-
-    }
+//    public void openUserPanel() {
+//
+//    }
 
     public void slideshow() {
         new Thread(new Runnable() {
@@ -1908,6 +1948,22 @@ public class GUI extends javax.swing.JFrame {
                                 ac.jLabelXRight(1200, 2400, 12, 10, lblImg3);
                                 nb = 0;
                         }
+                    }
+                } catch (Exception e) {
+                }
+            }
+
+        }).start();
+    }
+
+    public void dongHo() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int nb = 0;
+                try {
+                    while (true) {
+
                     }
                 } catch (Exception e) {
                 }
