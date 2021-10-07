@@ -5,6 +5,12 @@
  */
 package com.edusys.ui;
 
+import com.edusys.dao.NhanVienDAO;
+import com.edusys.utility_library.Auth;
+import com.edusys.utility_library.MsgBox;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author haotn
@@ -28,125 +34,174 @@ public class DoiMatKhau extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        left = new javax.swing.JPanel();
+        title = new javax.swing.JLabel();
+        help = new javax.swing.JLabel();
+        Edu = new javax.swing.JLabel();
+        about = new javax.swing.JLabel();
+        Name = new javax.swing.JLabel();
+        backgroundLeft = new javax.swing.JLabel();
+        right = new javax.swing.JPanel();
+        close = new javax.swing.JLabel();
+        DoiMK = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        btnXacNhanDoiMatKhau = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtMatKhauHienTai = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        txtMatKhauMoi = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtXacNhanMatKhauMoi = new javax.swing.JTextField();
+        txtUser = new javax.swing.JTextField();
+        pwdConfirm = new javax.swing.JPasswordField();
+        pwdPass = new javax.swing.JPasswordField();
+        pwdNewPass = new javax.swing.JPasswordField();
+        btnXacNhan = new javax.swing.JButton();
+        btnHuy = new javax.swing.JButton();
+        backgroundRight = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ĐỔI MẬT KHẨU");
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ĐỔI MẬT KHẨU");
+        left.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnXacNhanDoiMatKhau.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnXacNhanDoiMatKhau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Icon 16px/Accept.png"))); // NOI18N
-        btnXacNhanDoiMatKhau.setText("Xác nhận đổi mật khẩu");
+        title.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        title.setForeground(new java.awt.Color(255, 255, 255));
+        title.setText("EduSys  - Đổi mật khẩu");
+        left.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel3.setText("Nhập mật khẩu hiện tại");
+        help.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        help.setForeground(new java.awt.Color(255, 255, 255));
+        help.setText("Vui lòng xác nhận thông tin để dổi mật khẩu");
+        left.add(help, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtMatKhauHienTai, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMatKhauHienTai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        Edu.setFont(new java.awt.Font("Showcard Gothic", 1, 36)); // NOI18N
+        Edu.setForeground(new java.awt.Color(255, 255, 255));
+        Edu.setText("EduSys");
+        left.add(Edu, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
 
-        jLabel4.setText("Nhập mật khẩu mới");
+        about.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        about.setForeground(new java.awt.Color(255, 255, 255));
+        about.setText(" CoppyRight  ©");
+        left.add(about, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 465, -1, -1));
 
-        txtMatKhauMoi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMatKhauMoiActionPerformed(evt);
+        Name.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        Name.setForeground(new java.awt.Color(255, 255, 255));
+        Name.setText("NHOM 5");
+        left.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, -1));
+        Name.getAccessibleContext().setAccessibleDescription("");
+
+        backgroundLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/leftDoi.png"))); // NOI18N
+        left.add(backgroundLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 500));
+
+        getContentPane().add(left, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 500));
+
+        right.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/BlackClose.png"))); // NOI18N
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closeMouseExited(evt);
             }
         });
+        right.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
 
-        jLabel5.setText("Xác nhận mật khẩu mới");
+        DoiMK.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        DoiMK.setForeground(new java.awt.Color(255, 255, 255));
+        DoiMK.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DoiMK.setText("ĐỔI MẬT KHẨU");
+        right.add(DoiMK, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 350, 30));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(txtXacNhanMatKhauMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMatKhauMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMatKhauMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtXacNhanMatKhauMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Xác nhận mật khẩu");
+        right.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(btnXacNhanDoiMatKhau)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnXacNhanDoiMatKhau)
-                .addGap(21, 21, 21))
-        );
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Tài khoản");
+        right.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Mật khẩu");
+        right.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Mật khẩu mới");
+        right.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+
+        txtUser.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        right.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 290, 30));
+
+        pwdConfirm.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        right.add(pwdConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 290, 30));
+
+        pwdPass.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        right.add(pwdPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 290, 30));
+
+        pwdNewPass.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        right.add(pwdNewPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 290, 30));
+
+        btnXacNhan.setBackground(new java.awt.Color(255, 255, 255));
+        btnXacNhan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnXacNhan.setText("Xác nhận");
+        btnXacNhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXacNhanActionPerformed(evt);
+            }
+        });
+        right.add(btnXacNhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, -1, -1));
+
+        btnHuy.setBackground(new java.awt.Color(255, 255, 255));
+        btnHuy.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnHuy.setText("Hủy");
+        btnHuy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHuyActionPerformed(evt);
+            }
+        });
+        right.add(btnHuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, -1, -1));
+
+        backgroundRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/rightDoi.png"))); // NOI18N
+        right.add(backgroundRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 500));
+
+        getContentPane().add(right, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 350, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtMatKhauMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatKhauMoiActionPerformed
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMatKhauMoiActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_closeMouseClicked
+
+    private void closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseEntered
+        // TODO add your handling code here:
+        close.setIcon(new ImageIcon("src/com/edusys/images/RedClose.png"));
+    }//GEN-LAST:event_closeMouseEntered
+
+    private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
+        // TODO add your handling code here:
+        close.setIcon(new ImageIcon("src/com/edusys/images/BlackClose.png"));
+    }//GEN-LAST:event_closeMouseExited
+
+    private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
+        // TODO add your handling code here:
+        int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có chắc muốn hủy không?");
+        if (confirm == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnHuyActionPerformed
+
+    private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
+        // TODO add your handling code here:
+        doiMatKhau();
+    }//GEN-LAST:event_btnXacNhanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,6 +229,7 @@ public class DoiMatKhau extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(DoiMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -184,15 +240,50 @@ public class DoiMatKhau extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnXacNhanDoiMatKhau;
+    private javax.swing.JLabel DoiMK;
+    private javax.swing.JLabel Edu;
+    private javax.swing.JLabel Name;
+    private javax.swing.JLabel about;
+    private javax.swing.JLabel backgroundLeft;
+    private javax.swing.JLabel backgroundRight;
+    private javax.swing.JButton btnHuy;
+    private javax.swing.JButton btnXacNhan;
+    private javax.swing.JLabel close;
+    private javax.swing.JLabel help;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtMatKhauHienTai;
-    private javax.swing.JTextField txtMatKhauMoi;
-    private javax.swing.JTextField txtXacNhanMatKhauMoi;
+    private javax.swing.JPanel left;
+    private javax.swing.JPasswordField pwdConfirm;
+    private javax.swing.JPasswordField pwdNewPass;
+    private javax.swing.JPasswordField pwdPass;
+    private javax.swing.JPanel right;
+    private javax.swing.JLabel title;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
+
+    NhanVienDAO dao = new NhanVienDAO();
+
+    private void doiMatKhau() {
+        String manv = txtUser.getText();
+        String matKhau = new String(pwdPass.getPassword());
+        String matKhauMoi = new String(pwdNewPass.getPassword());
+        String xacNhanMatKhauMoi = new String(pwdConfirm.getPassword());
+        if (!manv.equalsIgnoreCase(Auth.user.getMaNV())) {
+            MsgBox.alert(this, "Sai tên đăng nhập!");
+        } else if (!matKhau.equals(Auth.user.getMatKhau())) {
+            MsgBox.alert(this, "Sai mật khẩu!");
+        } else if (!matKhauMoi.equals(xacNhanMatKhauMoi)) {
+            MsgBox.alert(this, "Xác nhận mật khẩu không đúng!");
+        } else {
+            Auth.user.setMatKhau(matKhauMoi);
+            dao.update(Auth.user);
+            MsgBox.alert(this, "Đổi mật khẩu thành công!");
+        }
+    }
+
+//    private void huyBo() {
+//        dispose();
+//    }
 }
