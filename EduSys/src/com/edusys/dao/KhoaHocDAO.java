@@ -5,7 +5,9 @@
  */
 package com.edusys.dao;
 
+import com.edusys.entity.ChuyenDe;
 import com.edusys.entity.KhoaHoc;
+import com.edusys.helper.XDate;
 import com.edusys.helper.Xjdbc;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,17 +23,15 @@ import static javafx.beans.binding.Bindings.select;
  */
 public class KhoaHocDAO {
 
-    String INSERT_SQL = "INSERT INTO KHOAHOC(MaCD, HocPhi, ThoiLuong, NgayKG, GhiChu, MaNV) VALUES (?, ?, ?, ?, ?, ?)";
-    String UPDATE_SQL = "UPDATE KHOAHOC SET HocPhi = ?, ThoiLuong = ?, NgayKG = ? , GhiChu=? , MaNV = ?  WHERE MAKH = ?";
+    String INSERT_SQL = "INSERT INTO KHOAHOC(MaCD, HocPhi, ThoiLuong, NGAYKG, GhiChu, MaNV) VALUES (?, ?, ?, ?, ?, ?)";
+    String UPDATE_SQL = "UPDATE KHOAHOC SET NGAYKG = ?, GHICHU = ? WHERE MAKH = ?";
     String DELETE_SQL = "DELETE FROM KHOAHOC WHERE MAKH = ?";
     String SELECT_ALL_SQL = "SELECT * FROM KHOAHOC";
     String SELECT_BY_ID_SQL = "SELECT * FROM KHOAHOC WHERE MaKH = ?";
 
     public void insert(KhoaHoc entity) {
-
         try {
-            Xjdbc.update(INSERT_SQL,
-                    entity.getMaCD(), entity.getHocPhi(), entity.getThoiLuong(), entity.getNgayKG(), entity.getGhiChu(), entity.getMaNV());
+            Xjdbc.update(INSERT_SQL, entity.getMaCD(), entity.getHocPhi(), entity.getThoiLuong(), entity.getNgayKG(), entity.getGhiChu(), entity.getMaNV());
         } catch (SQLException ex) {
             Logger.getLogger(KhoaHocDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -39,8 +39,7 @@ public class KhoaHocDAO {
 
     public void update(KhoaHoc entity) {
         try {
-            Xjdbc.update(INSERT_SQL,
-                    entity.getMaCD(), entity.getHocPhi(), entity.getThoiLuong(), entity.getNgayKG(), entity.getGhiChu(), entity.getMaNV());
+            Xjdbc.update(UPDATE_SQL, entity.getNgayKG(), entity.getGhiChu(), entity.getMaKH());
         } catch (SQLException ex) {
             Logger.getLogger(KhoaHocDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -58,7 +57,7 @@ public class KhoaHocDAO {
         return this.selectBySql(SELECT_ALL_SQL);
     }
 
-    public KhoaHoc selectById(Integer id) {
+    public KhoaHoc selectById(int id) {
         List<KhoaHoc> list = this.selectBySql(SELECT_BY_ID_SQL, id); // đang lỗi 
         if (list.isEmpty()) {
             return null;
@@ -89,6 +88,31 @@ public class KhoaHocDAO {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public List<KhoaHoc> selectByChuyenDe(String maCD) {
+        String sql = "SELECT * FROM KHOAHOC WHERE MACD = ?";
+        return this.selectBySql(sql, maCD);
+    }
+
+    public List<Integer> selectYears() {
+        String sql = "SELECT DISTINCT YEAR(NGAYKG) FROM KHOAHOC ORDER BY YEAR(NGAYKG) DESC";
+        List<Integer> list = new ArrayList();
+        try {
+            ResultSet rs = Xjdbc.query(sql);
+            while (rs.next()) {
+                list.add(rs.getInt(1));
+            }
+            rs.getStatement().getConnection().close();
+            return list;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public KhoaHoc checkForDelete(int makh) {
+        String sql = "SELECT * FROM HOCVIEN WHERE MAKH = ?";
+        return selectBySql(sql, makh).get(0);
     }
 
 }

@@ -5,8 +5,13 @@
  */
 package com.edusys.ui;
 
+import com.edusys.dao.NhanVienDAO;
+import com.edusys.entity.NhanVien;
+import com.edusys.helper.Auth;
+import static com.edusys.helper.MsgBox.alert;
+import static com.edusys.helper.MsgBox.confirm;
 import java.awt.Color;
-import java.awt.Component;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -19,6 +24,7 @@ public class DangNhap extends javax.swing.JFrame {
     /**
      * Creates new form DangNhap
      */
+    static boolean isManager;
     boolean showPass = false;
 
     public DangNhap() {
@@ -26,7 +32,10 @@ public class DangNhap extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         txtUser.setBackground(new Color(0, 0, 0, 1));
         pwdPass.setBackground(new Color(0, 0, 0, 1));
-
+        txtUser.setText("admin");
+        pwdPass.setText("admin123");
+        btnDangNhap.doClick();
+        dispose();
     }
 
     /**
@@ -148,6 +157,11 @@ public class DangNhap extends javax.swing.JFrame {
                 pwdPassActionPerformed(evt);
             }
         });
+        pwdPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pwdPassKeyPressed(evt);
+            }
+        });
         right.add(pwdPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 240, 32));
 
         lblAn_Hien.setForeground(new java.awt.Color(255, 255, 255));
@@ -182,7 +196,7 @@ public class DangNhap extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có chắc muốn thoát không?");
 //        if (confirm == JOptionPane.YES_OPTION) {
-        System.exit(0);
+        dispose();
 //        }
     }//GEN-LAST:event_closeMouseClicked
 
@@ -209,8 +223,19 @@ public class DangNhap extends javax.swing.JFrame {
 
     private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
         // TODO add your handling code here:
-        kiemTra();
+        if (kiemTra()) {
+            dangNhap();
+        }
     }//GEN-LAST:event_btnDangNhapActionPerformed
+
+    private void pwdPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwdPassKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyChar() == KeyEvent.VK_ENTER) {
+            if (kiemTra()) {
+                dangNhap();
+            }
+        }
+    }//GEN-LAST:event_pwdPassKeyPressed
 
     /**
      * @param args the command line arguments
@@ -237,10 +262,6 @@ public class DangNhap extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DangNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -271,54 +292,57 @@ public class DangNhap extends javax.swing.JFrame {
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 
-    boolean kiemTra() {
-        if (txtUser.getText().equals("") && pwdPass.getText().equals("")) {
-            alert(this, "Xin hãy nhập tên đăng nhập và mật khẩu.");
+    NhanVienDAO dao = new NhanVienDAO();
 
+    public boolean kiemTra() {
+        if (txtUser.getText().equals("") && String.valueOf(pwdPass.getPassword()).equals("")) {
+            alert(this, "Xin hãy nhập tên đăng nhập và mật khẩu.");
             txtUser.requestFocus();
+            return false;
         } else if (txtUser.getText().equals("")) {
             alert(this, "Bạn chưa nhập tên đăng nhập.");
-
             txtUser.requestFocus();
-        } else if (pwdPass.getText().equals("")) {
+        } else if (String.valueOf(pwdPass.getPassword()).equals("")) {
             alert(this, "Bạn chưa nhập mật khẩu.");
-
             pwdPass.requestFocus();
-        } else {
-            new GUI().setVisible(true);
-            this.dispose();
+            return false;
         }
+//        else {
+//            new EduSys_JFrame().setVisible(true);
+//            this.dispose();
+//        }
         return true;
     }
 
-    // Phần đăng nhập chưa đưa vào nên không kiểm tra được
-//   void dangNhap(){
-//       String tendangnhap = txtTenDangNhap.getText();
-//       String matkhau = pswMatKhau.getText();
-//       NhanVien nhanvien = dao.selectByld(manv);
-//       if(nhanVien == null) {
-//           alert(this, "Tên đăng nhập không đúng.");
-//       }
-//       else if(!matkhau.equals(nhanvien.getMatKhau())){
-//           alert(this, "Mật khẩu không đúng.");
-//       }
-//       else {
-//           Auth.user = nhanvien;
-//           this.dispose();
-//       }
-//   }
-//    void ketThuc() {
-//        if (confirm(this, "Bạn có muốn kết thúc ứng dụng?")) {
-//            System.exit(0);
-//        }
+    //Phần đăng nhập chưa đưa vào nên không kiểm tra được
+    public void dangNhap() {
+        String tendangnhap = txtUser.getText();
+        String matkhau = String.valueOf(pwdPass.getPassword());
+        NhanVien nhanVien = dao.selectById(tendangnhap);
+        if (nhanVien == null) {
+            alert(this, "Tên đăng nhập không đúng.");
+        } else if (!matkhau.equals(nhanVien.getMatKhau())) {
+            alert(this, "Mật khẩu không đúng.");
+        } else {
+            Auth.user = nhanVien;
+            new EduSys_JFrame().setVisible(true);
+            this.dispose();
+
+        }
+    }
+
+    public void ketThuc() {
+        if (confirm(this, "Bạn có muốn kết thúc ứng dụng?")) {
+            System.exit(0);
+        }
+    }
+
+//    public static boolean confirm(Component parent, String message) {
+//        int result = JOptionPane.showConfirmDialog(parent, message, "Hệ thống quản lý đào tạo", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//        return result == JOptionPane.YES_OPTION;
 //    }
-
-    public static boolean confirm(Component parent, String message) {
-        int result = JOptionPane.showConfirmDialog(parent, message, "Hệ thống quản lý đào tạo", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        return result == JOptionPane.YES_OPTION;
-    }
-
-    public static void alert(Component parent, String message) {
-        JOptionPane.showMessageDialog(parent, message, "Hệ thống quản lý đào tạo", JOptionPane.INFORMATION_MESSAGE);
-    }
+//
+//    public static void alert(Component parent, String message) {
+//        JOptionPane.showMessageDialog(parent, message, "Hệ thống quản lý đào tạo", JOptionPane.INFORMATION_MESSAGE);
+//    }
 }

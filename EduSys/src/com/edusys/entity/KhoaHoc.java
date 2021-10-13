@@ -5,8 +5,8 @@
  */
 package com.edusys.entity;
 
-import com.edusys.utility_library.XDate;
-import java.sql.Date;
+import com.edusys.helper.XDate;
+import java.util.Date;
 
 /**
  *S

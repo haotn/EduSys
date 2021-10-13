@@ -6,8 +6,8 @@
 package com.edusys.ui;
 
 import com.edusys.dao.NhanVienDAO;
-import com.edusys.utility_library.Auth;
-import com.edusys.utility_library.MsgBox;
+import com.edusys.helper.Auth;
+import com.edusys.helper.MsgBox;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -177,7 +177,7 @@ public class DoiMatKhau extends javax.swing.JFrame {
 
     private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
         // TODO add your handling code here:
-        System.exit(0);
+        dispose();
     }//GEN-LAST:event_closeMouseClicked
 
     private void closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseEntered
@@ -194,7 +194,7 @@ public class DoiMatKhau extends javax.swing.JFrame {
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có chắc muốn hủy không?");
         if (confirm == JOptionPane.YES_OPTION) {
-            System.exit(0);
+            huyBo();
         }
     }//GEN-LAST:event_btnHuyActionPerformed
 
@@ -228,6 +228,8 @@ public class DoiMatKhau extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DoiMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -280,10 +282,11 @@ public class DoiMatKhau extends javax.swing.JFrame {
             Auth.user.setMatKhau(matKhauMoi);
             dao.update(Auth.user);
             MsgBox.alert(this, "Đổi mật khẩu thành công!");
+            dispose();
         }
     }
 
-//    private void huyBo() {
-//        dispose();
-//    }
+    private void huyBo() {
+        dispose();
+    }
 }

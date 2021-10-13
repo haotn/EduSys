@@ -10,6 +10,7 @@ package com.edusys.entity;
  * @author haotn
  */
 public class ChuyenDe {
+
     private String MaCD;
     private String TenCD;
     private float hocPhi;
@@ -28,7 +29,17 @@ public class ChuyenDe {
         this.hinhCD = hinhCD;
         this.moTa = moTa;
     }
-    
+
+    @Override
+    public String toString() {
+        return this.TenCD;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        ChuyenDe other = (ChuyenDe) o;
+        return other.getMaCD().equals(this.getMaCD());
+    }
 
     /**
      * @return the MaCD

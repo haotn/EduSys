@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/UI/EduSys_JFrame.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>31</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/DuAnMau_FA21/Assignment/EduSys_07102021/EduSys/EduSys/src/com/edusys/ui/GUI.java</file>
+            <file>file:/D:/DuAnMau_FA21/Assignment/EduSys_Main/EduSys/EduSys/src/com/edusys/ui/PanelQuanLyChuyenDe.java</file>
+            <file>file:/D:/DuAnMau_FA21/Assignment/EduSys_Main/EduSys/EduSys/src/com/edusys/ui/PanelQuanLyKhoaHoc.java</file>
+            <file>file:/D:/DuAnMau_FA21/Assignment/EduSys_Main/EduSys/EduSys/src/com/edusys/dao/ChuyenDeDAO.java</file>
+            <file>file:/D:/DuAnMau_FA21/Assignment/EduSys_Main/EduSys/EduSys/src/com/edusys/ui/EduSys_JFrame.java</file>
         </group>
     </open-files>
 </project-private>

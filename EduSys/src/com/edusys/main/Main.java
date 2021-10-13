@@ -5,10 +5,15 @@
  */
 package com.edusys.main;
 
+import com.edusys.ui.Chao;
+
 /**
  *
  * @author haotn
  */
 public class Main {
-    //Main class
+
+    public static void main(String[] args) {
+        new Chao().setVisible(true);
+    }
 }

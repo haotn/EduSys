@@ -17,10 +17,10 @@ import java.sql.SQLException;
  */
 public class Xjdbc {
 
-    static String driver = "com.microsoft.sqlserver.SQLServerDriver";
-    static String dburl = "jdbc:sqlserver://localhost;database=EDUSYS";
+    static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    static String dburl = "jdbc:sqlserver://localhost:1433;databaseName=EDUSYS";
     static String user = "sa";
-    static String pass = "00000";
+    static String pass = "sa123";
 
     static {
         try {

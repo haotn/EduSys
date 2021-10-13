@@ -6,6 +6,7 @@
 package com.edusys.dao;
 
 import com.edusys.entity.ChuyenDe;
+import com.edusys.entity.KhoaHoc;
 import com.edusys.helper.Xjdbc;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +22,7 @@ import java.util.logging.Logger;
 public class ChuyenDeDAO extends EduSysDAO<ChuyenDe, String> {
 
     String INSERT_SQL = "INSERT INTO CHUYENDE(MACD, TENCD, HOCPHI, THOILUONG, HINH, MOTA) VALUES (?, ?, ?, ?, ?, ?)";
-    String UPDATE_SQL = "UPDATE CHUYENDE SET TENCD = ?, HOCPHI = ?, THOILUONG = ?, HINH=?  WHERE MACD = ?";
+    String UPDATE_SQL = "UPDATE CHUYENDE SET TENCD = ?, HOCPHI = ?, THOILUONG = ?, HINH=?, MOTA =? WHERE MACD = ?";
     String DELETE_SQL = "DELETE FROM CHUYENDE WHERE MACD = ?";
     String SELECT_ALL_SQL = "SELECT * FROM CHUYENDE";
     String SELECT_BY_ID_SQL = "SELECT * FROM CHUYENDE WHERE MACD = ?";
@@ -38,7 +39,7 @@ public class ChuyenDeDAO extends EduSysDAO<ChuyenDe, String> {
     @Override
     public void update(ChuyenDe entity) {
         try {
-            Xjdbc.update(UPDATE_SQL, entity.getTenCD(), entity.getHocPhi(), entity.getThoiLuong(), entity.getHinhCD(), entity.getTenCD(), entity.getMaCD());
+            Xjdbc.update(UPDATE_SQL, entity.getTenCD(), entity.getHocPhi(), entity.getThoiLuong(), entity.getHinhCD(), entity.getMoTa(), entity.getMaCD());
         } catch (SQLException ex) {
             Logger.getLogger(ChuyenDeDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -87,6 +88,11 @@ public class ChuyenDeDAO extends EduSysDAO<ChuyenDe, String> {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public ChuyenDe checkForDelete(String id) {
+        String sql = "SELECT * FROM CHUYENDE WHERE MACD = ? AND MACD IN (SELECT MACD FROM KHOAHOC)";
+        return selectBySql(sql, id).get(0);
     }
 
 }

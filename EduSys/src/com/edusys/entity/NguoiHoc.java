@@ -6,37 +6,29 @@
 package com.edusys.entity;
 
 import java.sql.Date;
+import java.util.List;
 
 /**
  *
  * @author QUOC DAO
  */
 public class NguoiHoc {
-    private String MaNH;	
+
+    public static List<NguoiHoc> selectBySql(String sql, String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    private String MaNH;
     private String Ho;
     private String Ten;
-    private Boolean gioiTinh;
-    private Date ngaySinh;
+    private Boolean gioiTinh = true;
+    private String ngaySinh;
     private String dienThoai;
     private String Email;
     private String ghiChu;
     private String MaNV;
-    private Date NgayDK;	
-    
-    public NguoiHoc() {}
-	
-    public NguoiHoc(String MaNH, String Ho, String Ten, Boolean gioiTinh, Date ngaySinh, String dienThoai, String Email, String ghiChu, String MaNV, Date NgayDK) {
-        this.MaNH = MaNH;
-        this.Ho = Ho;
-        this.Ten = Ten;
-        this.gioiTinh = gioiTinh;
-        this.ngaySinh = ngaySinh;
-        this.dienThoai = dienThoai;
-        this.Email = Email;
-        this.ghiChu = ghiChu;
-        this.MaNV = MaNV;
-        this.NgayDK = NgayDK;
-    }
+    private Date NgayDK;
+
+ 
 
     public String getMaNH() {
         return MaNH;
@@ -70,11 +62,11 @@ public class NguoiHoc {
         this.gioiTinh = gioiTinh;
     }
 
-    public Date getNgaySinh() {
+    public String getNgaySinh() {
         return ngaySinh;
     }
 
-    public void setNgaySinh(Date ngaySinh) {
+    public void setNgaySinh(String ngaySinh) {
         this.ngaySinh = ngaySinh;
     }
 

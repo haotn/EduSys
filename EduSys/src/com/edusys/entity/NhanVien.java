@@ -12,49 +12,80 @@ package com.edusys.entity;
 public class NhanVien {
     public String maNV;
     public String matKhau;
-    public String hoTen;
-    public boolean vaiTro;
+    public String ho;
+    public String ten;
+    public boolean vaiTro = false;
 
-    public NhanVien() {
-    }
-
-    public NhanVien(String maNV, String matKhau, String hoTen, boolean vaiTro) {
-        this.maNV = maNV;
-        this.matKhau = matKhau;
-        this.hoTen = hoTen;
-        this.vaiTro = vaiTro;
-    }
-
+    /**
+     * @return the maNV
+     */
     public String getMaNV() {
         return maNV;
     }
 
+    /**
+     * @param maNV the maNV to set
+     */
     public void setMaNV(String maNV) {
         this.maNV = maNV;
     }
 
+    /**
+     * @return the matKhau
+     */
     public String getMatKhau() {
         return matKhau;
     }
 
+    /**
+     * @param matKhau the matKhau to set
+     */
     public void setMatKhau(String matKhau) {
         this.matKhau = matKhau;
     }
 
-    public String getHoTen() {
-        return hoTen;
+    /**
+     * @return the ho
+     */
+    public String getHo() {
+        return ho;
     }
 
-    public void setHoTen(String hoTen) {
-        this.hoTen = hoTen;
+    /**
+     * @param ho the ho to set
+     */
+    public void setHo(String ho) {
+        this.ho = ho;
     }
 
+    /**
+     * @return the ten
+     */
+    public String getTen() {
+        return ten;
+    }
+
+    /**
+     * @param ten the ten to set
+     */
+    public void setTen(String ten) {
+        this.ten = ten;
+    }
+
+    /**
+     * @return the vaiTro
+     */
     public boolean isVaiTro() {
         return vaiTro;
     }
 
+    /**
+     * @param vaiTro the vaiTro to set
+     */
     public void setVaiTro(boolean vaiTro) {
         this.vaiTro = vaiTro;
     }
+
+
     
 }
