@@ -32,10 +32,10 @@ public class DangNhap extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         txtUser.setBackground(new Color(0, 0, 0, 1));
         pwdPass.setBackground(new Color(0, 0, 0, 1));
-        txtUser.setText("admin");
-        pwdPass.setText("admin123");
-        btnDangNhap.doClick();
-        dispose();
+//        txtUser.setText("admin");
+//        pwdPass.setText("admin123");
+//        btnDangNhap.doClick();
+//        dispose();
     }
 
     /**

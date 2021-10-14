@@ -121,8 +121,8 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
         tblKhoaHoc.setGridColor(new java.awt.Color(255, 255, 255));
         tblKhoaHoc.setRowHeight(30);
         tblKhoaHoc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblKhoaHocMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblKhoaHocMousePressed(evt);
             }
         });
         jScrollPane8.setViewportView(tblKhoaHoc);
@@ -307,19 +307,6 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
         add(cboLocChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 250, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cboLocChuyenDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboLocChuyenDeActionPerformed
-        // TODO add your handling code here:
-        fillTable();
-
-    }//GEN-LAST:event_cboLocChuyenDeActionPerformed
-
-    private void tblKhoaHocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblKhoaHocMouseClicked
-        // TODO add your handling code here:
-        row = tblKhoaHoc.getSelectedRow();
-        edit();
-
-    }//GEN-LAST:event_tblKhoaHocMouseClicked
-
     private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
         // TODO add your handling code here:
         first();
@@ -358,7 +345,22 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         // TODO add your handling code here:
         clearForm();
+        fillComboBoxChuyenDe();
+        fillTable();
+        updateStatus();
+
     }//GEN-LAST:event_btnLamMoiActionPerformed
+
+    private void cboLocChuyenDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboLocChuyenDeActionPerformed
+        // TODO add your handling code 
+        chonChuyenDe();
+    }//GEN-LAST:event_cboLocChuyenDeActionPerformed
+
+    private void tblKhoaHocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblKhoaHocMousePressed
+        // TODO add your handling code here:
+            row = tblKhoaHoc.getSelectedRow();
+        edit();
+    }//GEN-LAST:event_tblKhoaHocMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -401,12 +403,12 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
 
     public void setForm(KhoaHoc kh) {
         ChuyenDe chuyenDe = (ChuyenDe) cboLocChuyenDe.getSelectedItem();
-        txtChuyenDe.setText(chuyenDe.getTenCD());
-        txtHocPhi.setText(String.valueOf(kh.getHocPhi()));
-        txtThoiLuong.setText(String.valueOf(kh.getThoiLuong()));
+        //txtChuyenDe.setText(chuyenDe.getTenCD());
+        //txtHocPhi.setText(String.valueOf(kh.getHocPhi()));
+        //txtThoiLuong.setText(String.valueOf(kh.getThoiLuong()));
         txtNgayKhaiGiang.setText(XDate.toString(kh.getNgayKG(), "yyyy-MM-dd"));
         txtNgayTao.setText(XDate.toString(kh.getNgayTao(), "yyyy-MM-dd"));
-        txtNguoiTao.setText(kh.getMaNV());
+        //txtNguoiTao.setText(kh.getMaNV());
         txtGhiChu.setText(kh.getGhiChu());
     }
 
@@ -431,6 +433,7 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
         txtNgayKhaiGiang.setText("");
         txtGhiChu.setText("");
         updateStatus();
+        fillComboBoxChuyenDe();
     }
 
     public void edit() {
@@ -539,11 +542,12 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
         txtThoiLuong.setEditable(false);
         txtNgayTao.setEditable(false);
         txtNguoiTao.setEditable(false);
-        txtChuyenDe.setText(chuyenDe.getTenCD());
-        txtHocPhi.setText(String.valueOf(chuyenDe.getHocPhi()));
-        txtThoiLuong.setText(String.valueOf(chuyenDe.getThoiLuong()));
-        txtNguoiTao.setText(Auth.user.getMaNV());
-        txtNgayTao.setText(XDate.toString(new Date(), "yyyy-MM-dd"));
+//        txtChuyenDe.setText(chuyenDe.getTenCD());
+//        txtHocPhi.setText(String.valueOf(chuyenDe.getHocPhi()));
+//        txtThoiLuong.setText(String.valueOf(chuyenDe.getThoiLuong()));
+//        txtNguoiTao.setText(Auth.user.getMaNV());
+//        txtNgayTao.setText(XDate.toString(new Date(), "yyyy-MM-dd"));
+        chonChuyenDe();
 
         btnThem.setEnabled(!edit);
         btnCapNhat.setEnabled(edit);
@@ -553,39 +557,29 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
         btnPrev.setEnabled(edit && !first);
         btnNext.setEnabled(edit && !last);
         btnLast.setEnabled(edit && !last);
-
     }
 
     public void fillComboBoxChuyenDe() {
         //Dùng để đổ dữ liệu vào cboChuyenDe_KhoaHoc 
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                while (true) {
-//                    try {
-        //Thread.sleep(3000);
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboLocChuyenDe.getModel();
         model.removeAllElements();
         List<ChuyenDe> list = chuyenDeDAO.selectAll();
         for (ChuyenDe cd : list) {
             model.addElement(cd);
         }
-//                    } catch (InterruptedException ex) {
-//                        Logger.getLogger(PanelQuanLyKhoaHoc.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-//                }
-//            }
-//        }).start();
     }
 
     public void fillTable() {
-        DefaultTableModel model = (DefaultTableModel) tblKhoaHoc.getModel();
+        //DefaultTableModel model = (DefaultTableModel) tblKhoaHoc.getModel();
         model.setRowCount(0);
         try {
-            ChuyenDe chuyenDe = (ChuyenDe) cboLocChuyenDe.getSelectedItem();
-            List<KhoaHoc> list = khoaHocDAO.selectByChuyenDe(chuyenDe.getMaCD());
-            for (KhoaHoc kh : list) {
-                model.addRow(new Object[]{kh.getMaKH(), kh.getMaCD(), kh.getThoiLuong(), kh.getHocPhi(), XDate.toString(kh.getNgayKG(), "dd/MM/yyyy"), kh.getMaNV(), XDate.toString(kh.getNgayTao(), "dd/MM/yyyy")});
+            if (cboLocChuyenDe.getItemCount() > 0) {
+                ChuyenDe chuyenDe = (ChuyenDe) cboLocChuyenDe.getSelectedItem();
+                List<KhoaHoc> list = khoaHocDAO.selectByChuyenDe(chuyenDe.getMaCD());
+                for (KhoaHoc kh : list) {
+                    model.addRow(new Object[]{kh.getMaKH(), kh.getMaCD(), kh.getThoiLuong(), kh.getHocPhi(), XDate.toString(kh.getNgayKG(), "dd/MM/yyyy"), kh.getMaNV(), XDate.toString(kh.getNgayTao(), "dd/MM/yyyy")});
+                }
+            } else {
             }
         } catch (Exception e) {
         }
@@ -593,12 +587,22 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
 
     public void chonChuyenDe() {
         ChuyenDe chuyenDe = (ChuyenDe) cboLocChuyenDe.getSelectedItem();
-        txtThoiLuong.setText(String.valueOf(chuyenDe.getThoiLuong()));
-        txtHocPhi.setText(String.valueOf(chuyenDe.getHocPhi()));
-        txtChuyenDe.setText(chuyenDe.getTenCD());
-        txtGhiChu.setText(chuyenDe.getTenCD());
+        if (chuyenDe != null) {
+            txtThoiLuong.setText(String.valueOf(chuyenDe.getThoiLuong()));
+            txtHocPhi.setText(String.valueOf(chuyenDe.getHocPhi()));
+            txtChuyenDe.setText(chuyenDe.getTenCD());
+            txtGhiChu.setText(chuyenDe.getTenCD());
+        }
         fillTable();
         row = -1;
+    }
+
+    public DefaultComboBoxModel getModel() {
+        return (DefaultComboBoxModel) cboLocChuyenDe.getModel();
+    }
+
+    public void setModel(DefaultComboBoxModel model) {
+        cboLocChuyenDe.setModel(model);
     }
 
 }

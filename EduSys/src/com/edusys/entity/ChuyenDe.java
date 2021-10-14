@@ -35,11 +35,11 @@ public class ChuyenDe {
         return this.TenCD;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        ChuyenDe other = (ChuyenDe) o;
-        return other.getMaCD().equals(this.getMaCD());
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        ChuyenDe other = (ChuyenDe) o;
+//        return other.getMaCD().equals(this.getMaCD());
+//    }
 
     /**
      * @return the MaCD

@@ -6,9 +6,12 @@
 package com.edusys.ui;
 
 import AppPackage.AnimationClass;
+import com.edusys.dao.ChuyenDeDAO;
+import com.edusys.entity.ChuyenDe;
 import com.edusys.helper.Auth;
 import com.edusys.helper.MsgBox;
 import java.awt.CardLayout;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.JToggleButton;
 
@@ -361,8 +364,9 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
     private void btnGioiThieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGioiThieuActionPerformed
         // TODO add your handling code here:
         selectedButton(btnGioiThieu);
+        pnlRight.removeAll();
+        pnlRight.add(new PanelGioiThieu(), "cardGioiThieu");
         chuyenPanel("cardGioiThieu");
-
     }//GEN-LAST:event_btnGioiThieuActionPerformed
 
     private void btnTrangChuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrangChuActionPerformed
@@ -380,6 +384,8 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
     private void btnQuanLyNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyNhanVienActionPerformed
         // TODO add your handling code here:
         selectedButton(btnQuanLyNhanVien);
+         pnlRight.removeAll();
+        pnlRight.add(new PanelQuanLyNhanVien(), "cardQuanLyNhanVien");
         chuyenPanel("cardQuanLyNhanVien");
     }//GEN-LAST:event_btnQuanLyNhanVienActionPerformed
 
@@ -399,6 +405,7 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         selectedButton(btnQuanLyKhoaHoc);
         chuyenPanel("cardQuanlyKhoaHoc");
+        updateChuyenDe_KhoaHoc();
     }//GEN-LAST:event_btnQuanLyKhoaHocActionPerformed
 
     private void btnDoanhThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoanhThuActionPerformed
@@ -575,5 +582,15 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
         btnDiemTheoChuyenDe.setSelected(false);
         btnDoanhThu.setSelected(false);
         btn.setSelected(true);
+    }
+
+    public void updateChuyenDe_KhoaHoc() {
+        PanelQuanLyKhoaHoc kh = new PanelQuanLyKhoaHoc();
+        DefaultComboBoxModel model = (DefaultComboBoxModel) kh.getModel();
+        model.removeAllElements();
+        List<ChuyenDe> list = new ChuyenDeDAO().selectAll();
+        for (ChuyenDe cd : list) {
+            model.addElement(cd);
+        }
     }
 }

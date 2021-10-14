@@ -12,6 +12,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.File;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
@@ -314,7 +315,6 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
         isUpdate = true;
         if (check()) {
             update();
-
         }
     }//GEN-LAST:event_btnCapNhatActionPerformed
 
@@ -577,11 +577,4 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
         return true;
     }
 
-//    public void updateChuyenDe_KhoaHoc() {
-//        PanelQuanLyKhoaHoc kh = new PanelQuanLyKhoaHoc();
-//        JComboBox<String> cboChuyenDe = new JComboBox();
-//        DefaultTableModel model =  (DefaultTableModel)cboChuyenDe.getModel();
-//        model.
-//        kh.setCboLocChuyenDe(cboChuyenDe);
-//    }
 }
