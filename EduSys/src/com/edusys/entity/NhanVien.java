@@ -12,8 +12,7 @@ package com.edusys.entity;
 public class NhanVien {
     public String maNV;
     public String matKhau;
-    public String ho;
-    public String ten;
+    public String hoTen;
     public boolean vaiTro = false;
 
     /**
@@ -45,31 +44,17 @@ public class NhanVien {
     }
 
     /**
-     * @return the ho
+     * @return the hoTen
      */
-    public String getHo() {
-        return ho;
+    public String getHoTen() {
+        return hoTen;
     }
 
     /**
-     * @param ho the ho to set
+     * @param hoTen the hoTen to set
      */
-    public void setHo(String ho) {
-        this.ho = ho;
-    }
-
-    /**
-     * @return the ten
-     */
-    public String getTen() {
-        return ten;
-    }
-
-    /**
-     * @param ten the ten to set
-     */
-    public void setTen(String ten) {
-        this.ten = ten;
+    public void setHoTen(String hoTen) {
+        this.hoTen = hoTen;
     }
 
     /**
@@ -85,6 +70,7 @@ public class NhanVien {
     public void setVaiTro(boolean vaiTro) {
         this.vaiTro = vaiTro;
     }
+
 
 
     

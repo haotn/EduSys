@@ -420,7 +420,7 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
             }
 
             for (NhanVien nv : list) {
-                Object[] row = {nv.getMaNV(), nv.getHo() + nv.getTen(), nv.isVaiTro() ? "Trưởng phòng" : "Nhân viên"};
+                Object[] row = {nv.getMaNV(), nv.getHoTen(), nv.isVaiTro() ? "Trưởng phòng" : "Nhân viên"};
                 model.addRow(row); // Thêm một hàng vào JTable
             }
         } catch (Exception e) {
@@ -431,7 +431,7 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
 
     public void setForm(NhanVien nv) {
         txtMaNV.setText(nv.getMaNV());
-        txtHoTenNV.setText(nv.getHo() + " " + nv.getTen());
+        txtHoTenNV.setText(nv.getHoTen());
         pwdMatKhau.setText(nv.getMatKhau());
         pwdXacNhanMatKhau.setText(nv.getMatKhau());
         if (nv.isVaiTro() == true) {
@@ -442,25 +442,24 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
 
     }
 
-    public String catHo(String hoTen) {
-        String ho = "";
-        int last = hoTen.lastIndexOf(" ");
-        ho = hoTen.substring(0, last);
-        return ho;
-    }
-
-    public String catTen(String hoTen) {
-        String ten = "";
-        int last = hoTen.lastIndexOf(" ");
-        ten = hoTen.substring(last+1, hoTen.length());
-        return ten;
-    }
+//    public String catHo(String hoTen) {
+//        String ho = "";
+//        int last = hoTen.lastIndexOf(" ");
+//        ho = hoTen.substring(0, last);
+//        return ho;
+//    }
+//
+//    public String catTen(String hoTen) {
+//        String ten = "";
+//        int last = hoTen.lastIndexOf(" ");
+//        ten = hoTen.substring(last + 1, hoTen.length());
+//        return ten;
+//    }
 
     public NhanVien getForm() {
         NhanVien nv = new NhanVien();
         nv.setMaNV(txtMaNV.getText());
-        nv.setHo(catHo(txtHoTenNV.getText()));
-        nv.setTen(catTen(txtHoTenNV.getText()));
+        nv.setHoTen(txtHoTenNV.getText());
         nv.setMatKhau(String.valueOf(pwdMatKhau.getPassword()));
         nv.setVaiTro(rdoTruongPhong.isSelected());
         return nv;

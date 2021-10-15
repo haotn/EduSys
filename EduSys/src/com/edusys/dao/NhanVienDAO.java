@@ -20,8 +20,8 @@ import java.util.logging.Logger;
  */
 public class NhanVienDAO extends EduSysDAO<NhanVien, String> {
 
-    String INSERT_SQL = "INSERT INTO NHANVIEN(MANV, HO, TEN, MATKHAU, VAITRO) VALUES (?, ?, ?, ?, ?)";
-    String UPDATE_SQL = "UPDATE NHANVIEN SET  HO =?, TEN =?, MATKHAU =?, VAITRO = ? WHERE MANV =?";
+    String INSERT_SQL = "INSERT INTO NHANVIEN(MANV, HOTEN, MATKHAU, VAITRO) VALUES ( ?, ?, ?, ?)";
+    String UPDATE_SQL = "UPDATE NHANVIEN SET  HOTEN =?, MATKHAU =?, VAITRO = ? WHERE MANV =?";
     String DELETE_SQL = "DELETE FROM NHANVIEN WHERE MANV = ?";
     String SELECT_ALL_SQL = "SELECT * FROM NHANVIEN";
     String SELECT_BY_ID_SQL = "SELECT * FROM NHANVIEN WHERE MANV = ?";
@@ -29,7 +29,7 @@ public class NhanVienDAO extends EduSysDAO<NhanVien, String> {
     @Override
     public void insert(NhanVien entity) {
         try {
-            Xjdbc.update(INSERT_SQL, entity.getMaNV(), entity.getHo(), entity.getTen(), entity.getMatKhau(), entity.isVaiTro());
+            Xjdbc.update(INSERT_SQL, entity.getMaNV(), entity.getHoTen(), entity.getMatKhau(), entity.isVaiTro());
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
@@ -38,7 +38,7 @@ public class NhanVienDAO extends EduSysDAO<NhanVien, String> {
     @Override
     public void update(NhanVien entity) {
         try {
-            Xjdbc.update(UPDATE_SQL, entity.getHo(), entity.getTen(), entity.getMatKhau(), entity.isVaiTro(), entity.getMaNV());
+            Xjdbc.update(UPDATE_SQL, entity.getHoTen(), entity.getMatKhau(), entity.isVaiTro(), entity.getMaNV());
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
@@ -77,8 +77,7 @@ public class NhanVienDAO extends EduSysDAO<NhanVien, String> {
                 NhanVien entity = new NhanVien();
                 entity.setMaNV(result.getString("MANV"));
                 entity.setMatKhau(result.getString("MATKHAU"));
-                entity.setHo(result.getString("HO"));
-                entity.setTen(result.getString("TEN"));
+                entity.setHoTen(result.getString("HOTEN"));
                 entity.setVaiTro(result.getBoolean("VAITRO"));
                 list.add(entity);
             }
@@ -90,7 +89,7 @@ public class NhanVienDAO extends EduSysDAO<NhanVien, String> {
 
     }
         public List<NhanVien> selectByKeyWord(String keyword) {
-        String sql = "SELECT * FROM NHANVIEN WHERE HO + ' ' + TEN LIKE ?";
+        String sql = "SELECT * FROM NHANVIEN WHERE HOTEN LIKE ?";
         return selectBySql(sql, "%" + keyword + "%");
     }
 

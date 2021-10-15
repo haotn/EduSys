@@ -20,7 +20,7 @@ public class Xjdbc {
     static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     static String dburl = "jdbc:sqlserver://localhost:1433;databaseName=EDUSYS";
     static String user = "sa";
-    static String pass = "sa123";
+    static String pass = "123";
 
     static {
         try {

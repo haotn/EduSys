@@ -20,9 +20,9 @@ import java.util.logging.Logger;
  */
 public class NguoiHocDAO extends EduSysDAO<NguoiHoc, String> {
 
-    String INSERT_SQL = "INSERT INTO NGUOIHOC(MANH, HO, TEN, GIOITINH, NGAYSINH, DIENTHOAI, EMAIL, GHICHU, MANV, NGAYDK)"
-            + "VALUES(?,?,?,?,?,?,?,?,?,?)";
-    String UPDATE_SQL = "UPDATE NGUOIHOC SET HO=?, TEN=?, GIOITINH=?, NGAYSINH=?, DIENTHOAI=?, EMAIL=?, GHICHU=?, MANV=? , NGAYDK=? WHERE MANH=?";
+    String INSERT_SQL = "INSERT INTO NGUOIHOC(MANH, HOTEN, GIOITINH, NGAYSINH, DIENTHOAI, EMAIL, GHICHU, MANV, NGAYDK)"
+            + "VALUES(?,?,?,?,?,?,?,?,?)";
+    String UPDATE_SQL = "UPDATE NGUOIHOC SET HOTEN=?, GIOITINH=?, NGAYSINH=?, DIENTHOAI=?, EMAIL=?, GHICHU=?, MANV=? , NGAYDK=? WHERE MANH=?";
     String DELETE_SQL = "DELETE FROM NGUOIHOC WHERE MANH=?";
     String SELECT_ALL_SQL = "SELECT * FROM NGUOIHOC";
     String SELECT_BY_ID_SQL = "SELECT * FROM NGUOIHOC WHERE MANH=?";
@@ -30,7 +30,7 @@ public class NguoiHocDAO extends EduSysDAO<NguoiHoc, String> {
     @Override
     public void insert(NguoiHoc entity) {
         try {
-            Xjdbc.update(INSERT_SQL, entity.getMaNH(), entity.getHo(), entity.getTen(), entity.getGioiTinh(), entity.getNgaySinh(),
+            Xjdbc.update(INSERT_SQL, entity.getMaNH(), entity.getHoTen(), entity.getGioiTinh(), entity.getNgaySinh(),
                     entity.getDienThoai(), entity.getEmail(), entity.getGhiChu(), entity.getMaNV(), entity.getNgayDK());
         } catch (Exception ex) {
             Logger.getLogger(ChuyenDeDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -40,7 +40,7 @@ public class NguoiHocDAO extends EduSysDAO<NguoiHoc, String> {
     @Override
     public void update(NguoiHoc entity) {
         try {
-            Xjdbc.update(UPDATE_SQL, entity.getHo(), entity.getTen(), entity.getGioiTinh(), XDate.toDate(entity.getNgaySinh(), "yyyy-MM-dd"),
+            Xjdbc.update(UPDATE_SQL, entity.getHoTen(), entity.getGioiTinh(), XDate.toDate(entity.getNgaySinh(), "yyyy-MM-dd"),
                     entity.getDienThoai(), entity.getEmail(), entity.getGhiChu(), entity.getMaNV(), entity.getNgayDK(), entity.getMaNH());
         } catch (Exception ex) {
             Logger.getLogger(ChuyenDeDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -78,8 +78,7 @@ public class NguoiHocDAO extends EduSysDAO<NguoiHoc, String> {
             while (result.next()) {
                 NguoiHoc entity = new NguoiHoc();
                 entity.setMaNH(result.getString("MANH"));
-                entity.setHo(result.getString("HO"));
-                entity.setTen(result.getString("TEN"));
+                entity.setHoTen(result.getString("HOTEN"));
                 entity.setGioiTinh(result.getBoolean("GIOITINH"));
                 entity.setNgaySinh(XDate.toString(result.getDate("NGAYSINH"), "yyyy-MM-dd"));
                 entity.setDienThoai(result.getString("DIENTHOAI"));
@@ -96,12 +95,12 @@ public class NguoiHocDAO extends EduSysDAO<NguoiHoc, String> {
     }
 
     public List<NguoiHoc> selectByKeyWordAndNotInCourse(int makh, String keyword) {
-        String sql = "SELECT * FROM NGUOIHOC WHERE HO + ' ' +TEN LIKE ? AND MANH NOT IN (SELECT MANH FROM HOCVIEN WHERE MAKH = ?)";
+        String sql = "SELECT * FROM NGUOIHOC WHERE HOTEN LIKE ? AND MANH NOT IN (SELECT MANH FROM HOCVIEN WHERE MAKH = ?)";
         return this.selectBySql(sql, "%" + keyword + "%", makh);
     }
 
     public List<NguoiHoc> selectByKeyWord( String keyword) {
-        String sql = "SELECT * FROM NGUOIHOC WHERE HO + ' ' +TEN LIKE ?";
+        String sql = "SELECT * FROM NGUOIHOC WHERE HOTEN LIKE ?";
         return this.selectBySql(sql, "%" + keyword + "%");
     }
 

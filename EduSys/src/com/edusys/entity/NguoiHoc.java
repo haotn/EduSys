@@ -14,99 +14,142 @@ import java.util.List;
  */
 public class NguoiHoc {
 
-    public static List<NguoiHoc> selectBySql(String sql, String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    private String MaNH;
-    private String Ho;
-    private String Ten;
-    private Boolean gioiTinh = true;
-    private String ngaySinh;
-    private String dienThoai;
-    private String Email;
-    private String ghiChu;
-    private String MaNV;
-    private Date NgayDK;
+    public String maNH;
+    public String hoTen;
+    public Boolean gioiTinh = true;
+    public String ngaySinh;
+    public String dienThoai;
+    public String email;
+    public String ghiChu;
+    public String maNV;
+    public Date ngayDK;
 
- 
-
+    /**
+     * @return the maNH
+     */
     public String getMaNH() {
-        return MaNH;
+        return maNH;
     }
 
-    public void setMaNH(String MaNH) {
-        this.MaNH = MaNH;
+    /**
+     * @param maNH the maNH to set
+     */
+    public void setMaNH(String maNH) {
+        this.maNH = maNH;
     }
 
-    public String getHo() {
-        return Ho;
+    /**
+     * @return the hoTen
+     */
+    public String getHoTen() {
+        return hoTen;
     }
 
-    public void setHo(String Ho) {
-        this.Ho = Ho;
+    /**
+     * @param hoTen the hoTen to set
+     */
+    public void setHoTen(String hoTen) {
+        this.hoTen = hoTen;
     }
 
-    public String getTen() {
-        return Ten;
-    }
-
-    public void setTen(String Ten) {
-        this.Ten = Ten;
-    }
-
+    /**
+     * @return the gioiTinh
+     */
     public Boolean getGioiTinh() {
         return gioiTinh;
     }
 
+    /**
+     * @param gioiTinh the gioiTinh to set
+     */
     public void setGioiTinh(Boolean gioiTinh) {
         this.gioiTinh = gioiTinh;
     }
 
+    /**
+     * @return the ngaySinh
+     */
     public String getNgaySinh() {
         return ngaySinh;
     }
 
+    /**
+     * @param ngaySinh the ngaySinh to set
+     */
     public void setNgaySinh(String ngaySinh) {
         this.ngaySinh = ngaySinh;
     }
 
+    /**
+     * @return the dienThoai
+     */
     public String getDienThoai() {
         return dienThoai;
     }
 
+    /**
+     * @param dienThoai the dienThoai to set
+     */
     public void setDienThoai(String dienThoai) {
         this.dienThoai = dienThoai;
     }
 
+    /**
+     * @return the email
+     */
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 
+    /**
+     * @return the ghiChu
+     */
     public String getGhiChu() {
         return ghiChu;
     }
 
+    /**
+     * @param ghiChu the ghiChu to set
+     */
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
     }
 
+    /**
+     * @return the maNV
+     */
     public String getMaNV() {
-        return MaNV;
+        return maNV;
     }
 
-    public void setMaNV(String MaNV) {
-        this.MaNV = MaNV;
+    /**
+     * @param maNV the maNV to set
+     */
+    public void setMaNV(String maNV) {
+        this.maNV = maNV;
     }
 
+    /**
+     * @return the ngayDK
+     */
     public Date getNgayDK() {
-        return NgayDK;
+        return ngayDK;
     }
 
-    public void setNgayDK(Date NgayDK) {
-        this.NgayDK = NgayDK;
+    /**
+     * @param ngayDK the ngayDK to set
+     */
+    public void setNgayDK(Date ngayDK) {
+        this.ngayDK = ngayDK;
     }
+
+ 
+
 }

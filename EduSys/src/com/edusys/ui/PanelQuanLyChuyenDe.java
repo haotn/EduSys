@@ -112,8 +112,8 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
         tblChuyenDe.setGridColor(new java.awt.Color(255, 255, 255));
         tblChuyenDe.setRowHeight(30);
         tblChuyenDe.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblChuyenDeMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblChuyenDeMousePressed(evt);
             }
         });
         jScrollPane6.setViewportView(tblChuyenDe);
@@ -328,11 +328,11 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
         chonAnh();
     }//GEN-LAST:event_lblLogoChuyenDeMouseClicked
 
-    private void tblChuyenDeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblChuyenDeMouseClicked
+    private void tblChuyenDeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblChuyenDeMousePressed
         // TODO add your handling code here:
         index = tblChuyenDe.getSelectedRow();
         edit();
-    }//GEN-LAST:event_tblChuyenDeMouseClicked
+    }//GEN-LAST:event_tblChuyenDeMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -366,7 +366,7 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
 
     JFileChooser filenChooser = new JFileChooser();
     ChuyenDeDAO dao = new ChuyenDeDAO();
-    int index = 0;
+    int index = -1;
     boolean isUpdate = false;
 
     void chonAnh() {
@@ -446,7 +446,7 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
         try {
             dao.insert(model);
             this.fillTable();
-            MsgBox.alert(this, "Thêm mới thành công!");
+            //MsgBox.alert(this, "Thêm mới thành công!");
         } catch (Exception e) {
             MsgBox.alert(this, "Thêm mới thất bại!");
         }
@@ -459,7 +459,7 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
                 dao.update(model);
                 this.fillTable();
                 clear();
-                MsgBox.alert(this, "Cập nhật thành công");
+                //MsgBox.alert(this, "Cập nhật thành công");
             } catch (Exception e) {
             }
 
@@ -468,23 +468,14 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
 
     void delete() {
         ChuyenDe cd = dao.selectById(String.valueOf(tblChuyenDe.getValueAt(index, 0)));
-        ChuyenDe exist = dao.checkForDelete(cd.getMaCD());
-        if (exist.getMaCD().equals(cd.getMaCD())) {
-            if (MsgBox.confirm(this, "Đã có khóa học tồn tại trong chuyên đề này, bạn có chắc muốn xóa chuyên đề và các khóa học không?")) {
+        if (MsgBox.confirm(this, "Bạn có chắc muốn xóa chuyên đề này không?")) {
+            try {
                 String maCD = txtMaChuyenDe.getText();
                 dao.delete(maCD);
                 this.fillTable();
-            }
-        } else {
-            if (MsgBox.confirm(this, "Bạn có chắc muốn xóa chuyên đề này không?")) {
-                try {
-                    String maCD = txtMaChuyenDe.getText();
-                    dao.delete(maCD);
-                    this.fillTable();
-                    MsgBox.alert(this, "Xóa thành công!");
-                } catch (Exception e) {
-                }
-
+                MsgBox.alert(this, "Xóa thành công!");
+            } catch (Exception e) {
+                MsgBox.alert(this, "Không thể xóa chuyên đề đã tồn tại khóa học!");
             }
         }
 

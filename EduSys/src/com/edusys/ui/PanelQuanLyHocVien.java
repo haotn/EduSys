@@ -82,12 +82,12 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
         tblHocVien = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblNguoiHoc = new javax.swing.JTable();
+        txtTimHocVien = new javax.swing.JTextField();
         pnlLocHocVien = new javax.swing.JPanel();
         lblLocChuyenDe = new javax.swing.JLabel();
         cboLocChuyenDe = new javax.swing.JComboBox<>();
         lblLocKhoaHoc = new javax.swing.JLabel();
         cboLocKhoaHoc = new javax.swing.JComboBox<>();
-        txtTimHocVien = new javax.swing.JTextField();
         btnThemVaoKhoaHoc = new javax.swing.JButton();
         txtTimNguoiHoc = new javax.swing.JTextField();
         btnXoaKhoiKhoaHoc = new javax.swing.JButton();
@@ -139,40 +139,10 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
             }
         ));
         tblNguoiHoc.setGridColor(new java.awt.Color(255, 255, 255));
+        tblNguoiHoc.setRowHeight(30);
         jScrollPane3.setViewportView(tblNguoiHoc);
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 1200, 250));
-
-        pnlLocHocVien.setBackground(new java.awt.Color(255, 255, 255));
-        pnlLocHocVien.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblLocChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblLocChuyenDe.setForeground(new java.awt.Color(153, 153, 153));
-        lblLocChuyenDe.setText("Chuyên đề");
-        pnlLocHocVien.add(lblLocChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, 20));
-
-        cboLocChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        cboLocChuyenDe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cboLocChuyenDe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboLocChuyenDeActionPerformed(evt);
-            }
-        });
-        pnlLocHocVien.add(cboLocChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 300, -1));
-
-        lblLocKhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblLocKhoaHoc.setForeground(new java.awt.Color(153, 153, 153));
-        lblLocKhoaHoc.setText("Khóa học");
-        pnlLocHocVien.add(lblLocKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, -1, -1));
-
-        cboLocKhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        cboLocKhoaHoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cboLocKhoaHoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboLocKhoaHocActionPerformed(evt);
-            }
-        });
-        pnlLocHocVien.add(cboLocKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 300, -1));
 
         txtTimHocVien.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         txtTimHocVien.setForeground(new java.awt.Color(153, 153, 153));
@@ -190,7 +160,38 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
                 txtTimHocVienKeyReleased(evt);
             }
         });
-        pnlLocHocVien.add(txtTimHocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, -1));
+        add(txtTimHocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 250, -1));
+
+        pnlLocHocVien.setBackground(new java.awt.Color(255, 255, 255));
+        pnlLocHocVien.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblLocChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblLocChuyenDe.setForeground(new java.awt.Color(153, 153, 153));
+        lblLocChuyenDe.setText("Chuyên đề");
+        pnlLocHocVien.add(lblLocChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, 20));
+
+        cboLocChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        cboLocChuyenDe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboLocChuyenDe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboLocChuyenDeActionPerformed(evt);
+            }
+        });
+        pnlLocHocVien.add(cboLocChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 300, -1));
+
+        lblLocKhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblLocKhoaHoc.setForeground(new java.awt.Color(153, 153, 153));
+        lblLocKhoaHoc.setText("Khóa học");
+        pnlLocHocVien.add(lblLocKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, -1));
+
+        cboLocKhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        cboLocKhoaHoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboLocKhoaHoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboLocKhoaHocActionPerformed(evt);
+            }
+        });
+        pnlLocHocVien.add(cboLocKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 300, -1));
 
         add(pnlLocHocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 1200, 40));
 
@@ -214,11 +215,6 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtTimNguoiHocFocusLost(evt);
-            }
-        });
-        txtTimNguoiHoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTimNguoiHocActionPerformed(evt);
             }
         });
         txtTimNguoiHoc.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -261,10 +257,6 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtTimNguoiHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimNguoiHocActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTimNguoiHocActionPerformed
-
     private void btnThemVaoKhoaHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemVaoKhoaHocActionPerformed
         // TODO add your handling code here:
         addHocVien();
@@ -292,6 +284,7 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
 
     private void cboLocChuyenDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboLocChuyenDeActionPerformed
         // TODO add your handling code here:
+        fillComboBoxKhoaHoc();
         fillTableHocVien();
     }//GEN-LAST:event_cboLocChuyenDeActionPerformed
 
@@ -397,7 +390,7 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
 //            }
             for (int i = 0; i < list.size(); i++) {
                 HocVien hv = list.get(i);
-                String hoTen = nhdao.selectById(hv.getMaNH()).getHo() + " " + nhdao.selectById(hv.getMaNH()).getTen();
+                String hoTen = nhdao.selectById(hv.getMaNH()).getHoTen();
                 modelHV.addRow(new Object[]{hv.getMaHV(), hv.getMaNH(), hv.getMaKH(), hoTen, hv.getDiem()});
             }
             fillTableNguoiHoc();
@@ -408,29 +401,36 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
         modelNH.setRowCount(0);
         KhoaHoc khoaHoc = (KhoaHoc) cboLocKhoaHoc.getSelectedItem();
         String keyWord = txtTimNguoiHoc.getText();
-        List<NguoiHoc> list;
+        List<NguoiHoc> list = null;
         if (keyWord.trim().equals("") || keyWord.trim().equals("Tìm kiếm người học")) {
             list = nhdao.selectNotlnCourse(khoaHoc.getMaKH());
+        } else if (khoaHoc == null) {
+            list = null;
         } else {
             list = nhdao.selectByKeyWordAndNotInCourse(khoaHoc.getMaKH(), keyWord);
         }
 
         for (NguoiHoc nh : list) {
             modelNH.addRow(new Object[]{
-                nh.getMaNH(), nh.getHo() + " " + nh.getTen(), nh.getGioiTinh() ? "Nam" : "Nữ", nh.getNgaySinh(), nh.getDienThoai(), nh.getEmail()
+                nh.getMaNH(), nh.getHoTen(), nh.getGioiTinh() ? "Nam" : "Nữ", nh.getNgaySinh(), nh.getDienThoai(), nh.getEmail()
             });
         }
     }
 
     public void addHocVien() {
         KhoaHoc khoaHoc = (KhoaHoc) cboLocKhoaHoc.getSelectedItem();
-        for (int row : tblNguoiHoc.getSelectedRows()) {
-            HocVien hv = new HocVien();
-            hv.setMaKH(khoaHoc.getMaKH());
-            hv.setDiem(0);
-            hv.setMaNH((String) tblNguoiHoc.getValueAt(row, 0));
-            hvdao.insert(hv);
+        if (khoaHoc != null) {
+            for (int row : tblNguoiHoc.getSelectedRows()) {
+                HocVien hv = new HocVien();
+                hv.setMaKH(khoaHoc.getMaKH());
+                hv.setDiem(0);
+                hv.setMaNH((String) tblNguoiHoc.getValueAt(row, 0));
+                hvdao.insert(hv);
+            }
+        } else {
+            MsgBox.alert(this, "Chưa có khóa học được tạo!");
         }
+
         fillTableHocVien();
     }
 

@@ -170,6 +170,9 @@ public class DangNhap extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAn_HienMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblAn_HienMousePressed(evt);
+            }
         });
         right.add(lblAn_Hien, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 32, 32));
         right.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 270, 10));
@@ -210,15 +213,7 @@ public class DangNhap extends javax.swing.JFrame {
 
     private void lblAn_HienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAn_HienMouseClicked
         // TODO add your handling code here:
-        if (showPass == false) {
-            pwdPass.setEchoChar((char) 0);
-            lblAn_Hien.setIcon(new ImageIcon("src/com/edusys/images/AnMatKhau.png"));
-            showPass = true;
-        } else {
-            pwdPass.setEchoChar('*');
-            lblAn_Hien.setIcon(new ImageIcon("src/com/edusys/images/HienMatKhau.png"));
-            showPass = false;
-        }
+
     }//GEN-LAST:event_lblAn_HienMouseClicked
 
     private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
@@ -236,6 +231,19 @@ public class DangNhap extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_pwdPassKeyPressed
+
+    private void lblAn_HienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAn_HienMousePressed
+        // TODO add your handling code here:
+        if (showPass == false) {
+            pwdPass.setEchoChar((char) 0);
+            lblAn_Hien.setIcon(new ImageIcon("src/com/edusys/images/AnMatKhau.png"));
+            showPass = true;
+        } else {
+            pwdPass.setEchoChar('*');
+            lblAn_Hien.setIcon(new ImageIcon("src/com/edusys/images/HienMatKhau.png"));
+            showPass = false;
+        }
+    }//GEN-LAST:event_lblAn_HienMousePressed
 
     /**
      * @param args the command line arguments

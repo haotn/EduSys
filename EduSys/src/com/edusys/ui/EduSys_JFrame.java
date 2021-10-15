@@ -11,6 +11,7 @@ import com.edusys.entity.ChuyenDe;
 import com.edusys.helper.Auth;
 import com.edusys.helper.MsgBox;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.JToggleButton;
@@ -28,7 +29,7 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
     CardLayout layout;
     AnimationClass ac = new AnimationClass();
     boolean accountToolHide = true;
-    String userName = Auth.user.getHo() + " " + Auth.user.getTen();
+    String userName = Auth.user.getHoTen();
     String user = Auth.user.getMaNV();
 
     public EduSys_JFrame() {
@@ -36,9 +37,10 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         layout = (CardLayout) pnlRight.getLayout();
         addCard();
-        selectedButton(btnTrangChu);
+        doiMauLabel(lblTrangChu);
+        chuyenPanel("cardTrangChu");
         lblUser.setText(user);
-        lblUsername.setText("Xin chào " + Auth.user.getHo() + " " + Auth.user.getTen() + "!");
+        lblUsername.setText("Xin chào " + Auth.user.getHoTen() + "!");
     }
 
     /**
@@ -57,25 +59,25 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
         lblUsername = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         lblAccountDoiMatKhau = new javax.swing.JLabel();
-        lblAcountDangXuat = new javax.swing.JLabel();
+        lblAccountDangXuat = new javax.swing.JLabel();
         lblAccountThoat = new javax.swing.JLabel();
         lblBackgroundAccountTool = new javax.swing.JLabel();
         pnlLeft = new javax.swing.JPanel();
         lblHeThong = new javax.swing.JLabel();
-        btnGioiThieu = new javax.swing.JToggleButton();
-        btnTrangChu = new javax.swing.JToggleButton();
-        btnHuongDan = new javax.swing.JToggleButton();
-        btnQuanLyNhanVien = new javax.swing.JToggleButton();
-        btnQuanLyHocVien = new javax.swing.JToggleButton();
-        btnQuanLyNguoiHoc = new javax.swing.JToggleButton();
-        btnQuanLyKhoaHoc = new javax.swing.JToggleButton();
-        btnDoanhThu = new javax.swing.JToggleButton();
-        btnBangDiem = new javax.swing.JToggleButton();
-        btnLuongNguoiHoc = new javax.swing.JToggleButton();
-        btnDiemTheoChuyenDe = new javax.swing.JToggleButton();
-        btnQuanLyChuyenDe = new javax.swing.JToggleButton();
+        lblTrangChu = new javax.swing.JLabel();
+        lblHuongDan = new javax.swing.JLabel();
+        lblGioiThieu = new javax.swing.JLabel();
         lblQuanLy = new javax.swing.JLabel();
+        lblNhanVien = new javax.swing.JLabel();
+        lblHocVien = new javax.swing.JLabel();
+        lblNguoiHoc = new javax.swing.JLabel();
+        lblKhoaHoc = new javax.swing.JLabel();
+        lblChuyenDe = new javax.swing.JLabel();
         lblThongKe = new javax.swing.JLabel();
+        lblBangDiem = new javax.swing.JLabel();
+        lblLuongNguoiHoc = new javax.swing.JLabel();
+        lblDiemTheoChuyenDe = new javax.swing.JLabel();
+        lblDoanhThu = new javax.swing.JLabel();
         lblBackgroundLeft = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
 
@@ -136,17 +138,17 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
         });
         pnlContainer.add(lblAccountDoiMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, -60, 200, 30));
 
-        lblAcountDangXuat.setBackground(new java.awt.Color(35, 75, 72));
-        lblAcountDangXuat.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblAcountDangXuat.setForeground(new java.awt.Color(255, 255, 255));
-        lblAcountDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/DangXuat.png"))); // NOI18N
-        lblAcountDangXuat.setText("Đăng xuất");
-        lblAcountDangXuat.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblAccountDangXuat.setBackground(new java.awt.Color(35, 75, 72));
+        lblAccountDangXuat.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblAccountDangXuat.setForeground(new java.awt.Color(255, 255, 255));
+        lblAccountDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/DangXuat.png"))); // NOI18N
+        lblAccountDangXuat.setText("Đăng xuất");
+        lblAccountDangXuat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblAcountDangXuatMouseClicked(evt);
+                lblAccountDangXuatMouseClicked(evt);
             }
         });
-        pnlContainer.add(lblAcountDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, -30, 200, 30));
+        pnlContainer.add(lblAccountDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, -30, 200, 30));
 
         lblAccountThoat.setBackground(new java.awt.Color(35, 75, 72));
         lblAccountThoat.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -174,161 +176,59 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
         lblHeThong.setText("Hệ thống");
         pnlLeft.add(lblHeThong, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 40));
 
-        btnGioiThieu.setBackground(new java.awt.Color(35, 75, 72));
-        btnGioiThieu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnGioiThieu.setForeground(new java.awt.Color(255, 255, 255));
-        btnGioiThieu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/GioiThieu.png"))); // NOI18N
-        btnGioiThieu.setText("Giới thiệu");
-        btnGioiThieu.setOpaque(true);
-        btnGioiThieu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGioiThieuActionPerformed(evt);
+        lblTrangChu.setBackground(new java.awt.Color(35, 75, 72));
+        lblTrangChu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblTrangChu.setForeground(new java.awt.Color(255, 255, 255));
+        lblTrangChu.setText("Trang chủ");
+        lblTrangChu.setOpaque(true);
+        lblTrangChu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblTrangChuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblTrangChuMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblTrangChuMousePressed(evt);
             }
         });
-        pnlLeft.add(btnGioiThieu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 200, 40));
+        pnlLeft.add(lblTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 40, 190, 40));
 
-        btnTrangChu.setBackground(new java.awt.Color(35, 75, 72));
-        btnTrangChu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnTrangChu.setForeground(new java.awt.Color(255, 255, 255));
-        btnTrangChu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/TrangChu.png"))); // NOI18N
-        btnTrangChu.setText("Trang chủ");
-        btnTrangChu.setOpaque(true);
-        btnTrangChu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTrangChuActionPerformed(evt);
+        lblHuongDan.setBackground(new java.awt.Color(35, 75, 72));
+        lblHuongDan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblHuongDan.setForeground(new java.awt.Color(255, 255, 255));
+        lblHuongDan.setText("Hướng dẫn");
+        lblHuongDan.setOpaque(true);
+        lblHuongDan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblHuongDanMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblHuongDanMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblHuongDanMousePressed(evt);
             }
         });
-        pnlLeft.add(btnTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 200, 40));
+        pnlLeft.add(lblHuongDan, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 80, 190, 40));
 
-        btnHuongDan.setBackground(new java.awt.Color(35, 75, 72));
-        btnHuongDan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnHuongDan.setForeground(new java.awt.Color(255, 255, 255));
-        btnHuongDan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/HuongDan.png"))); // NOI18N
-        btnHuongDan.setText("Hướng dẫn");
-        btnHuongDan.setOpaque(true);
-        btnHuongDan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHuongDanActionPerformed(evt);
+        lblGioiThieu.setBackground(new java.awt.Color(35, 75, 72));
+        lblGioiThieu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblGioiThieu.setForeground(new java.awt.Color(255, 255, 255));
+        lblGioiThieu.setText("Giới thiệu");
+        lblGioiThieu.setOpaque(true);
+        lblGioiThieu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblGioiThieuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblGioiThieuMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblGioiThieuMousePressed(evt);
             }
         });
-        pnlLeft.add(btnHuongDan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 200, 40));
-
-        btnQuanLyNhanVien.setBackground(new java.awt.Color(35, 75, 72));
-        btnQuanLyNhanVien.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnQuanLyNhanVien.setForeground(new java.awt.Color(255, 255, 255));
-        btnQuanLyNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/NhanVien.png"))); // NOI18N
-        btnQuanLyNhanVien.setText("Quản lý nhân viên");
-        btnQuanLyNhanVien.setOpaque(true);
-        btnQuanLyNhanVien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuanLyNhanVienActionPerformed(evt);
-            }
-        });
-        pnlLeft.add(btnQuanLyNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 200, 40));
-
-        btnQuanLyHocVien.setBackground(new java.awt.Color(35, 75, 72));
-        btnQuanLyHocVien.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnQuanLyHocVien.setForeground(new java.awt.Color(255, 255, 255));
-        btnQuanLyHocVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/hocvien.png"))); // NOI18N
-        btnQuanLyHocVien.setText("Quản lý học viên");
-        btnQuanLyHocVien.setOpaque(true);
-        btnQuanLyHocVien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuanLyHocVienActionPerformed(evt);
-            }
-        });
-        pnlLeft.add(btnQuanLyHocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 200, 40));
-
-        btnQuanLyNguoiHoc.setBackground(new java.awt.Color(35, 75, 72));
-        btnQuanLyNguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnQuanLyNguoiHoc.setForeground(new java.awt.Color(255, 255, 255));
-        btnQuanLyNguoiHoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/NguoiHoc.png"))); // NOI18N
-        btnQuanLyNguoiHoc.setText("Quản lý người học");
-        btnQuanLyNguoiHoc.setOpaque(true);
-        btnQuanLyNguoiHoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuanLyNguoiHocActionPerformed(evt);
-            }
-        });
-        pnlLeft.add(btnQuanLyNguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 200, 40));
-
-        btnQuanLyKhoaHoc.setBackground(new java.awt.Color(35, 75, 72));
-        btnQuanLyKhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnQuanLyKhoaHoc.setForeground(new java.awt.Color(255, 255, 255));
-        btnQuanLyKhoaHoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/KhoaHoc.png"))); // NOI18N
-        btnQuanLyKhoaHoc.setText("Quản lý khóa học");
-        btnQuanLyKhoaHoc.setOpaque(true);
-        btnQuanLyKhoaHoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuanLyKhoaHocActionPerformed(evt);
-            }
-        });
-        pnlLeft.add(btnQuanLyKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 200, 40));
-
-        btnDoanhThu.setBackground(new java.awt.Color(35, 75, 72));
-        btnDoanhThu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnDoanhThu.setForeground(new java.awt.Color(255, 255, 255));
-        btnDoanhThu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/DoanhThu.png"))); // NOI18N
-        btnDoanhThu.setText("DoanhThu");
-        btnDoanhThu.setOpaque(true);
-        btnDoanhThu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDoanhThuActionPerformed(evt);
-            }
-        });
-        pnlLeft.add(btnDoanhThu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 200, 40));
-
-        btnBangDiem.setBackground(new java.awt.Color(35, 75, 72));
-        btnBangDiem.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnBangDiem.setForeground(new java.awt.Color(255, 255, 255));
-        btnBangDiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/bangdiem.png"))); // NOI18N
-        btnBangDiem.setText("Bảng điểm");
-        btnBangDiem.setOpaque(true);
-        btnBangDiem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBangDiemActionPerformed(evt);
-            }
-        });
-        pnlLeft.add(btnBangDiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 200, 40));
-
-        btnLuongNguoiHoc.setBackground(new java.awt.Color(35, 75, 72));
-        btnLuongNguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnLuongNguoiHoc.setForeground(new java.awt.Color(255, 255, 255));
-        btnLuongNguoiHoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/luongNguoiHoc.png"))); // NOI18N
-        btnLuongNguoiHoc.setText("Lượng người học");
-        btnLuongNguoiHoc.setOpaque(true);
-        btnLuongNguoiHoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLuongNguoiHocActionPerformed(evt);
-            }
-        });
-        pnlLeft.add(btnLuongNguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 200, 40));
-
-        btnDiemTheoChuyenDe.setBackground(new java.awt.Color(35, 75, 72));
-        btnDiemTheoChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnDiemTheoChuyenDe.setForeground(new java.awt.Color(255, 255, 255));
-        btnDiemTheoChuyenDe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/diemTheoCD.png"))); // NOI18N
-        btnDiemTheoChuyenDe.setText("Điểm chuyên đề");
-        btnDiemTheoChuyenDe.setOpaque(true);
-        btnDiemTheoChuyenDe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDiemTheoChuyenDeActionPerformed(evt);
-            }
-        });
-        pnlLeft.add(btnDiemTheoChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 200, 40));
-
-        btnQuanLyChuyenDe.setBackground(new java.awt.Color(35, 75, 72));
-        btnQuanLyChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnQuanLyChuyenDe.setForeground(new java.awt.Color(255, 255, 255));
-        btnQuanLyChuyenDe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/ChuyenDe.png"))); // NOI18N
-        btnQuanLyChuyenDe.setText("Quản lý chuyên đề");
-        btnQuanLyChuyenDe.setOpaque(true);
-        btnQuanLyChuyenDe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuanLyChuyenDeActionPerformed(evt);
-            }
-        });
-        pnlLeft.add(btnQuanLyChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 200, 40));
+        pnlLeft.add(lblGioiThieu, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 120, 190, 40));
 
         lblQuanLy.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lblQuanLy.setForeground(new java.awt.Color(255, 204, 0));
@@ -336,11 +236,173 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
         lblQuanLy.setText("Quản lý");
         pnlLeft.add(lblQuanLy, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 200, 40));
 
+        lblNhanVien.setBackground(new java.awt.Color(35, 75, 72));
+        lblNhanVien.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblNhanVien.setForeground(new java.awt.Color(255, 255, 255));
+        lblNhanVien.setText("Quản lý nhân viên");
+        lblNhanVien.setOpaque(true);
+        lblNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblNhanVienMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblNhanVienMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblNhanVienMousePressed(evt);
+            }
+        });
+        pnlLeft.add(lblNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 200, 190, 40));
+
+        lblHocVien.setBackground(new java.awt.Color(35, 75, 72));
+        lblHocVien.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblHocVien.setForeground(new java.awt.Color(255, 255, 255));
+        lblHocVien.setText("Quản lý học viên");
+        lblHocVien.setOpaque(true);
+        lblHocVien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblHocVienMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblHocVienMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblHocVienMousePressed(evt);
+            }
+        });
+        pnlLeft.add(lblHocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 240, 190, 40));
+
+        lblNguoiHoc.setBackground(new java.awt.Color(35, 75, 72));
+        lblNguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblNguoiHoc.setForeground(new java.awt.Color(255, 255, 255));
+        lblNguoiHoc.setText("Quản lý người học");
+        lblNguoiHoc.setOpaque(true);
+        lblNguoiHoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblNguoiHocMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblNguoiHocMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblNguoiHocMousePressed(evt);
+            }
+        });
+        pnlLeft.add(lblNguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 280, 190, 40));
+
+        lblKhoaHoc.setBackground(new java.awt.Color(35, 75, 72));
+        lblKhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblKhoaHoc.setForeground(new java.awt.Color(255, 255, 255));
+        lblKhoaHoc.setText("Quản lý khóa học");
+        lblKhoaHoc.setOpaque(true);
+        lblKhoaHoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblKhoaHocMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblKhoaHocMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblKhoaHocMousePressed(evt);
+            }
+        });
+        pnlLeft.add(lblKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 320, 190, 40));
+
+        lblChuyenDe.setBackground(new java.awt.Color(35, 75, 72));
+        lblChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblChuyenDe.setForeground(new java.awt.Color(255, 255, 255));
+        lblChuyenDe.setText("Quản lý chuyên đề học");
+        lblChuyenDe.setOpaque(true);
+        lblChuyenDe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblChuyenDeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblChuyenDeMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblChuyenDeMousePressed(evt);
+            }
+        });
+        pnlLeft.add(lblChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 360, 190, 40));
+
         lblThongKe.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lblThongKe.setForeground(new java.awt.Color(255, 204, 0));
         lblThongKe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblThongKe.setText("Thống kê");
         pnlLeft.add(lblThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 180, 40));
+
+        lblBangDiem.setBackground(new java.awt.Color(35, 75, 72));
+        lblBangDiem.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblBangDiem.setForeground(new java.awt.Color(255, 255, 255));
+        lblBangDiem.setText("Bảng điểm");
+        lblBangDiem.setOpaque(true);
+        lblBangDiem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblBangDiemMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblBangDiemMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblBangDiemMousePressed(evt);
+            }
+        });
+        pnlLeft.add(lblBangDiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 440, 190, 40));
+
+        lblLuongNguoiHoc.setBackground(new java.awt.Color(35, 75, 72));
+        lblLuongNguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblLuongNguoiHoc.setForeground(new java.awt.Color(255, 255, 255));
+        lblLuongNguoiHoc.setText("Lượng người học");
+        lblLuongNguoiHoc.setOpaque(true);
+        lblLuongNguoiHoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblLuongNguoiHocMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblLuongNguoiHocMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblLuongNguoiHocMousePressed(evt);
+            }
+        });
+        pnlLeft.add(lblLuongNguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 480, 190, 40));
+
+        lblDiemTheoChuyenDe.setBackground(new java.awt.Color(35, 75, 72));
+        lblDiemTheoChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblDiemTheoChuyenDe.setForeground(new java.awt.Color(255, 255, 255));
+        lblDiemTheoChuyenDe.setText("Điểm theo chuyên đề");
+        lblDiemTheoChuyenDe.setOpaque(true);
+        lblDiemTheoChuyenDe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDiemTheoChuyenDeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDiemTheoChuyenDeMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblDiemTheoChuyenDeMousePressed(evt);
+            }
+        });
+        pnlLeft.add(lblDiemTheoChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 520, 190, 40));
+
+        lblDoanhThu.setBackground(new java.awt.Color(35, 75, 72));
+        lblDoanhThu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblDoanhThu.setForeground(new java.awt.Color(255, 255, 255));
+        lblDoanhThu.setText("Doanh thu");
+        lblDoanhThu.setOpaque(true);
+        lblDoanhThu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDoanhThuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDoanhThuMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblDoanhThuMousePressed(evt);
+            }
+        });
+        pnlLeft.add(lblDoanhThu, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 560, 190, 40));
 
         lblBackgroundLeft.setBackground(new java.awt.Color(35, 75, 72));
         lblBackgroundLeft.setOpaque(true);
@@ -361,84 +423,6 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGioiThieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGioiThieuActionPerformed
-        // TODO add your handling code here:
-        selectedButton(btnGioiThieu);
-        pnlRight.removeAll();
-        pnlRight.add(new PanelGioiThieu(), "cardGioiThieu");
-        chuyenPanel("cardGioiThieu");
-    }//GEN-LAST:event_btnGioiThieuActionPerformed
-
-    private void btnTrangChuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrangChuActionPerformed
-        // TODO add your handling code here:
-        selectedButton(btnTrangChu);
-        chuyenPanel("cardTrangChu");
-    }//GEN-LAST:event_btnTrangChuActionPerformed
-
-    private void btnHuongDanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuongDanActionPerformed
-        // TODO add your handling code here:
-        selectedButton(btnHuongDan);
-        chuyenPanel("cardHuongDan");
-    }//GEN-LAST:event_btnHuongDanActionPerformed
-
-    private void btnQuanLyNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyNhanVienActionPerformed
-        // TODO add your handling code here:
-        selectedButton(btnQuanLyNhanVien);
-         pnlRight.removeAll();
-        pnlRight.add(new PanelQuanLyNhanVien(), "cardQuanLyNhanVien");
-        chuyenPanel("cardQuanLyNhanVien");
-    }//GEN-LAST:event_btnQuanLyNhanVienActionPerformed
-
-    private void btnQuanLyHocVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyHocVienActionPerformed
-        // TODO add your handling code here:
-        selectedButton(btnQuanLyHocVien);
-        chuyenPanel("cardQuanLyHocVien");
-    }//GEN-LAST:event_btnQuanLyHocVienActionPerformed
-
-    private void btnQuanLyNguoiHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyNguoiHocActionPerformed
-        // TODO add your handling code here:
-        selectedButton(btnQuanLyNguoiHoc);
-        chuyenPanel("cardQuanLyNguoiHoc");
-    }//GEN-LAST:event_btnQuanLyNguoiHocActionPerformed
-
-    private void btnQuanLyKhoaHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyKhoaHocActionPerformed
-        // TODO add your handling code here:
-        selectedButton(btnQuanLyKhoaHoc);
-        chuyenPanel("cardQuanlyKhoaHoc");
-        updateChuyenDe_KhoaHoc();
-    }//GEN-LAST:event_btnQuanLyKhoaHocActionPerformed
-
-    private void btnDoanhThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoanhThuActionPerformed
-        // TODO add your handling code here:
-        selectedButton(btnDoanhThu);
-        chuyenPanel("cardDoanhThu");
-    }//GEN-LAST:event_btnDoanhThuActionPerformed
-
-    private void btnBangDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBangDiemActionPerformed
-        // TODO add your handling code here:
-        selectedButton(btnBangDiem);
-        chuyenPanel("cardBangDiem");
-    }//GEN-LAST:event_btnBangDiemActionPerformed
-
-    private void btnLuongNguoiHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuongNguoiHocActionPerformed
-        // TODO add your handling code here:\
-        selectedButton(btnLuongNguoiHoc);
-        chuyenPanel("cardLuongNguoiHoc");
-    }//GEN-LAST:event_btnLuongNguoiHocActionPerformed
-
-    private void btnDiemTheoChuyenDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiemTheoChuyenDeActionPerformed
-        // TODO add your handling code here:
-        selectedButton(btnDiemTheoChuyenDe);
-        chuyenPanel("cardDiemTheoChuyenDe");
-    }//GEN-LAST:event_btnDiemTheoChuyenDeActionPerformed
-
-    private void btnQuanLyChuyenDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyChuyenDeActionPerformed
-        // TODO add your handling code here:
-        selectedButton(btnQuanLyChuyenDe);
-        chuyenPanel("cardQuanLyChuyenDe");
-
-    }//GEN-LAST:event_btnQuanLyChuyenDeActionPerformed
-
     private void lblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUserMouseClicked
         // TODO add your handling code here:
         openAccountTool();
@@ -453,19 +437,211 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblAccountThoatMouseClicked
 
-    private void lblAcountDangXuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAcountDangXuatMouseClicked
+    private void lblAccountDangXuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccountDangXuatMouseClicked
         // TODO add your handling code here:
         boolean confirm = MsgBox.confirm(this, "Bạn có chắc muốn đăng xuất không?");
         if (confirm) {
             new DangNhap().setVisible(true);
             dispose();
         }
-    }//GEN-LAST:event_lblAcountDangXuatMouseClicked
+    }//GEN-LAST:event_lblAccountDangXuatMouseClicked
 
     private void lblAccountDoiMatKhauMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccountDoiMatKhauMouseClicked
         // TODO add your handling code here:
         new DoiMatKhau().setVisible(true);
     }//GEN-LAST:event_lblAccountDoiMatKhauMouseClicked
+
+    private void lblTrangChuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTrangChuMousePressed
+        // TODO add your handling code here:
+        doiMauLabel(lblTrangChu);
+        chuyenPanel("cardTrangChu");
+    }//GEN-LAST:event_lblTrangChuMousePressed
+
+    private void lblHuongDanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHuongDanMousePressed
+        // TODO add your handling code here:
+        doiMauLabel(lblHuongDan);
+        chuyenPanel("cardHuongDan");
+    }//GEN-LAST:event_lblHuongDanMousePressed
+
+    private void lblGioiThieuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGioiThieuMousePressed
+        // TODO add your handling code here:
+        doiMauLabel(lblGioiThieu);
+        chuyenPanel("cardGioiThieu");
+    }//GEN-LAST:event_lblGioiThieuMousePressed
+
+    private void lblNhanVienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNhanVienMousePressed
+        // TODO add your handling code here:
+        doiMauLabel(lblNhanVien);
+        chuyenPanel("cardNhanVien");
+    }//GEN-LAST:event_lblNhanVienMousePressed
+
+    private void lblHocVienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHocVienMousePressed
+        // TODO add your handling code here:
+        doiMauLabel(lblHocVien);
+        chuyenPanel("cardHocVien");
+    }//GEN-LAST:event_lblHocVienMousePressed
+
+    private void lblNguoiHocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNguoiHocMousePressed
+        // TODO add your handling code here:
+        doiMauLabel(lblNguoiHoc);
+        chuyenPanel("cardNguoiHoc");
+    }//GEN-LAST:event_lblNguoiHocMousePressed
+
+    private void lblKhoaHocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblKhoaHocMousePressed
+        // TODO add your handling code here:
+        doiMauLabel(lblKhoaHoc);
+        chuyenPanel("cardKhoaHoc");
+    }//GEN-LAST:event_lblKhoaHocMousePressed
+
+    private void lblChuyenDeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblChuyenDeMousePressed
+        // TODO add your handling code here:
+        doiMauLabel(lblChuyenDe);
+        chuyenPanel("cardChuyenDe");
+    }//GEN-LAST:event_lblChuyenDeMousePressed
+
+    private void lblBangDiemMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBangDiemMousePressed
+        // TODO add your handling code here:
+        doiMauLabel(lblBangDiem);
+        chuyenPanel("cardBangDiem");
+    }//GEN-LAST:event_lblBangDiemMousePressed
+
+    private void lblLuongNguoiHocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLuongNguoiHocMousePressed
+        // TODO add your handling code here:
+        doiMauLabel(lblLuongNguoiHoc);
+        chuyenPanel("cardLuongNguoiHoc");
+    }//GEN-LAST:event_lblLuongNguoiHocMousePressed
+
+    private void lblDiemTheoChuyenDeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDiemTheoChuyenDeMousePressed
+        // TODO add your handling code here:
+        doiMauLabel(lblDiemTheoChuyenDe);
+        chuyenPanel("cardDiemTheoChuyenDe");
+    }//GEN-LAST:event_lblDiemTheoChuyenDeMousePressed
+
+    private void lblDoanhThuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDoanhThuMousePressed
+        // TODO add your handling code here:
+        doiMauLabel(lblDoanhThu);
+        chuyenPanel("cardDoanhThu");
+    }//GEN-LAST:event_lblDoanhThuMousePressed
+
+    private void lblTrangChuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTrangChuMouseEntered
+        // TODO add your handling code here:
+        mouseEnter(lblTrangChu);
+    }//GEN-LAST:event_lblTrangChuMouseEntered
+
+    private void lblHuongDanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHuongDanMouseEntered
+        // TODO add your handling code here:
+        mouseEnter(lblHuongDan);
+    }//GEN-LAST:event_lblHuongDanMouseEntered
+
+    private void lblGioiThieuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGioiThieuMouseEntered
+        // TODO add your handling code here:
+        mouseEnter(lblGioiThieu);
+    }//GEN-LAST:event_lblGioiThieuMouseEntered
+
+    private void lblNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNhanVienMouseEntered
+        // TODO add your handling code here:
+        mouseEnter(lblNhanVien);
+    }//GEN-LAST:event_lblNhanVienMouseEntered
+
+    private void lblHocVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHocVienMouseEntered
+        // TODO add your handling code here:
+        mouseEnter(lblHocVien);
+    }//GEN-LAST:event_lblHocVienMouseEntered
+
+    private void lblNguoiHocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNguoiHocMouseEntered
+        // TODO add your handling code here:
+        mouseEnter(lblNguoiHoc);
+    }//GEN-LAST:event_lblNguoiHocMouseEntered
+
+    private void lblKhoaHocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblKhoaHocMouseEntered
+        // TODO add your handling code here:
+        mouseEnter(lblKhoaHoc);
+    }//GEN-LAST:event_lblKhoaHocMouseEntered
+
+    private void lblChuyenDeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblChuyenDeMouseEntered
+        // TODO add your handling code here:
+        mouseEnter(lblChuyenDe);
+    }//GEN-LAST:event_lblChuyenDeMouseEntered
+
+    private void lblBangDiemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBangDiemMouseEntered
+        // TODO add your handling code here:
+        mouseEnter(lblBangDiem);
+    }//GEN-LAST:event_lblBangDiemMouseEntered
+
+    private void lblLuongNguoiHocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLuongNguoiHocMouseEntered
+        // TODO add your handling code here:
+        mouseEnter(lblLuongNguoiHoc);
+    }//GEN-LAST:event_lblLuongNguoiHocMouseEntered
+
+    private void lblDiemTheoChuyenDeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDiemTheoChuyenDeMouseEntered
+        // TODO add your handling code here:
+        mouseEnter(lblDiemTheoChuyenDe);
+    }//GEN-LAST:event_lblDiemTheoChuyenDeMouseEntered
+
+    private void lblDoanhThuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDoanhThuMouseEntered
+        // TODO add your handling code here:
+        mouseEnter(lblDoanhThu);
+    }//GEN-LAST:event_lblDoanhThuMouseEntered
+
+    private void lblTrangChuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTrangChuMouseExited
+        // TODO add your handling code here:
+        mouseExit(lblTrangChu);
+    }//GEN-LAST:event_lblTrangChuMouseExited
+
+    private void lblHuongDanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHuongDanMouseExited
+        // TODO add your handling code here:
+        mouseExit(lblHuongDan);
+    }//GEN-LAST:event_lblHuongDanMouseExited
+
+    private void lblGioiThieuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGioiThieuMouseExited
+        // TODO add your handling code here:
+        mouseExit(lblGioiThieu);
+    }//GEN-LAST:event_lblGioiThieuMouseExited
+
+    private void lblNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNhanVienMouseExited
+        // TODO add your handling code here:
+        mouseExit(lblNhanVien);
+    }//GEN-LAST:event_lblNhanVienMouseExited
+
+    private void lblHocVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHocVienMouseExited
+        // TODO add your handling code here:
+        mouseExit(lblHocVien);
+    }//GEN-LAST:event_lblHocVienMouseExited
+
+    private void lblNguoiHocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNguoiHocMouseExited
+        // TODO add your handling code here:
+        mouseExit(lblNguoiHoc);
+    }//GEN-LAST:event_lblNguoiHocMouseExited
+
+    private void lblKhoaHocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblKhoaHocMouseExited
+        // TODO add your handling code here:
+        mouseExit(lblKhoaHoc);
+    }//GEN-LAST:event_lblKhoaHocMouseExited
+
+    private void lblChuyenDeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblChuyenDeMouseExited
+        // TODO add your handling code here:
+        mouseExit(lblChuyenDe);
+    }//GEN-LAST:event_lblChuyenDeMouseExited
+
+    private void lblBangDiemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBangDiemMouseExited
+        // TODO add your handling code here:
+        mouseExit(lblBangDiem);
+    }//GEN-LAST:event_lblBangDiemMouseExited
+
+    private void lblLuongNguoiHocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLuongNguoiHocMouseExited
+        // TODO add your handling code here:
+        mouseExit(lblLuongNguoiHoc);
+    }//GEN-LAST:event_lblLuongNguoiHocMouseExited
+
+    private void lblDiemTheoChuyenDeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDiemTheoChuyenDeMouseExited
+        // TODO add your handling code here:
+        mouseExit(lblDiemTheoChuyenDe);
+    }//GEN-LAST:event_lblDiemTheoChuyenDeMouseExited
+
+    private void lblDoanhThuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDoanhThuMouseExited
+        // TODO add your handling code here:
+        mouseExit(lblDoanhThu);
+    }//GEN-LAST:event_lblDoanhThuMouseExited
 
     /**
      * @param args the command line arguments
@@ -503,29 +679,29 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btnBangDiem;
-    private javax.swing.JToggleButton btnDiemTheoChuyenDe;
-    private javax.swing.JToggleButton btnDoanhThu;
-    private javax.swing.JToggleButton btnGioiThieu;
-    private javax.swing.JToggleButton btnHuongDan;
-    private javax.swing.JToggleButton btnLuongNguoiHoc;
-    private javax.swing.JToggleButton btnQuanLyChuyenDe;
-    private javax.swing.JToggleButton btnQuanLyHocVien;
-    private javax.swing.JToggleButton btnQuanLyKhoaHoc;
-    private javax.swing.JToggleButton btnQuanLyNguoiHoc;
-    private javax.swing.JToggleButton btnQuanLyNhanVien;
-    private javax.swing.JToggleButton btnTrangChu;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel lblAccountDangXuat;
     private javax.swing.JLabel lblAccountDoiMatKhau;
     private javax.swing.JLabel lblAccountThoat;
-    private javax.swing.JLabel lblAcountDangXuat;
     private javax.swing.JLabel lblBackgroundAccountTool;
     private javax.swing.JLabel lblBackgroundLeft;
+    private javax.swing.JLabel lblBangDiem;
+    private javax.swing.JLabel lblChuyenDe;
+    private javax.swing.JLabel lblDiemTheoChuyenDe;
+    private javax.swing.JLabel lblDoanhThu;
+    private javax.swing.JLabel lblGioiThieu;
     private javax.swing.JLabel lblHeThong;
+    private javax.swing.JLabel lblHocVien;
+    private javax.swing.JLabel lblHuongDan;
+    private javax.swing.JLabel lblKhoaHoc;
+    private javax.swing.JLabel lblLuongNguoiHoc;
+    private javax.swing.JLabel lblNguoiHoc;
+    private javax.swing.JLabel lblNhanVien;
     private javax.swing.JLabel lblQuanLy;
     private javax.swing.JLabel lblThongKe;
+    private javax.swing.JLabel lblTrangChu;
     private javax.swing.JLabel lblUser;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JPanel pnlContainer;
@@ -537,13 +713,13 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
         if (accountToolHide == true) {
             ac.jLabelYDown(-60, 50, 20, 5, lblBackgroundAccountTool);
             ac.jLabelYDown(-60, 50, 20, 5, lblAccountDoiMatKhau);
-            ac.jLabelYDown(-30, 80, 20, 5, lblAcountDangXuat);
+            ac.jLabelYDown(-30, 80, 20, 5, lblAccountDangXuat);
             ac.jLabelYDown(0, 110, 20, 5, lblAccountThoat);
             accountToolHide = false;
         } else {
             ac.jLabelYUp(50, -60, 20, 5, lblBackgroundAccountTool);
             ac.jLabelYUp(50, -60, 20, 5, lblAccountDoiMatKhau);
-            ac.jLabelYUp(80, -30, 20, 5, lblAcountDangXuat);
+            ac.jLabelYUp(80, -30, 20, 5, lblAccountDangXuat);
             ac.jLabelYUp(110, 0, 20, 5, lblAccountThoat);
             accountToolHide = true;
         }
@@ -553,11 +729,11 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
         pnlRight.add(new PanelTrangChu(), "cardTrangChu");
         pnlRight.add(new PanelGioiThieu(), "cardGioiThieu");
         pnlRight.add(new PanelHuongDan(), "cardHuongDan");
-        pnlRight.add(new PanelQuanLyNhanVien(), "cardQuanLyNhanVien");
-        pnlRight.add(new PanelQuanLyHocVien(), "cardQuanLyHocVien");
-        pnlRight.add(new PanelQuanLyNguoiHoc(), "cardQuanLyNguoiHoc");
-        pnlRight.add(new PanelQuanLyChuyenDe(), "cardQuanLyChuyenDe");
-        pnlRight.add(new PanelQuanLyKhoaHoc(), "cardQuanlyKhoaHoc");
+        pnlRight.add(new PanelQuanLyNhanVien(), "cardNhanVien");
+        pnlRight.add(new PanelQuanLyHocVien(), "cardHocVien");
+        pnlRight.add(new PanelQuanLyNguoiHoc(), "cardNguoiHoc");
+        pnlRight.add(new PanelQuanLyChuyenDe(), "cardChuyenDe");
+        pnlRight.add(new PanelQuanLyKhoaHoc(), "cardKhoaHoc");
         pnlRight.add(new PanelBangDiem(), "cardBangDiem");
         pnlRight.add(new PanelLuongNguoiHoc(), "cardLuongNguoiHoc");
         pnlRight.add(new PanelDiemTheoChuyenDe(), "cardDiemTheoChuyenDe");
@@ -568,29 +744,51 @@ public final class EduSys_JFrame extends javax.swing.JFrame {
         layout.show(pnlRight, cardName);
     }
 
-    public void selectedButton(JToggleButton btn) {
-        btnTrangChu.setSelected(false);
-        btnGioiThieu.setSelected(false);
-        btnHuongDan.setSelected(false);
-        btnQuanLyChuyenDe.setSelected(false);
-        btnQuanLyHocVien.setSelected(false);
-        btnQuanLyKhoaHoc.setSelected(false);
-        btnQuanLyNguoiHoc.setSelected(false);
-        btnQuanLyNhanVien.setSelected(false);
-        btnBangDiem.setSelected(false);
-        btnLuongNguoiHoc.setSelected(false);
-        btnDiemTheoChuyenDe.setSelected(false);
-        btnDoanhThu.setSelected(false);
-        btn.setSelected(true);
+    public void doiMauLabel(JLabel lbl) {
+        lblTrangChu.setBackground(new Color(36, 75, 72));
+        lblGioiThieu.setBackground(new Color(36, 75, 72));
+        lblHuongDan.setBackground(new Color(36, 75, 72));
+        lblNhanVien.setBackground(new Color(36, 75, 72));
+        lblChuyenDe.setBackground(new Color(36, 75, 72));
+        lblHocVien.setBackground(new Color(36, 75, 72));
+        lblNguoiHoc.setBackground(new Color(36, 75, 72));
+        lblKhoaHoc.setBackground(new Color(36, 75, 72));
+        lblBangDiem.setBackground(new Color(36, 75, 72));
+        lblDiemTheoChuyenDe.setBackground(new Color(36, 75, 72));
+        lblLuongNguoiHoc.setBackground(new Color(36, 75, 72));
+        lblDoanhThu.setBackground(new Color(36, 75, 72));
+        lbl.setBackground(new Color(102, 102, 102));
+//        lblAccountDoiMatKhau.setBackground(new Color(36, 75, 72));
+//        lblAccountDangXuat.setBackground(new Color(36, 75, 72));
+//        lblAccountThoat.setBackground(new Color(36, 75, 72));
+//        if (lbl.getText().equals("Thoát")) {
+//        } else {
+//            lbl.setBackground(new Color(102, 102, 102));
+//        }
+        //lbl.setOpaque(true);
     }
 
-    public void updateChuyenDe_KhoaHoc() {
-        PanelQuanLyKhoaHoc kh = new PanelQuanLyKhoaHoc();
-        DefaultComboBoxModel model = (DefaultComboBoxModel) kh.getModel();
-        model.removeAllElements();
-        List<ChuyenDe> list = new ChuyenDeDAO().selectAll();
-        for (ChuyenDe cd : list) {
-            model.addElement(cd);
-        }
+    public void mouseEnter(JLabel lbl) {
+        lbl.setForeground(new Color(0, 204, 153));
     }
+
+    public void mouseExit(JLabel lbl) {
+        lbl.setForeground(Color.WHITE);
+    }
+
+//    public void selectedButton(JToggleButton btn) {
+//        btnTrangChu.setSelected(false);
+//        btnGioiThieu.setSelected(false);
+//        btnHuongDan.setSelected(false);
+//        btnChuyenDe.setSelected(false);
+//        btnHocVien.setSelected(false);
+//        btnKhoaHoc.setSelected(false);
+//        btnNguoiHoc.setSelected(false);
+//        btnNhanVien.setSelected(false);
+//        btnBangDiem.setSelected(false);
+//        btnLuongNguoiHoc.setSelected(false);
+//        btnDiemTheoChuyenDe.setSelected(false);
+//        btnDoanhThu.setSelected(false);
+//        btn.setSelected(true);
+//    }
 }

@@ -89,10 +89,4 @@ public class ChuyenDeDAO extends EduSysDAO<ChuyenDe, String> {
             throw new RuntimeException(e);
         }
     }
-
-    public ChuyenDe checkForDelete(String id) {
-        String sql = "SELECT * FROM CHUYENDE WHERE MACD = ? AND MACD IN (SELECT MACD FROM KHOAHOC)";
-        return selectBySql(sql, id).get(0);
-    }
-
 }

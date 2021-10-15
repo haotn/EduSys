@@ -24,7 +24,7 @@ import static javafx.beans.binding.Bindings.select;
 public class KhoaHocDAO {
 
     String INSERT_SQL = "INSERT INTO KHOAHOC(MaCD, HocPhi, ThoiLuong, NGAYKG, GhiChu, MaNV) VALUES (?, ?, ?, ?, ?, ?)";
-    String UPDATE_SQL = "UPDATE KHOAHOC SET NGAYKG = ?, GHICHU = ? WHERE MAKH = ?";
+    String UPDATE_SQL = "UPDATE KHOAHOC SET NGAYKG = ?, GHICHU =? WHERE MAKH = ?";
     String DELETE_SQL = "DELETE FROM KHOAHOC WHERE MAKH = ?";
     String SELECT_ALL_SQL = "SELECT * FROM KHOAHOC";
     String SELECT_BY_ID_SQL = "SELECT * FROM KHOAHOC WHERE MaKH = ?";
@@ -110,9 +110,5 @@ public class KhoaHocDAO {
         }
     }
 
-    public KhoaHoc checkForDelete(int makh) {
-        String sql = "SELECT * FROM HOCVIEN WHERE MAKH = ?";
-        return selectBySql(sql, makh).get(0);
-    }
 
 }

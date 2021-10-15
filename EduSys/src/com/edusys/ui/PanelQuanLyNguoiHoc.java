@@ -8,6 +8,7 @@ package com.edusys.ui;
 import com.edusys.dao.NguoiHocDAO;
 import com.edusys.entity.NguoiHoc;
 import com.edusys.helper.Auth;
+import com.edusys.helper.MsgBox;
 import com.edusys.helper.XDate;
 import java.awt.Color;
 import java.awt.Font;
@@ -22,6 +23,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import org.jdatepicker.UtilDateModel;
 
 /**
  *
@@ -38,6 +40,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
         initComponents();
         setModelTable();
         init();
+
     }
 
     public void setModelTable() {
@@ -60,8 +63,6 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
 
         brgGioiTinh = new javax.swing.ButtonGroup();
         jLabel9 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tblNguoiHoc = new javax.swing.JTable();
         pnlFormNguoiHoc = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -91,6 +92,8 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
         btnPrev = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
         txtTimKiemNH = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblNguoiHoc = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1200, 750));
@@ -102,32 +105,6 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Người học");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
-
-        jScrollPane4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-
-        tblNguoiHoc.setAutoCreateRowSorter(true);
-        tblNguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        tblNguoiHoc.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tblNguoiHoc.setGridColor(new java.awt.Color(255, 255, 255));
-        tblNguoiHoc.setRowHeight(30);
-        tblNguoiHoc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblNguoiHocMouseClicked(evt);
-            }
-        });
-        jScrollPane4.setViewportView(tblNguoiHoc);
-
-        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1200, 250));
 
         pnlFormNguoiHoc.setBackground(new java.awt.Color(255, 255, 255));
         pnlFormNguoiHoc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -336,6 +313,32 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
             }
         });
         add(txtTimKiemNH, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 250, -1));
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        tblNguoiHoc.setAutoCreateRowSorter(true);
+        tblNguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        tblNguoiHoc.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblNguoiHoc.setGridColor(new java.awt.Color(255, 255, 255));
+        tblNguoiHoc.setRowHeight(30);
+        tblNguoiHoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblNguoiHocMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblNguoiHoc);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1200, 250));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
@@ -345,12 +348,16 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        insert();
+        if (checkForm()) {
+            insert();
+        }
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
         // TODO add your handling code here:
-        Update();
+        if (checkForm()) {
+            Update();
+        }
     }//GEN-LAST:event_btnCapNhatActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
@@ -378,19 +385,13 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
         last();
     }//GEN-LAST:event_btnLastActionPerformed
 
-    private void tblNguoiHocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNguoiHocMouseClicked
-        // TODO add your handling code here:
-        row = tblNguoiHoc.getSelectedRow();
-        edit();
-    }//GEN-LAST:event_tblNguoiHocMouseClicked
-
     private void txtHoTenNguoiHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoTenNguoiHocActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHoTenNguoiHocActionPerformed
 
     private void txtTimKiemNHKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemNHKeyReleased
         // TODO add your handling code here:
-       fillTable();
+        fillTable();
     }//GEN-LAST:event_txtTimKiemNHKeyReleased
 
     private void txtTimKiemNHFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTimKiemNHFocusGained
@@ -402,6 +403,12 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
         // TODO add your handling code here:
         focusLost();
     }//GEN-LAST:event_txtTimKiemNHFocusLost
+
+    private void tblNguoiHocMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblNguoiHocMousePressed
+        // TODO add your handling code here:
+        row = tblNguoiHoc.getSelectedRow();
+        edit();
+    }//GEN-LAST:event_tblNguoiHocMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -423,7 +430,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPanel pnlCongCuBangNguoiHoc;
     private javax.swing.JPanel pnlFormNguoiHoc;
@@ -472,14 +479,17 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
 
     public void Update() {
         NguoiHoc nh = getForm();
-        try {
-            dao.update(nh);
-            fillTable();
-            clearForm();
-            JOptionPane.showMessageDialog(this, "Cập nhật thành công");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Cập nhật thất bại ");
+        if (MsgBox.confirm(this, "Bạn có chắc muốn cập nhật không?")) {
+            try {
+                dao.update(nh);
+                fillTable();
+                clearForm();
+                //JOptionPane.showMessageDialog(this, "Cập nhật thành công");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Cập nhật thất bại ");
+            }
         }
+
     }
 
     public void delete() {
@@ -487,6 +497,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
         if (!Auth.isManager()) {
             JOptionPane.showMessageDialog(this, "Bạn không có quyền xóa học viên ");
         } else {
+
             int chon = JOptionPane.showConfirmDialog(this, "Are you sure delete ? ", "DELETE ", JOptionPane.YES_NO_OPTION);
             if (chon == JOptionPane.YES_OPTION) {
                 try {
@@ -495,7 +506,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
                     clearForm();
                     JOptionPane.showMessageDialog(this, "Xóa thành công");
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(this, "thêm thất bại ");
+                    JOptionPane.showMessageDialog(this, "Xóa thành công ");
                 }
             }
         }
@@ -553,7 +564,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
 
     public NguoiHoc setForm(NguoiHoc nh) {
         txtMaNguoiHoc.setText(nh.getMaNH());
-        txtHoTenNguoiHoc.setText(nh.getHo() + " " + nh.getTen());
+        txtHoTenNguoiHoc.setText(nh.getHoTen());
         txtNgaySinh.setText(String.valueOf(nh.getNgaySinh()));
         txtSoDienThoaii.setText(nh.getDienThoai());
         txtManv.setText(nh.getMaNV());
@@ -582,8 +593,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
     public NguoiHoc getForm() {
         NguoiHoc nh = new NguoiHoc();
         nh.setMaNH(txtMaNguoiHoc.getText());
-        nh.setHo(catHo(txtHoTenNguoiHoc.getText()));
-        nh.setTen(catTen(txtHoTenNguoiHoc.getText()));
+        nh.setHoTen(catTen(txtHoTenNguoiHoc.getText()));
         nh.setNgaySinh(txtNgaySinh.getText());
         nh.setDienThoai(txtSoDienThoaii.getText());
         nh.setMaNV(Auth.user.getMaNV());
@@ -626,7 +636,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
                 list = dao.selectByKeyWord(keyword);
             }
             for (NguoiHoc nh : list) {
-                Object[] row = {nh.getMaNH(), nh.getHo() + " " + nh.getTen(), nh.getGioiTinh() ? "Nam" : "Nữ", nh.getNgaySinh(), nh.getDienThoai(), nh.getEmail(), nh.getGhiChu()};
+                Object[] row = {nh.getMaNH(), nh.getHoTen(), nh.getGioiTinh() ? "Nam" : "Nữ", nh.getNgaySinh(), nh.getDienThoai(), nh.getEmail(), nh.getGhiChu()};
                 model.addRow(row);
             }
         } catch (Exception e) {
@@ -639,5 +649,13 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
         clearForm();
         row = -1;
         updateStatus();
+    }
+
+    public boolean checkForm() {
+        if (!txtHoTenNguoiHoc.getText().contains(" ")) {
+            MsgBox.alert(this, "Vui lòng nhập đầy đủ họ tên!");
+            return false;
+        }
+        return true;
     }
 }
