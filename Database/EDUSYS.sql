@@ -3,14 +3,48 @@ GO
 CREATE DATABASE EDUSYS
 USE EDUSYS 
 GO
+CREATE TABLE EMAIL(
+EMAIL NVARCHAR(100) PRIMARY KEY,
+MATKHAU NVARCHAR(100) NOT NULL
+);
+create TABLE CHUCVU(
+MACV NVARCHAR(10) PRIMARY KEY,
+CHUCVU NVARCHAR(50),
+PHANQUYEN NVARCHAR(100)
+);
 
-CREATE TABLE NHANVIEN(
+
+GO 
+
+create TABLE PHANQUYEN(
+TENQUYEN NVARCHAR(100),
+MAQUYEN INT PRIMARY KEY
+);
+
+GO
+
+CREATE TABLE NHOMATKHAU(
+TAIKHOAN NVARCHAR(50) PRIMARY KEY,
+MATKHAU NVARCHAR(50) NOT NULL
+);
+
+GO
+
+
+
+
+create TABLE NHANVIEN(
 	MANV NVARCHAR(50) PRIMARY KEY,
 	MATKHAU NVARCHAR(50) NOT NULL,
-	HO NVARCHAR(30) NOT NULL,
-	TEN NVARCHAR(20) NOT NULL,
-	VAITRO BIT DEFAULT 0
+	HOTEN NVARCHAR(50) NOT NULL,
+	MACV NVARCHAR(10) NOT NULL,
+	EMAIL NVARCHAR(250) NOT NULL,
+	--VAITRO BIT DEFAULT 0,
+	FOREIGN KEY (MACV) REFERENCES CHUCVU(MACV) ON DELETE NO ACTION ON UPDATE CASCADE
+
+
 );
+
 
 GO
 
@@ -20,7 +54,7 @@ CREATE TABLE CHUYENDE(
 	HOCPHI FLOAT NOT NULL,
 	THOILUONG INT NOT NULL,
 	HINH NVARCHAR(50) NOT NULL,
-	MOTA NVARCHAR(MAX) NOT NULL
+	MOTA NVARCHAR(250) NOT NULL
 );
 
 GO 
@@ -31,24 +65,23 @@ CREATE TABLE KHOAHOC(
 	HOCPHI FLOAT NOT NULL,
 	THOILUONG INT NOT NULL,
 	NGAYKG DATE NOT NULL,
-	GHICHU NVARCHAR(MAX) NULL,
+	GHICHU NVARCHAR(250) NULL,
 	MANV NVARCHAR(50) NOT NULL,
 	NGAYTAO DATE DEFAULT GETDATE(),
 	FOREIGN KEY (MACD) REFERENCES CHUYENDE(MACD) ON DELETE NO ACTION ON UPDATE CASCADE,
 	FOREIGN KEY (MANV) REFERENCES NHANVIEN(MANV) ON DELETE NO ACTION ON UPDATE CASCADE
 );
-SET IDENTITY_INSERT KHOAHOC ON
+--SET IDENTITY_INSERT KHOAHOC ON
 GO 
 
 CREATE TABLE NGUOIHOC(
 	MANH NVARCHAR(7) PRIMARY KEY,
-	HO NVARCHAR(30) NOT NULL,
-	TEN NVARCHAR(20) NOT NULL,
+	HOTEN NVARCHAR(50) NOT NULL,
 	GIOITINH BIT DEFAULT 1,
 	NGAYSINH DATE NOT NULL,
 	DIENTHOAI NVARCHAR(10) NOT NULL,
 	EMAIL NVARCHAR(50) NOT NULL,
-	GHICHU NVARCHAR(MAX) NULL,
+	GHICHU NVARCHAR(250) NULL,
 	MANV NVARCHAR(50) NOT NULL,
 	NGAYDK DATE DEFAULT GETDATE(),
 	FOREIGN KEY (MANV) REFERENCES NHANVIEN(MANV) ON DELETE NO ACTION ON UPDATE CASCADE
@@ -64,14 +97,24 @@ CREATE TABLE HOCVIEN(
 	FOREIGN KEY (MANH) REFERENCES NGUOIHOC(MANH) ON DELETE NO ACTION ON UPDATE CASCADE,
 	FOREIGN KEY (MAKH) REFERENCES KHOAHOC(MAKH) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
-SET IDENTITY_INSERT HOCVIEN ON
+--SET IDENTITY_INSERT HOCVIEN ON
+
+
+CREATE TABLE HOCPHI(
+HOCPHI FLOAT  PRIMARY KEY,
+MANV NVARCHAR(50) NOT NULL,
+NGAYDOI DATE DEFAULT GETDATE() NOT NULL,
+FOREIGN KEY (MANV) REFERENCES NHANVIEN(MANV) ON DELETE CASCADE ON UPDATE CASCADE
+)
+
+--drop table HOCPHI
 USE EDUSYS
 GO 
 --REPORT MANH - HOTEN - DIEM
 CREATE PROCEDURE SP_BANGDIEM(@MAKH INT)
 	AS 
 		BEGIN
-			SELECT NH.MANH, NH.HO+NH.TEN AS HOTEN, HV.DIEM 
+			SELECT NH.MANH, NH.HOTEN AS HOTEN, HV.DIEM 
 			FROM HOCVIEN HV 
 				JOIN NGUOIHOC NH ON NH.MANH = HV.MANH
 			WHERE HV.MAKH = @MAKH
@@ -128,16 +171,191 @@ CREATE PROCEDURE SP_THONGKENGUOIHOC
 			GROUP BY YEAR(NGAYDK)
 		END
 	GO
-	
 
 
 
+	insert into HOCPHI values(20000000, 'admin', '2021-10-16')
+	--INSERT DAT
+		Insert into CHUCVU (MACV,CHUCVU,PHANQUYEN)
+values ('adminQT',N'Quản Trị Viên','1,2,3,4,5,6'),
+('adminNV', N'Nhân Viên','11,12,14,21,22,24,31,32,34,41,42,44,51,52,54,61,62,63')
+
+INSERT INTO PHANQUYEN (MAQUYEN , TENQUYEN)
+VALUES ( 1, N'Quản Lý Nhân Viên'),
+ ( 11, N'Thêm Nhân Viên'),
+  ( 12, N'Sửa Nhân Viên'),
+   ( 13, N'Xóa Nhân Viên'),
+    ( 14, N'Xem danh sách Nhân Viên'),
+	 ( 2, N'Quản Lý Chuyên Đề'),
+	 ( 21, N'Thêm Chuyên Đề'),
+	 ( 22, N'Sửa Chuyên Đề'),
+	 ( 23, N'Xóa Chuyên Đề'),
+	 ( 24, N'Xem danh sách Chuyên Đề'),
+	 ( 3, N'Quản Lý Khoa Học'),
+	 ( 31, N'Thêm Chuyên Đề'),
+	 ( 32, N'Sửa Chuyên Đề'),
+	 ( 33, N'Xóa Chuyên Đề'),
+	 ( 34, N'Xem danh sách Chuyên Đề'),
+	 ( 4, N'Quản Lý Người Học'),
+	  ( 41, N'Thêm Người Học'),
+	   ( 42, N'Sửa Người Học'),
+	    ( 43, N'Xóa Người Học'),
+		 ( 44, N'Xem danh sách Người Học'),
+		 ( 5, N'Quản Lý Học Viên'),
+		 ( 51, N'Thêm Học Viên'),
+		 ( 52, N'Sửa Học Viên'),
+		 ( 53, N'Xóa Học Viên'),
+		 ( 54, N'Xem danh sách Học Viên'),
+		 (6,N'Thông Kê'),
+		 (61,N'Bảng Điểm'),
+		 (62,N'Lượng Người Học'),
+		 (63,N'Điểm Thi Chuyên Đề'),
+		 (64,N'Doanh Thu')
+
+
+
+
+	--THEM DU LIEU NHAN VIEN
+	SELECT * FROM NHANVIEN
+			INSERT INTO NHANVIEN (MANV , MATKHAU , HOTEN , MACV , EMAIL)
+			VALUES	
+			('NV001', 'admin123', N'Trần Thị Thúy', 'adminQT','thuytt@fpt.edu.vn'),
+			('NV002', 'admin123', N'Trần Chấn Phong', 'adminNV','phongtc@fpt.edu.vn'),
+			('TP001', 'admin123', N'Hồ Thế Khải', 'adminNV','khaiht@fpt.edu.vn'),
+			('NV003', 'admin123', N'Trương Gia Khiêm', 'adminQT','khiemtg@fpt.edu.vn'),
+			('NV004', 'admin123', N'Nguyễn Đặng Tùng Lâm', 'adminNV','Lamndt@fpt.edu.vn'),
+			('TP002', 'admin123', N'Lê Thị Thu Hà', 'adminNV','haltt@fpt.edu.vn'),
+			('NV005', 'admin123', N'Phan Khiêm','adminNV','khiemp@fpt.edu.vn'),
+			('NV006', 'admin123', N'Lê Hoàng Gia Khang', 'adminNV','khanglhg@fpt.edu.vn'),
+			('TP003', 'admin123', N'Đặng Lâm Tùng Anh', 'adminQT','anhdlt@fpt.edu.vn'),
+			('NV007', 'admin123', N'Trần Hoàng Lương', 'adminNV','luongth@fpt.edu.vn'),
+			('NV008', 'admin123',N'Tống Phước Quan','adminNV','quantp@fpt.edu.vn'),
+			('admin', 'admin123', N'Tô Linh', 'adminNV','linht@fpt.edu.vn')
+			--THEM DU LIEN CHUYEN DE
+			INSERT INTO CHUYENDE (MACD , TENCD , HOCPHI , THOILUONG , HINH , MOTA)
+			values 
+			('CD02', 'Java1',360000,120,'HINH.PNG','Lập Trình Java1'),
+			('CD03', 'Java2',360000,120,'HINH.PNG','Lập Trình Java2'),
+			('CD04', 'Java3',360000,120,'HINH.PNG','Lập Trình Java3'),
+			('CD05', 'Java4',360000,120,'HINH.PNG','Lập Trình Java4'),
+			('CD06', 'Java5',360000,120,'HINH.PNG','Lập Trình Java5'),
+			('CD07', 'Java6',360000,120,'HINH.PNG','Lập Trình Java6'),
+			('CD08', 'Nhập Môn Kỹ Thật Phần Mềm',360000,120,'HINH.PNG','Nhập Môn Kỹ Thật Phần Mềm'),
+			('CD09', 'Kỹ Năng Học Tập',360000,120,'HINH.PNG','Kỹ Năng Học Tập'),
+			('CD10', 'Chính Trị Phát Luật',360000,120,'HINH.PNG','Chính Trị Pháp Luật'),
+			('CD11', 'HTML & CSS',360000,120,'HINH.PNG','Lập Trình HTML & CSS'),
+			('CD12', 'Nhập Môn LẬp Trình',360000,120,'HINH.PNG','Lập Trình C++')
+			-- Them du lieu khoa hoc
+			INSERT INTO KHOAHOC ( MACD, HOCPHI, THOILUONG, NGAYKG, GHICHU, MANV, NGAYTAO)
+			values 
+			('CD11',360000,120,'2021-10-7',N'Java1','NV001','2021-10-5'),
+			('CD02',360000,120,'2020-9-10',N'Khóa học 002','NV002','2020-9-1'),
+			('CD03',360000,120,'2020-11-2',N'Khóa học 003','NV003','2020-10-28'),
+			('CD04',360000,120,'2019-1-22',N'Khóa học 004','NV004','2019-1-15'),
+			('CD05',360000,120,'2020-5-11',N'Khóa học 005','NV005','2020-5-1'),
+			('CD06',360000,120,'2021-2-19',N'Khóa học 006','NV001','2021-2-10'),
+			('CD07',360000,120,'2019-11-10',N'Khóa học 007','NV003','2019-11-1'),
+			('CD08',360000,120,'2021-8-19',N'Khóa học 008','NV005','2021-8-11'),
+			('CD09',360000,120,'2020-2-1',N'Khóa học 009','NV007','2020-1-20'),
+			('CD10',360000,120,'2018-10-20',N'Khóa học 010','NV008','2018-10-10')
+			--truyen du lieu nguoi hoc
+			INSERT INTO NGUOIHOC(MANH, HOTEN,NGAYSINH,DIENTHOAI,EMAIL,MANV,NGAYDK)
+			values 
+			('NH011',N'Trần Văn Hối','2001-10-10','0872652122','hoitv@fpt.edu.vn','NV001','2021 - 1 - 10'),
+			('NH002',N'Lê Quốc Gia','1999-10-3','0932352122','gialq@fpt.edu.vn','NV002','2019 - 1 - 10'),
+			('NH003',N'Lỗ Tấn','1998-1-25','0832532222','tanl@fpt.edu.vn','NV004','2021 - 12 - 22'),
+			('NH004',N'Trương Thanh Hoàng','2000-5-19','0734342422','hoangtt@fpt.edu.vn','NV005','2020 - 12 - 19'),
+			('NH005',N'Huỳnh Khiêm Tốn','2000-01-1','0328637223','tonhk@fpt.edu.vn','NV003','2019 - 7 - 19'),
+			('NH006',N'Trần Cường','1998-01-3','0128399392','cuongt@fpt.edu.vn','NV006','2018 - 9 - 12'),
+			('NH007',N'Đào Văn','2000-4-29','0635293710','vandao@fpt.edu.vn','NV008','2020 - 10 - 11'),
+			('NH008',N'Nguyễn Thị Thùy Trang','2001-12-13','0152445382','trangntt@fpt.edu.vn','NV007','2021-10-1'),
+			('NH009',N'Trần Thanh Xu','2001-4-3','0218293721','xuth@fpt.edu.vn','NV003','2020-10-1'),
+			('NH010',N'Trần Hổ Báo','2002-12-23','0935281923','baoth@fpt.edu.vn','NV002','2021-10-1')
+			--truyen du lieu hoc vien	
+			SET IDENTITY_INSERT HOCVIEN OFF
+			INSERT INTO HOCVIEN(MAKH,MANH,DIEM)
+			values 
+			(2,'NH006',8),
+			(3,'NH002',4),
+			(4,'NH003',6),
+			(5,'NH004',8),
+			(6,'NH004',6),
+			(7,'NH006',7),
+			(8,'NH007',8),
+			(9,'NH008',10),
+			(10,'NH009',4),
+			(11,'NH010',7),
+			(2,'NH011',5),
+			(5,'NH002',4),
+			(6,'NH003',9),
+			(11,'NH004',8),
+			(4,'NH004',7),
+			(3,'NH006',7),
+			(7,'NH007',9),
+			(8,'NH008',7),
+			(9,'NH009',9),
+			(5,'NH010',8)
+
+
+--select * from KHOAHOC
+
+
+
+
+			
+
+/*	use master 
+	drop database EDUSYS*/
+
+	/*
+	--Insert nhanvien 
+	INSERT INTO NHANVIEN(MANV, MATKHAU, HOTEN, VAITRO) VALUES('admin', 'admin123', N'Lê Văn Tèo', 1),
+	('nhanvien', 'nhanvien123', N'Trần Văn Minh', 0)
+	--Insert chuyende
+	INSERT INTO CHUYENDE (MACD,TENCD, HOCPHI, THOILUONG, HINH, MOTA) 
+	VALUES('CD001', 'JAVA', '2000000', 20, 'A.PNG', 'CHUYENDE JAVA'),
+	('CD002', 'JAVA', '3000000', 15, 'A.PNG', 'CHUYENDE JAVA'), 
+	('CD003',N'Thiet ke Wed','4000000',15,'A.PNG','CHUYENDE WED'),
+	('CD004','C#','3000000',20,'A.PNG', 'CHUYENDE C#')	
+	--Insert khoahoc
+	SET IDENTITY_INSERT KHOAHOC OFF
+	INSERT INTO KHOAHOC (MACD, HOCPHI, THOILUONG, NGAYKG, NGAYTAO, MANV, GHICHU) 
+	VALUES ('CD001', '2000000', 20, '2021-10-15', '2021-10-12', 'admin', 'aa'),
+	('CD001', '2000000', 20, '2021-10-25',' 2021-10-12', 'admin', 'aa'),
+	('CD003','4000000',15,'2021-09-14','2021-09-01','admin','are you ok ?'),
+	('CD003','4000000',15,'2021-09-30','2021-09-21','admin','ok ok ok ?')
+	--Insert nguoihoc
+	INSERT INTO NGUOIHOC (MANH, HOTEN, GIOITINH,NGAYSINH,EMAIL,MANV,NGAYDK, DIENTHOAI, GHICHU ) 
+	VALUES ('NH011','Nguyen A',1,'2002-01-07','A@gmail.com','admin','2020-09-12','0769331203', 'ok' ),
+	('NH012','Nguyen B',1,'2002-01-07','B@gmail.com','admin','2020-09-14','0779331203', 'ok' )
+	--Insert into hocvien
+	insert into HOCVIEN(MANH,MAKH,DIEM) 
+	values('NH011',2,8),
+	('NH011',3,10)*/
+
+
+
+
+
+/*
 	--THEM DU LIEU
 	INSERT INTO NHANVIEN(MANV, MATKHAU, HO, TEN, VAITRO) VALUES('admin', 'admin123', N'Lê Văn', N'Tèo', 1)
 	INSERT INTO NHANVIEN(MANV, MATKHAU, HO, TEN, VAITRO) VALUES('nhanvien', 'nhanvien123', N'Trần Văn', N'Minh', 0)
 
-/*	use master 
-	drop database EDUSYS*/
+	INSERT INTO CHUYENDE (MACD,TENCD, HOCPHI, THOILUONG, HINH, MOTA) VALUES('CD001', 'JAVA', 2000000, 20, 'A.PNG', 'CHUYENDE JAVA'),
+	('CD002', 'JAVA', 3000000, 15, 'A.PNG', 'CHUYENDE JAVA')
+	
+
+	INSERT INTO KHOAHOC (MACD, HOCPHI, THOILUONG, NGAYKG, NGAYTAO, MANV, GHICHU) 
+	VALUES ('CD001', 2000000, 20, 2021-10-15, 2021-10-12, 'admin', 'aa'),
+	('CD001', 2000000, 20, 2021-10-25, 2021-10-12, 'admin', 'aa')
+
+		
+		INSERT INTO NGUOIHOC (MANH, HO, TEN, GIOITINH,NGAYSINH,EMAIL,MANV,NGAYDK, DIENTHOAI, GHICHU ) 
+	VALUES ('NH011','Nguyen','A',1,'2002-01-07','A@gmail.com','admin','2020-09-12','0769331203', 'ok' )
+	insert into HOCVIEN(MANH,MAKH,DIEM) values('NH011',0,8)*/
+
+
 --CAC CAU LENH SQL
 /*
 INSERT INTO NHANVIEN(MANV, MATKHAU, HO, TEN, VAITRO)
@@ -169,7 +387,7 @@ UPDATE HOCVIEN SET MAKH =?, MANH = ?, DIEM = ? WHERE MAHV =?
 DELETE FROM HOCVIEN WHERE MAHV = ?
 SELECT * FROM HOCVIEN WHERE MAHV = ?
 */
-
+/*SELECT * FROM CHUYENDE WHERE MACD = 'CD001' AND MACD IN (SELECT MACD FROM KHOAHOC)
 
 SELECT HV.MAHV, HV.MANH, HV.MAKH,NH.HO+ ' '+ NH.TEN, HV.DIEM FROM HOCVIEN HV JOIN NGUOIHOC NH ON HV.MANH=NH.MANH  WHERE HV.MAKH = ?
 UPDATE KHOAHOC SET NGAYKG = '2021-11-05' WHERE MAKH = 3
@@ -183,11 +401,8 @@ BEGIN
 	DELETE FROM KHOAHOC WHERE MAKH IN (SELECT MAKH FROM DELETED)
 END 
 
-
 DROP TRIGGER TRG_XOAKHOAHOC 
 
-
---TRIGGER XOA CHUYENDE
 CREATE TRIGGER TRG_XOACHUYENDE
 ON CHUYENDE
 INSTEAD OF DELETE
@@ -196,3 +411,4 @@ BEGIN
 	DELETE FROM KHOAHOC WHERE MACD IN (SELECT MACD FROM INSERTED)
 	DELETE FROM CHUYENDE WHERE MACD IN (SELECT MACD FROM INSERTED)
 END
+DROP TRIGGER TRG_XOACHUYENDE*/
