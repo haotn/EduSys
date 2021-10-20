@@ -20,8 +20,8 @@ import java.util.logging.Logger;
  */
 public class NhanVienDAO extends EduSysDAO<NhanVien, String> {
 
-    String INSERT_SQL = "INSERT INTO NHANVIEN(MANV, HOTEN, MATKHAU, MACV, EMAIL) VALUES ( ?, ?, ?, ?, ?, ?)";
-    String UPDATE_SQL = "UPDATE NHANVIEN SET  HOTEN =?, MATKHAU =?, MACV = ?, EMAIL = ? WHERE MANV =?";
+    String INSERT_SQL = "INSERT INTO NHANVIEN(MANV, HOTEN, MATKHAU, EMAIL, VAITRO) VALUES ( ?, ?, ?, ?, ?)";
+    String UPDATE_SQL = "UPDATE NHANVIEN SET  HOTEN =?, MATKHAU =?, EMAIL = ?, VAITRO = ? WHERE MANV =?";
     String DELETE_SQL = "DELETE FROM NHANVIEN WHERE MANV = ?";
     String SELECT_ALL_SQL = "SELECT * FROM NHANVIEN";
     String SELECT_BY_ID_SQL = "SELECT * FROM NHANVIEN WHERE MANV = ?";
@@ -29,7 +29,7 @@ public class NhanVienDAO extends EduSysDAO<NhanVien, String> {
     @Override
     public void insert(NhanVien entity) {
         try {
-            XJdbc.update(INSERT_SQL, entity.getMaNV(), entity.getHoTen(), entity.getMatKhau(), entity.getMaCV(), entity.getEmail());
+            XJdbc.update(INSERT_SQL, entity.getMaNV(), entity.getHoTen(), entity.getMatKhau(), entity.getEmail(), entity.isVaiTro());
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
@@ -38,7 +38,7 @@ public class NhanVienDAO extends EduSysDAO<NhanVien, String> {
     @Override
     public void update(NhanVien entity) {
         try {
-            XJdbc.update(UPDATE_SQL, entity.getHoTen(), entity.getMatKhau(), entity.getMaCV(), entity.getEmail(), entity.getMaNV());
+            XJdbc.update(UPDATE_SQL, entity.getHoTen(), entity.getMatKhau(), entity.getEmail(), entity.isVaiTro(), entity.getMaNV());
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
@@ -78,8 +78,8 @@ public class NhanVienDAO extends EduSysDAO<NhanVien, String> {
                 entity.setMaNV(result.getString("MANV"));
                 entity.setMatKhau(result.getString("MATKHAU"));
                 entity.setHoTen(result.getString("HOTEN"));
-                entity.setMaCV(result.getString("MACV"));
                 entity.setEmail(result.getString("EMAIL"));
+                entity.setVaiTro(result.getBoolean("VAITRO"));
                 list.add(entity);
             }
             result.getStatement().getConnection().close();

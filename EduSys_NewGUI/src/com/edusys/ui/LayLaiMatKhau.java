@@ -1,5 +1,8 @@
+package com.edusys.ui;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.UIManager;
 import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
 
@@ -21,7 +24,11 @@ public class LayLaiMatKhau extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-   }
+        pwdMatKhau.setEchoChar((char) 0);
+        pwdMatKhau.setText("Nhập mật khẩu");
+        pwdXacNhanMatKhau.setEchoChar((char) 0);
+        pwdXacNhanMatKhau.setText("Xác nhận mật khẩu");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,14 +39,53 @@ public class LayLaiMatKhau extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlContainer = new javax.swing.JPanel();
+        pwdXacNhanMatKhau = new javax.swing.JPasswordField();
+        pwdMatKhau = new javax.swing.JPasswordField();
+        btnXacNhan = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        chkHienMatkhau = new javax.swing.JCheckBox();
+        chkHienXacNhanMatkhau = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnlContainer.setBackground(new java.awt.Color(255, 255, 255));
+        pnlContainer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pwdXacNhanMatKhau.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        pwdXacNhanMatKhau.setText("Xasc nhaajn maajt khaaur");
+        pwdXacNhanMatKhau.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pwdXacNhanMatKhauFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pwdXacNhanMatKhauFocusLost(evt);
+            }
+        });
+        pnlContainer.add(pwdXacNhanMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 300, 30));
+
+        pwdMatKhau.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        pwdMatKhau.setText("Nhaapj maajt khaaur");
+        pwdMatKhau.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pwdMatKhauFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pwdMatKhauFocusLost(evt);
+            }
+        });
+        pnlContainer.add(pwdMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 300, 30));
+
+        btnXacNhan.setBackground(new java.awt.Color(0, 0, 255));
+        btnXacNhan.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        btnXacNhan.setText("Xác Nhận");
+        btnXacNhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXacNhanActionPerformed(evt);
+            }
+        });
+        pnlContainer.add(btnXacNhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(353, 331, -1, 39));
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
@@ -47,60 +93,88 @@ public class LayLaiMatKhau extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 72, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, -1));
+        pnlContainer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, -1));
 
-        jTextField1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField1.setText("Xác nhận mật khẩu mới ");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 191, 308, 40));
-
-        jTextField2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField2.setText("Mật khẩu mới");
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 107, 308, 40));
-
-        jButton2.setBackground(new java.awt.Color(0, 0, 255));
-        jButton2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jButton2.setText("Xác Nhận");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        chkHienMatkhau.setBackground(new java.awt.Color(255, 255, 255));
+        chkHienMatkhau.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        chkHienMatkhau.setForeground(new java.awt.Color(51, 51, 51));
+        chkHienMatkhau.setText("Hiện mật khẩu");
+        chkHienMatkhau.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                chkHienMatkhauActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(353, 331, -1, 39));
+        pnlContainer.add(chkHienMatkhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        chkHienXacNhanMatkhau.setBackground(new java.awt.Color(255, 255, 255));
+        chkHienXacNhanMatkhau.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        chkHienXacNhanMatkhau.setForeground(new java.awt.Color(51, 51, 51));
+        chkHienXacNhanMatkhau.setText("Hiện xác nhận mật khẩu");
+        chkHienXacNhanMatkhau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkHienXacNhanMatkhauActionPerformed(evt);
+            }
+        });
+        pnlContainer.add(chkHienXacNhanMatkhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 400));
+        getContentPane().add(pnlContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 400));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
         int chon = JOptionPane.showConfirmDialog(this, "Bạn có muốn đăng nhập ngay bây giờ ? ", " Đăng Nhập", JOptionPane.YES_NO_OPTION);
         if (chon == JOptionPane.YES_OPTION) {
-            //Gọi đăng nhập
+            new DangNhap().setVisible(true);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnXacNhanActionPerformed
+
+    private void pwdMatKhauFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdMatKhauFocusGained
+        // TODO add your handling code here:
+        focusGained(pwdMatKhau, "Nhập mật khẩu");
+    }//GEN-LAST:event_pwdMatKhauFocusGained
+
+    private void pwdMatKhauFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdMatKhauFocusLost
+        // TODO add your handling code here:
+        focusLost(pwdMatKhau, "Nhập mật khẩu");
+    }//GEN-LAST:event_pwdMatKhauFocusLost
+
+    private void pwdXacNhanMatKhauFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdXacNhanMatKhauFocusLost
+        // TODO add your handling code here:
+        focusLost(pwdXacNhanMatKhau, "Xác nhận mật khẩu");
+    }//GEN-LAST:event_pwdXacNhanMatKhauFocusLost
+
+    private void pwdXacNhanMatKhauFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdXacNhanMatKhauFocusGained
+        // TODO add your handling code here:
+        focusGained(pwdXacNhanMatKhau, "Xác nhận mật khẩu");
+    }//GEN-LAST:event_pwdXacNhanMatKhauFocusGained
+
+    private void chkHienMatkhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkHienMatkhauActionPerformed
+        // TODO add your handling code here:
+        if (pwdMatKhau.getEchoChar() == '\u25cf') {
+            pwdMatKhau.setEchoChar((char) 0);
+        } else {
+            pwdMatKhau.setEchoChar('\u25cf');
+        }
+    }//GEN-LAST:event_chkHienMatkhauActionPerformed
+
+    private void chkHienXacNhanMatkhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkHienXacNhanMatkhauActionPerformed
+        // TODO add your handling code here:
+
+        if (pwdXacNhanMatKhau.getEchoChar() == '\u25cf') {
+            pwdXacNhanMatKhau.setEchoChar((char) 0);
+        } else {
+            pwdXacNhanMatKhau.setEchoChar('\u25cf');
+        }
+    }//GEN-LAST:event_chkHienXacNhanMatkhauActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,10 +219,35 @@ public class LayLaiMatKhau extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnXacNhan;
+    private javax.swing.JCheckBox chkHienMatkhau;
+    private javax.swing.JCheckBox chkHienXacNhanMatkhau;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel pnlContainer;
+    private javax.swing.JPasswordField pwdMatKhau;
+    private javax.swing.JPasswordField pwdXacNhanMatKhau;
     // End of variables declaration//GEN-END:variables
+
+    public void focusGained(JPasswordField pwd, String text) {
+        if (String.valueOf(pwd.getPassword()).equals(text)) {
+            pwd.setText("");
+            pwd.setEchoChar('\u25cf');
+        }
+        pwd.setForeground(Color.black);
+    }
+
+    public void focusLost(JPasswordField pwd, String text) {
+        if (String.valueOf(pwd.getPassword()).equals("")) {
+            pwd.setText(text);
+            pwd.setEchoChar((char) 0);
+            pwd.setForeground(new Color(102, 102, 102));
+        } else {
+            pwd.setEchoChar('\u25cf');
+        }
+    }
+
+    public boolean checkForm() {
+
+        return true;
+    }
 }

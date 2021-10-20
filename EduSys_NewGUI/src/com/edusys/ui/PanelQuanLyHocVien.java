@@ -36,11 +36,11 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
     /**
      * Creates new form PanelQuanLyHocVien
      */
-    DefaultTableModel modelNH;
-    DefaultTableModel modelHV;
+    static DefaultTableModel modelNH;
+    static DefaultTableModel modelHV;
     JTableHeader header;
-    DefaultComboBoxModel modelCboChuyenDe = new DefaultComboBoxModel();
-    DefaultComboBoxModel modelCboKhoaHoc = new DefaultComboBoxModel();
+    static DefaultComboBoxModel modelCboChuyenDe = new DefaultComboBoxModel();
+    static DefaultComboBoxModel modelCboKhoaHoc = new DefaultComboBoxModel();
 
     public PanelQuanLyHocVien() {
         initComponents();
@@ -48,6 +48,13 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
         setModelTableHocVien();
         cboLocChuyenDe.setModel(modelCboChuyenDe);
         cboLocKhoaHoc.setModel(modelCboKhoaHoc);
+        fillComboBoxChuyenDe();
+        fillComboBoxKhoaHoc();
+        fillTableHocVien();
+        //fillTableNguoiHoc();
+    }
+
+    public static void refresh() {
         fillComboBoxChuyenDe();
         fillComboBoxKhoaHoc();
         fillTableHocVien();
@@ -321,8 +328,8 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
     private javax.swing.JButton btnCapNhatDiem;
     private javax.swing.JButton btnThemVaoKhoaHoc;
     private javax.swing.JButton btnXoaKhoiKhoaHoc;
-    private javax.swing.JComboBox<String> cboLocChuyenDe;
-    private javax.swing.JComboBox<String> cboLocKhoaHoc;
+    private static javax.swing.JComboBox<String> cboLocChuyenDe;
+    private static javax.swing.JComboBox<String> cboLocKhoaHoc;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -330,16 +337,16 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
     private javax.swing.JLabel lblLocKhoaHoc;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlLocHocVien;
-    private javax.swing.JTable tblHocVien;
-    private javax.swing.JTable tblNguoiHoc;
+    private static javax.swing.JTable tblHocVien;
+    private static javax.swing.JTable tblNguoiHoc;
     private javax.swing.JTextField txtTimHocVien;
-    private javax.swing.JTextField txtTimNguoiHoc;
+    private static javax.swing.JTextField txtTimNguoiHoc;
     // End of variables declaration//GEN-END:variables
 
-    ChuyenDeDAO cddao = new ChuyenDeDAO();
-    KhoaHocDAO khdao = new KhoaHocDAO();
-    NguoiHocDAO nhdao = new NguoiHocDAO();
-    HocVienDAO hvdao = new HocVienDAO();
+    static ChuyenDeDAO cddao = new ChuyenDeDAO();
+    static KhoaHocDAO khdao = new KhoaHocDAO();
+    static NguoiHocDAO nhdao = new NguoiHocDAO();
+    static HocVienDAO hvdao = new HocVienDAO();
 
     public void focusGained(JTextField txt, String text) {
         if (txt.getText().equals(text)) {
@@ -360,7 +367,7 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
         fillComboBoxChuyenDe();
     }
 
-    public void fillComboBoxChuyenDe() {
+    static public void fillComboBoxChuyenDe() {
         modelCboChuyenDe.removeAllElements();
         List<ChuyenDe> list = cddao.selectAll();
         for (ChuyenDe cd : list) {
@@ -369,7 +376,7 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
         fillComboBoxKhoaHoc();
     }
 
-    public void fillComboBoxKhoaHoc() {
+    static public void fillComboBoxKhoaHoc() {
         modelCboKhoaHoc.removeAllElements();
         ChuyenDe chuyenDe = (ChuyenDe) cboLocChuyenDe.getSelectedItem();
         if (chuyenDe != null) {
@@ -381,7 +388,7 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
         }
     }
 
-    public void fillTableHocVien() {
+    static public void fillTableHocVien() {
         modelHV.setRowCount(0);
         KhoaHoc khoaHoc = (KhoaHoc) cboLocKhoaHoc.getSelectedItem();
         if (khoaHoc != null) {
@@ -400,7 +407,7 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
         }
     }
 
-    public void fillTableNguoiHoc() {
+    static public void fillTableNguoiHoc() {
         modelNH.setRowCount(0);
         KhoaHoc khoaHoc = (KhoaHoc) cboLocKhoaHoc.getSelectedItem();
         String keyWord = txtTimNguoiHoc.getText();
@@ -456,24 +463,28 @@ public class PanelQuanLyHocVien extends javax.swing.JPanel {
         for (int i = 0; i < tblHocVien.getRowCount(); i++) {
             int maHV = (Integer) tblHocVien.getValueAt(i, 0);
             HocVien hv = hvdao.selectById(maHV);
-            hv.setDiem(Double.parseDouble(String.valueOf(tblHocVien.getValueAt(i, 4))));
+            hv.setDiem(Float.parseFloat(String.valueOf(tblHocVien.getValueAt(i, 4))));
             hvdao.update(hv);
         }
         MsgBox.alert(this, "Cập nhật điểm thành công");
     }
 
     public boolean checkForUpdate() {
-        double diem = -1;
-        try {
-            diem = Double.parseDouble(String.valueOf(tblHocVien.getValueAt(tblHocVien.getSelectedRow(), 4)));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Điểm phải được nhập dưới dạng số ");
-            return false;
-        }
-        
-        if (diem < 0 || diem > 10) {
-            JOptionPane.showMessageDialog(this, "Cập nhật điểm thất bại - điêm chưa đúng ");
-            return false;
+        for (int i = 0; i < tblHocVien.getRowCount() - 1; i++) {
+            double diem = -1;
+//            if (String.valueOf(tblHocVien.getValueAt(i, 4)).matches("[0-9]{1,}")) {
+//                JOptionPane.showMessageDialog(this, "Điểm phải được nhập dưới dạng số. \n Lỗi tại dòng: "+i+1);
+//            }
+            try {
+                diem = Float.parseFloat(String.valueOf(tblHocVien.getValueAt(i, 4)));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Điểm phải được nhập dưới dạng số!");
+                return false;
+            }
+            if (diem < 0 || diem > 10) {
+                JOptionPane.showMessageDialog(this, "Cập nhật điểm thất bại - điêm chưa đúng ");
+                return false;
+            }
         }
         return true;
     }

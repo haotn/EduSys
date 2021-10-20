@@ -42,7 +42,6 @@ public class KhoaHocDAO extends EduSysDAO<KhoaHoc, Integer> {
     public void update(KhoaHoc entity) {
         try {
             int a = XJdbc.update(UPDATE_SQL, entity.getNgayKG(), entity.getGhiChu(), entity.getMaKH());
-            System.out.println("Da thay doi"+a);
         } catch (SQLException ex) {
             Logger.getLogger(KhoaHocDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

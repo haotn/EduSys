@@ -6,11 +6,8 @@
 package com.edusys.ui;
 
 import AppPackage.AnimationClass;
-import com.edusys.dao.PhanQuyenDAO;
-import com.edusys.entity.PhanQuyen;
 import com.edusys.helper.Auth;
 import com.edusys.helper.MsgBox;
-import com.edusys.helper.XDate;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
@@ -33,25 +30,31 @@ public class MainGUI extends javax.swing.JFrame {
     CardLayout layout;
     AnimationClass ac = new AnimationClass();
     boolean accountToolHide = true;
-    String userName = Auth.user.getHoTen();
-    String user = Auth.user.getMaNV();
+    String tenNhanVien = null;
+    String taiKhoan = null;
     Thread t = null;
     int hours = 0, minutes = 0, seconds = 0;
     String timeString = "";
-    String maPhanQuyen="";
 
     public MainGUI() {
         initComponents();
         setLocationRelativeTo(null);
+        setResizable(false);
+        //clock();
+        init();
+    }
+
+    public void init() {
         layout = (CardLayout) pnlRight.getLayout();
-        setResizable(true);
+        tenNhanVien = Auth.user.getHoTen();
+        taiKhoan = Auth.user.getMaNV();
+        Chao.taiKhoan = null;
+        Chao.matKhau = null;
         addCard();
         doiMauLabel(lblTrangChu);
         chuyenPanel("cardTrangChu");
-        lblUser.setText(user);
+        lblUser.setText(taiKhoan);
         lblUsername.setText("Xin chào " + Auth.user.getHoTen() + "!");
-        //lblClock.setText(String.valueOf(XDate.addDays(new Date(), 10)));
-        clock();
     }
 
     public void clock() {
@@ -106,7 +109,6 @@ public class MainGUI extends javax.swing.JFrame {
         lblHuongDan = new javax.swing.JLabel();
         lblGioiThieu = new javax.swing.JLabel();
         lblQuanLy = new javax.swing.JLabel();
-        lblChucVu = new javax.swing.JLabel();
         lblNhanVien = new javax.swing.JLabel();
         lblHocVien = new javax.swing.JLabel();
         lblNguoiHoc = new javax.swing.JLabel();
@@ -298,25 +300,6 @@ public class MainGUI extends javax.swing.JFrame {
         lblQuanLy.setText("Quản lý");
         pnlLeft.add(lblQuanLy, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 200, 40));
 
-        lblChucVu.setBackground(new java.awt.Color(35, 75, 72));
-        lblChucVu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblChucVu.setForeground(new java.awt.Color(255, 255, 255));
-        lblChucVu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/NhanVien.png"))); // NOI18N
-        lblChucVu.setText("Quản lý chức vụ");
-        lblChucVu.setOpaque(true);
-        lblChucVu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblChucVuMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblChucVuMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblChucVuMousePressed(evt);
-            }
-        });
-        pnlLeft.add(lblChucVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 200, 190, 40));
-
         lblNhanVien.setBackground(new java.awt.Color(35, 75, 72));
         lblNhanVien.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblNhanVien.setForeground(new java.awt.Color(255, 255, 255));
@@ -334,7 +317,7 @@ public class MainGUI extends javax.swing.JFrame {
                 lblNhanVienMousePressed(evt);
             }
         });
-        pnlLeft.add(lblNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 240, 190, 40));
+        pnlLeft.add(lblNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 190, 40));
 
         lblHocVien.setBackground(new java.awt.Color(35, 75, 72));
         lblHocVien.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -353,7 +336,7 @@ public class MainGUI extends javax.swing.JFrame {
                 lblHocVienMousePressed(evt);
             }
         });
-        pnlLeft.add(lblHocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 280, 190, 40));
+        pnlLeft.add(lblHocVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 190, 40));
 
         lblNguoiHoc.setBackground(new java.awt.Color(35, 75, 72));
         lblNguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -372,7 +355,7 @@ public class MainGUI extends javax.swing.JFrame {
                 lblNguoiHocMousePressed(evt);
             }
         });
-        pnlLeft.add(lblNguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 320, 190, 40));
+        pnlLeft.add(lblNguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 190, 40));
 
         lblKhoaHoc.setBackground(new java.awt.Color(35, 75, 72));
         lblKhoaHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -391,7 +374,7 @@ public class MainGUI extends javax.swing.JFrame {
                 lblKhoaHocMousePressed(evt);
             }
         });
-        pnlLeft.add(lblKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 360, 190, 40));
+        pnlLeft.add(lblKhoaHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 190, 40));
 
         lblChuyenDe.setBackground(new java.awt.Color(35, 75, 72));
         lblChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -410,13 +393,13 @@ public class MainGUI extends javax.swing.JFrame {
                 lblChuyenDeMousePressed(evt);
             }
         });
-        pnlLeft.add(lblChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 400, 190, 40));
+        pnlLeft.add(lblChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 190, 40));
 
         lblThongKe.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lblThongKe.setForeground(new java.awt.Color(255, 204, 0));
         lblThongKe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblThongKe.setText("Thống kê");
-        pnlLeft.add(lblThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 180, 40));
+        pnlLeft.add(lblThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 180, 40));
 
         lblBangDiem.setBackground(new java.awt.Color(35, 75, 72));
         lblBangDiem.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -435,7 +418,7 @@ public class MainGUI extends javax.swing.JFrame {
                 lblBangDiemMousePressed(evt);
             }
         });
-        pnlLeft.add(lblBangDiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 480, 190, 40));
+        pnlLeft.add(lblBangDiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 190, 40));
 
         lblLuongNguoiHoc.setBackground(new java.awt.Color(35, 75, 72));
         lblLuongNguoiHoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -454,7 +437,7 @@ public class MainGUI extends javax.swing.JFrame {
                 lblLuongNguoiHocMousePressed(evt);
             }
         });
-        pnlLeft.add(lblLuongNguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 520, 190, 40));
+        pnlLeft.add(lblLuongNguoiHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 190, 40));
 
         lblDiemTheoChuyenDe.setBackground(new java.awt.Color(35, 75, 72));
         lblDiemTheoChuyenDe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -473,7 +456,7 @@ public class MainGUI extends javax.swing.JFrame {
                 lblDiemTheoChuyenDeMousePressed(evt);
             }
         });
-        pnlLeft.add(lblDiemTheoChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 560, 190, 40));
+        pnlLeft.add(lblDiemTheoChuyenDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 190, 40));
 
         lblDoanhThu.setBackground(new java.awt.Color(35, 75, 72));
         lblDoanhThu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -492,7 +475,7 @@ public class MainGUI extends javax.swing.JFrame {
                 lblDoanhThuMousePressed(evt);
             }
         });
-        pnlLeft.add(lblDoanhThu, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 600, 190, 40));
+        pnlLeft.add(lblDoanhThu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 190, 40));
 
         lblBackgroundLeft.setBackground(new java.awt.Color(35, 75, 72));
         lblBackgroundLeft.setOpaque(true);
@@ -505,7 +488,7 @@ public class MainGUI extends javax.swing.JFrame {
         pnlRight.setMinimumSize(new java.awt.Dimension(1200, 750));
         pnlRight.setPreferredSize(new java.awt.Dimension(1200, 750));
         pnlRight.setLayout(new java.awt.CardLayout());
-        pnlContainer.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
+        pnlContainer.add(pnlRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 1200, 750));
 
         getContentPane().add(pnlContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -574,6 +557,7 @@ public class MainGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         doiMauLabel(lblNhanVien);
         chuyenPanel("cardNhanVien");
+        PanelQuanLyNhanVien.refresh();
     }//GEN-LAST:event_lblNhanVienMousePressed
 
     private void lblHocVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHocVienMouseEntered
@@ -590,6 +574,7 @@ public class MainGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         doiMauLabel(lblHocVien);
         chuyenPanel("cardHocVien");
+        PanelQuanLyHocVien.refresh();
     }//GEN-LAST:event_lblHocVienMousePressed
 
     private void lblNguoiHocMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNguoiHocMouseEntered
@@ -622,7 +607,7 @@ public class MainGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         doiMauLabel(lblKhoaHoc);
         chuyenPanel("cardKhoaHoc");
-        PanelQuanLyKhoaHoc.refesh();
+        PanelQuanLyKhoaHoc.refresh();
     }//GEN-LAST:event_lblKhoaHocMousePressed
 
     private void lblChuyenDeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblChuyenDeMouseEntered
@@ -672,6 +657,7 @@ public class MainGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         doiMauLabel(lblLuongNguoiHoc);
         chuyenPanel("cardLuongNguoiHoc");
+        PanelLuongNguoiHoc.refresh();
     }//GEN-LAST:event_lblLuongNguoiHocMousePressed
 
     private void lblDiemTheoChuyenDeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDiemTheoChuyenDeMouseEntered
@@ -688,6 +674,7 @@ public class MainGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         doiMauLabel(lblDiemTheoChuyenDe);
         chuyenPanel("cardDiemTheoChuyenDe");
+        PanelDiemTheoChuyenDe.refresh();
     }//GEN-LAST:event_lblDiemTheoChuyenDeMousePressed
 
     private void lblDoanhThuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDoanhThuMouseEntered
@@ -704,6 +691,7 @@ public class MainGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         doiMauLabel(lblDoanhThu);
         chuyenPanel("cardDoanhThu");
+        PanelDoanhThu.refresh();
     }//GEN-LAST:event_lblDoanhThuMousePressed
 
     private void lblAccountDoiMatKhauMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccountDoiMatKhauMouseEntered
@@ -713,7 +701,7 @@ public class MainGUI extends javax.swing.JFrame {
 
     private void lblAccountDoiMatKhauMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccountDoiMatKhauMouseExited
         // TODO add your handling code here:
-        mouseExit(lblAccountDangXuat);
+        mouseExit(lblAccountDoiMatKhau);
     }//GEN-LAST:event_lblAccountDoiMatKhauMouseExited
 
     private void lblAccountDangXuatMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAccountDangXuatMouseEntered
@@ -761,24 +749,8 @@ public class MainGUI extends javax.swing.JFrame {
     private void lblUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUserMousePressed
         // TODO add your handling code here:
         openAccountTool();
-        lblBackgroundAccountTool.requestFocus();
+        //lblBackgroundAccountTool.requestFocus();
     }//GEN-LAST:event_lblUserMousePressed
-
-    private void lblChucVuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblChucVuMouseEntered
-        // TODO add your handling code here:
-        mouseEnter(lblChucVu);
-    }//GEN-LAST:event_lblChucVuMouseEntered
-
-    private void lblChucVuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblChucVuMouseExited
-        // TODO add your handling code here:
-        mouseExit(lblChucVu);
-    }//GEN-LAST:event_lblChucVuMouseExited
-
-    private void lblChucVuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblChucVuMousePressed
-        // TODO add your handling code here:
-        doiMauLabel(lblChucVu);
-        chuyenPanel("cardChucVu");
-    }//GEN-LAST:event_lblChucVuMousePressed
 
     /**
      * @param args the command line arguments
@@ -835,7 +807,6 @@ public class MainGUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblBackgroundAccountTool;
     private javax.swing.JLabel lblBackgroundLeft;
     private javax.swing.JLabel lblBangDiem;
-    private javax.swing.JLabel lblChucVu;
     private javax.swing.JLabel lblChuyenDe;
     private javax.swing.JLabel lblClock;
     private javax.swing.JLabel lblDiemTheoChuyenDe;
@@ -878,7 +849,6 @@ public class MainGUI extends javax.swing.JFrame {
         pnlRight.add(new PanelTrangChu(), "cardTrangChu");
         pnlRight.add(new PanelGioiThieu(), "cardGioiThieu");
         pnlRight.add(new PanelHuongDan(), "cardHuongDan");
-        pnlRight.add(new PanelQuanLyChucVu(), "cardChucVu");
         pnlRight.add(new PanelQuanLyNhanVien(), "cardNhanVien");
         pnlRight.add(new PanelQuanLyHocVien(), "cardHocVien");
         pnlRight.add(new PanelQuanLyNguoiHoc(), "cardNguoiHoc");
@@ -895,7 +865,6 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     public void doiMauLabel(JLabel lbl) {
-        lblChucVu.setBackground(new Color(36, 75, 72));
         lblTrangChu.setBackground(new Color(36, 75, 72));
         lblGioiThieu.setBackground(new Color(36, 75, 72));
         lblHuongDan.setBackground(new Color(36, 75, 72));
@@ -917,12 +886,5 @@ public class MainGUI extends javax.swing.JFrame {
 
     public void mouseExit(JLabel lbl) {
         lbl.setForeground(Color.WHITE);
-    }
-    public void gioiHanTruyCap(String maQuyen){
-        PhanQuyenDAO pqDAO = new PhanQuyenDAO();
-        List<PhanQuyen> list = pqDAO.selectALL();
-        String [] dayQuyen = maQuyen.split(",");
-        
-    
     }
 }

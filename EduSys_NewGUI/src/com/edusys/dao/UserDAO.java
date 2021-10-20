@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 public class UserDAO {
     String INSERT_SQL = "INSERT INTO NHOMATKHAU (TAIKHOAN, MATKHAU) VALUES (?, ?)";
     String UPDATE_SQL = "UPDATE NHOMATKHAU SET MATKHAU = ?  WHERE TAIKHOAN = ?";
-    String DELETE_SQL = "DELETE FROM NHOMATKHAU WHERE TAIKHOAN = ?";
+    String DELETE_SQL = "DELETE FROM NHOMATKHAU";
     String SELECT_ALL_SQL = "SELECT * FROM NHOMATKHAU";
     
 
@@ -44,9 +44,9 @@ public class UserDAO {
     }
 
 
-    public void delete(String id) {
+    public void delete() {
         try {
-            XJdbc.update(DELETE_SQL, id);
+            XJdbc.update(DELETE_SQL);
         } catch (SQLException ex) {
             Logger.getLogger(ChuyenDeDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

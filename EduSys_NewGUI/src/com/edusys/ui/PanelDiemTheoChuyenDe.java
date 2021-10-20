@@ -34,6 +34,10 @@ public class PanelDiemTheoChuyenDe extends javax.swing.JPanel {
         fillTableDiemChuyenDe();
     }
 
+    public static void refresh() {
+        fillTableDiemChuyenDe();
+    }
+
     public void setModelTable() {
         model = new DefaultTableModel(new Object[][]{}, new Object[]{"Chuyên đề", "Số học viên", "Điểm thấp nhất", "Điểm cao nhất", "Điểm trung bình"});
         tblThongKeDiemCD.setModel(model);
@@ -95,11 +99,11 @@ public class PanelDiemTheoChuyenDe extends javax.swing.JPanel {
     private static javax.swing.JTable tblThongKeDiemCD;
     // End of variables declaration//GEN-END:variables
 
-    ThongKeDAO tkDAO = new ThongKeDAO();
-    KhoaHocDAO khDAO = new KhoaHocDAO();
+    static ThongKeDAO tkDAO = new ThongKeDAO();
+    static KhoaHocDAO khDAO = new KhoaHocDAO();
 
-    public void fillTableDiemChuyenDe() {
-        DefaultTableModel model = (DefaultTableModel) tblThongKeDiemCD.getModel();
+    static public void fillTableDiemChuyenDe() {
+        // DefaultTableModel model = (DefaultTableModel) tblThongKeDiemCD.getModel();
         model.setRowCount(0);
         List<Object[]> list = tkDAO.getDiemChuyenDe();
         for (Object[] row : list) {

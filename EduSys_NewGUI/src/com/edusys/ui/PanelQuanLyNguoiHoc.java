@@ -45,6 +45,10 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
         init();
     }
 
+    public static void refresh() {
+        fillTable();;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -260,7 +264,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
 
         btnLast.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnLast.setForeground(new java.awt.Color(102, 102, 102));
-        btnLast.setText(">|");
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Last.png"))); // NOI18N
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLastActionPerformed(evt);
@@ -270,7 +274,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
 
         btnFirst.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnFirst.setForeground(new java.awt.Color(102, 102, 102));
-        btnFirst.setText("|<");
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/First.png"))); // NOI18N
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFirstActionPerformed(evt);
@@ -280,7 +284,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
 
         btnPrev.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnPrev.setForeground(new java.awt.Color(102, 102, 102));
-        btnPrev.setText("<<");
+        btnPrev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Previous.png"))); // NOI18N
         btnPrev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrevActionPerformed(evt);
@@ -290,7 +294,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
 
         btnNext.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnNext.setForeground(new java.awt.Color(102, 102, 102));
-        btnNext.setText(">>");
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Next.png"))); // NOI18N
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -443,7 +447,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
     private javax.swing.JPanel pnlFormNguoiHoc;
     private javax.swing.JRadioButton rdoNam;
     private javax.swing.JRadioButton rdoNu;
-    private javax.swing.JTable tblNguoiHoc;
+    private static javax.swing.JTable tblNguoiHoc;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextArea txtGhiChu_NguoiHoc;
     private javax.swing.JTextField txtHoTenNguoiHoc;
@@ -452,15 +456,15 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
     private javax.swing.JTextField txtNgayDangKy;
     private javax.swing.JTextField txtNgaySinh;
     private javax.swing.JTextField txtSoDienThoaii;
-    private javax.swing.JTextField txtTimKiemNH;
+    private static javax.swing.JTextField txtTimKiemNH;
     // End of variables declaration//GEN-END:variables
 
-    DefaultTableModel model;
+    static DefaultTableModel model;
     UtilDateModel datePickerModel;
     JDatePicker datePicker;
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     boolean isUpdate = false;
-    NguoiHocDAO dao = new NguoiHocDAO();
+    static NguoiHocDAO dao = new NguoiHocDAO();
     int row;
 
     public void generateDatePicker() {
@@ -526,7 +530,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
             clearForm();
             JOptionPane.showMessageDialog(this, "thêm thành công");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "thêm thất bại ");
+            //JOptionPane.showMessageDialog(this, "thêm thất bại ");
         }
     }
 
@@ -539,7 +543,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
                 clearForm();
                 //JOptionPane.showMessageDialog(this, "Cập nhật thành công");
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Cập nhật thất bại ");
+                JOptionPane.showMessageDialog(this, "Cập nhật thất bại!");
             }
         }
 
@@ -557,9 +561,9 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
                     dao.delete(nh.getMaNH());
                     fillTable();
                     clearForm();
-                    JOptionPane.showMessageDialog(this, "Xóa thành công");
+                    //JOptionPane.showMessageDialog(this, "Xóa thành công");
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(this, "Xóa thành công ");
+                    JOptionPane.showMessageDialog(this, "Người học này đang là học viên tại trung tâm, không thể xóa! ");
                 }
             }
         }
@@ -616,8 +620,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
     public NguoiHoc setForm(NguoiHoc nh) {
         txtMaNguoiHoc.setText(nh.getMaNH());
         txtHoTenNguoiHoc.setText(nh.getHoTen());
-        //txtNgaySinh.setText(String.valueOf(nh.getNgaySinh()));
-        datePickerModel.setValue(nh.getNgaySinh());
+        datePickerModel.setValue(XDate.toDate(XDate.toString(nh.getNgaySinh(), "dd/MM/yyyy"), "dd/MM/yyyy"));
         txtNgayDangKy.setText(String.valueOf(nh.getNgayDK()));
         txtSoDienThoaii.setText(nh.getDienThoai());
         txtManv.setText(nh.getMaNV());
@@ -666,7 +669,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
         updateStatus();
     }
 
-    public void fillTable() {
+    static public void fillTable() {
         //DefaultTableModel modelNguoiHoc = (DefaultTableModel) tblNguoiHoc.getModel();
         model.setRowCount(0);
         try {
@@ -678,7 +681,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
                 list = dao.selectByKeyWord(keyword);
             }
             for (NguoiHoc nh : list) {
-                Object[] row = {nh.getMaNH(), nh.getHoTen(), nh.getGioiTinh() ? "Nam" : "Nữ", nh.getNgaySinh(), nh.getDienThoai(), nh.getEmail(), nh.getGhiChu()};
+                Object[] row = {nh.getMaNH(), nh.getHoTen(), nh.getGioiTinh() ? "Nam" : "Nữ", XDate.toString(nh.getNgaySinh(), "dd/MM/yyyy"), nh.getDienThoai(), nh.getEmail(), nh.getGhiChu()};
                 model.addRow(row);
             }
         } catch (Exception e) {
@@ -693,11 +696,14 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
     }
 
     public boolean checkForm() {
+
         if (txtMaNguoiHoc.getText().equals("") || txtHoTenNguoiHoc.getText().equals("") || txtSoDienThoaii.getText().equals("")
-                || txtEmail.getText().equals("") || txtNgaySinh.getText().equals("") || txtManv.getText().equals("") || txtGhiChu_NguoiHoc.getText().equals("")
+                || txtEmail.getText().equals("") || txtManv.getText().equals("") || txtGhiChu_NguoiHoc.getText().equals("")
                 || (rdoNam.isSelected() == false && rdoNu.isSelected() == false)) {
             JOptionPane.showMessageDialog(this, "Hãy nhập đủ dữ liệu sau đó ấn Thêm", "Error", 1);
             return false;
+        } else if ((2021 - datePickerModel.getYear()) < 18) {
+
         } else if (!txtHoTenNguoiHoc.getText().contains(" ")) {
             MsgBox.alert(this, "Vui lòng nhập đầy đủ họ tên!");
             return false;
@@ -715,6 +721,7 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
             txtEmail.requestFocus();
             return false;
         }
+
         List<NguoiHoc> list = dao.selectAll();
         for (int i = 0; i < list.size(); i++) {
             if (isUpdate) {
@@ -723,9 +730,12 @@ public class PanelQuanLyNguoiHoc extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "Trùng Mã Người Học", "Error", 1);
                     return false;
                 }
+                if (txtEmail.getText().equalsIgnoreCase(list.get(i).getEmail())) {
+                    JOptionPane.showMessageDialog(this, "Trùng Email. Vui lòng nhập lại", "Error", 1);
+                    return false;
+                }
             }
         }
-
         return true;
     }
 }

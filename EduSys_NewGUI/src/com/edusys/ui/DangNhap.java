@@ -6,12 +6,15 @@
 package com.edusys.ui;
 
 import com.edusys.dao.NhanVienDAO;
+import com.edusys.dao.UserDAO;
 import com.edusys.entity.NhanVien;
+import com.edusys.entity.User;
 import com.edusys.helper.Auth;
 import static com.edusys.helper.MsgBox.alert;
 import static com.edusys.helper.MsgBox.confirm;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -25,19 +28,19 @@ public class DangNhap extends javax.swing.JFrame {
     /**
      * Creates new form DangNhap
      */
-    static boolean isManager;
+    //static boolean isManager;
     boolean showPass = false;
+    static String taiKhoan = Chao.taiKhoan;
+    static String matKhau = Chao.matKhau;
 
     public DangNhap() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-//        txtUser.setBackground(new Color(0, 0, 0, 1));
-//        pwdPass.setBackground(new Color(0, 0, 0, 1));
-//        txtUser.setText("admin");
-//        pwdPass.setText("admin123");
-//        btnDangNhap.doClick();
-//        dispose();
+        chkNhoMatKhau.setBackground(new Color(0, 0, 0, 1));
+        chkHienMatKhau.setBackground(new Color(0, 0, 0, 1));
+        pwdPass.setEchoChar('\u25cf');
+        getTaiKhoan();
     }
 
     /**
@@ -50,6 +53,7 @@ public class DangNhap extends javax.swing.JFrame {
     private void initComponents() {
 
         close = new javax.swing.JLabel();
+        lblAn_Hien = new javax.swing.JLabel();
         left = new javax.swing.JPanel();
         Wellcome = new javax.swing.JLabel();
         EduSys = new javax.swing.JLabel();
@@ -58,30 +62,32 @@ public class DangNhap extends javax.swing.JFrame {
         backgroundLeft = new javax.swing.JLabel();
         right = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
-        taiKhoan = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
-        taiKhoan1 = new javax.swing.JLabel();
+        lblTaiKhoan = new javax.swing.JLabel();
+        lblTaiKhoan1 = new javax.swing.JLabel();
         btnDangNhap = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         pwdPass = new javax.swing.JPasswordField();
-        lblAn_Hien = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        chkNhoMatKhau = new javax.swing.JCheckBox();
+        lblQuenMatKhau = new javax.swing.JLabel();
+        chkHienMatKhau = new javax.swing.JCheckBox();
         backgroundRight = new javax.swing.JLabel();
 
         close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/BlackClose.png"))); // NOI18N
-        close.addMouseListener(new java.awt.event.MouseAdapter() {
+
+        lblAn_Hien.setForeground(new java.awt.Color(255, 255, 255));
+        lblAn_Hien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/HienMatKhau.png"))); // NOI18N
+        lblAn_Hien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeMouseClicked(evt);
+                lblAn_HienMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                closeMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                closeMouseExited(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblAn_HienMousePressed(evt);
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("EduSys - Đăng nhập");
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,11 +126,6 @@ public class DangNhap extends javax.swing.JFrame {
         Title.setText("ĐĂNG NHẬP");
         right.add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
 
-        taiKhoan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        taiKhoan.setForeground(new java.awt.Color(255, 255, 255));
-        taiKhoan.setText("Mật khẩu");
-        right.add(taiKhoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
-
         txtUser.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         txtUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
@@ -134,10 +135,15 @@ public class DangNhap extends javax.swing.JFrame {
         });
         right.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 270, 32));
 
-        taiKhoan1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        taiKhoan1.setForeground(new java.awt.Color(255, 255, 255));
-        taiKhoan1.setText("Tài khoản");
-        right.add(taiKhoan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        lblTaiKhoan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblTaiKhoan.setForeground(new java.awt.Color(255, 255, 255));
+        lblTaiKhoan.setText("Tài khoản");
+        right.add(lblTaiKhoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        lblTaiKhoan1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblTaiKhoan1.setForeground(new java.awt.Color(255, 255, 255));
+        lblTaiKhoan1.setText("Mật khẩu");
+        right.add(lblTaiKhoan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         btnDangNhap.setBackground(new java.awt.Color(255, 255, 255));
         btnDangNhap.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -147,8 +153,8 @@ public class DangNhap extends javax.swing.JFrame {
                 btnDangNhapActionPerformed(evt);
             }
         });
-        right.add(btnDangNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
-        right.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 240, 10));
+        right.add(btnDangNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
+        right.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 240, 10));
 
         pwdPass.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         pwdPass.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -162,20 +168,41 @@ public class DangNhap extends javax.swing.JFrame {
                 pwdPassKeyPressed(evt);
             }
         });
-        right.add(pwdPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 240, 32));
+        right.add(pwdPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 270, 32));
+        right.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 270, 10));
 
-        lblAn_Hien.setForeground(new java.awt.Color(255, 255, 255));
-        lblAn_Hien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/HienMatKhau.png"))); // NOI18N
-        lblAn_Hien.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblAn_HienMouseClicked(evt);
+        chkNhoMatKhau.setBackground(new java.awt.Color(255, 255, 255));
+        chkNhoMatKhau.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        chkNhoMatKhau.setForeground(new java.awt.Color(255, 255, 255));
+        chkNhoMatKhau.setText("Nhớ mật khẩu");
+        right.add(chkNhoMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
+
+        lblQuenMatKhau.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblQuenMatKhau.setForeground(new java.awt.Color(255, 255, 255));
+        lblQuenMatKhau.setText("Quên mật khẩu?");
+        lblQuenMatKhau.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblQuenMatKhauMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblQuenMatKhauMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblAn_HienMousePressed(evt);
+                lblQuenMatKhauMousePressed(evt);
             }
         });
-        right.add(lblAn_Hien, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 32, 32));
-        right.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 270, 10));
+        right.add(lblQuenMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, -1, 30));
+
+        chkHienMatKhau.setBackground(new java.awt.Color(255, 255, 255));
+        chkHienMatKhau.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        chkHienMatKhau.setForeground(new java.awt.Color(255, 255, 255));
+        chkHienMatKhau.setText("Hiện mật khẩu");
+        chkHienMatKhau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkHienMatKhauActionPerformed(evt);
+            }
+        });
+        right.add(chkHienMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
         backgroundRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/rightSignIn.png"))); // NOI18N
         right.add(backgroundRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 400));
@@ -184,24 +211,6 @@ public class DangNhap extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseEntered
-        // TODO add your handling code here:
-        close.setIcon(new ImageIcon("src/com/edusys/images/RedClose.png"));
-    }//GEN-LAST:event_closeMouseEntered
-
-    private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
-        // TODO add your handling code here:
-        close.setIcon(new ImageIcon("src/com/edusys/images/BlackClose.png"));
-    }//GEN-LAST:event_closeMouseExited
-
-    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
-        // TODO add your handling code here:
-//        int confirm = JOptionPane.showConfirmDialog(rootPane, "Bạn có chắc muốn thoát không?");
-//        if (confirm == JOptionPane.YES_OPTION) {
-        dispose();
-//        }
-    }//GEN-LAST:event_closeMouseClicked
 
     private void pwdPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdPassActionPerformed
         // TODO add your handling code here:
@@ -245,6 +254,31 @@ public class DangNhap extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblAn_HienMousePressed
 
+    private void lblQuenMatKhauMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuenMatKhauMouseEntered
+        // TODO add your handling code here:
+        lblQuenMatKhau.setForeground(Color.red);
+    }//GEN-LAST:event_lblQuenMatKhauMouseEntered
+
+    private void lblQuenMatKhauMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuenMatKhauMouseExited
+        // TODO add your handling code here:
+        lblQuenMatKhau.setForeground(Color.white);
+    }//GEN-LAST:event_lblQuenMatKhauMouseExited
+
+    private void lblQuenMatKhauMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuenMatKhauMousePressed
+        // TODO add your handling code here:
+        this.dispose();
+        new QuenMatKhau().setVisible(true);
+    }//GEN-LAST:event_lblQuenMatKhauMousePressed
+
+    private void chkHienMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkHienMatKhauActionPerformed
+        // TODO add your handling code here:
+        if (pwdPass.getEchoChar() == (char) 0) {
+            pwdPass.setEchoChar('\u25cf');
+        } else {
+            pwdPass.setEchoChar((char) 0);
+        }
+    }//GEN-LAST:event_chkHienMatKhauActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,7 +307,8 @@ public class DangNhap extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {                try {
+            public void run() {
+                try {
                     org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
                     UIManager.put("RootPane.setupButtonVisible", false);
                 } catch (Exception e) {
@@ -292,16 +327,19 @@ public class DangNhap extends javax.swing.JFrame {
     private javax.swing.JLabel backgroundLeft;
     private javax.swing.JLabel backgroundRight;
     private javax.swing.JButton btnDangNhap;
+    private javax.swing.JCheckBox chkHienMatKhau;
+    private javax.swing.JCheckBox chkNhoMatKhau;
     private javax.swing.JLabel close;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblAn_Hien;
+    private javax.swing.JLabel lblQuenMatKhau;
+    private javax.swing.JLabel lblTaiKhoan;
+    private javax.swing.JLabel lblTaiKhoan1;
     private javax.swing.JPanel left;
     private javax.swing.JPasswordField pwdPass;
     private javax.swing.JPanel right;
     private javax.swing.JLabel src;
-    private javax.swing.JLabel taiKhoan;
-    private javax.swing.JLabel taiKhoan1;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 
@@ -320,14 +358,9 @@ public class DangNhap extends javax.swing.JFrame {
             pwdPass.requestFocus();
             return false;
         }
-//        else {
-//            new EduSys_JFrame().setVisible(true);
-//            this.dispose();
-//        }
         return true;
     }
 
-    //Phần đăng nhập chưa đưa vào nên không kiểm tra được
     public void dangNhap() {
         String tendangnhap = txtUser.getText();
         String matkhau = String.valueOf(pwdPass.getPassword());
@@ -338,9 +371,41 @@ public class DangNhap extends javax.swing.JFrame {
             alert(this, "Mật khẩu không đúng.");
         } else {
             Auth.user = nhanVien;
-            new MainGUI().setVisible(true);
+            luuTaiKhoan(Auth.user);
             this.dispose();
+            new MainGUI().setVisible(true);
 
+        }
+    }
+
+    public void getTaiKhoan() {
+        if (taiKhoan != null && matKhau != null) {
+            txtUser.setText(taiKhoan);
+            pwdPass.setText(matKhau);
+            //NhanVien nv = dao.selectById(taiKhoan);
+            //Auth.user = Chao.user;
+            chkNhoMatKhau.setSelected(true);
+            //btnDangNhap.doClick();
+
+            dispose();
+        }
+    }
+
+    public void luuTaiKhoan(NhanVien nv) {
+        UserDAO urDAO = new UserDAO();
+        if (chkNhoMatKhau.isSelected() == true) {
+            List<User> list = urDAO.selectAll();
+            if (list.size() == 0) {
+                User user = new User();
+                user.setTaiKhoan(nv.getMaNV());
+                user.setMatKhau(nv.getMatKhau());
+                urDAO.insert(user);
+            }
+        } else {
+            List<User> list = urDAO.selectAll();
+            if (list.size() != 0) {
+                urDAO.delete();
+            }
         }
     }
 
@@ -350,12 +415,4 @@ public class DangNhap extends javax.swing.JFrame {
         }
     }
 
-//    public static boolean confirm(Component parent, String message) {
-//        int result = JOptionPane.showConfirmDialog(parent, message, "Hệ thống quản lý đào tạo", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//        return result == JOptionPane.YES_OPTION;
-//    }
-//
-//    public static void alert(Component parent, String message) {
-//        JOptionPane.showMessageDialog(parent, message, "Hệ thống quản lý đào tạo", JOptionPane.INFORMATION_MESSAGE);
-//    }
 }

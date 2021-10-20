@@ -24,6 +24,6 @@ public class Auth {
     }
 
     public static boolean isManager() {
-        return (Auth.isLogin() && (user.getMaCV().equals("adminQT")));
+        return (Auth.isLogin() && user.isVaiTro());
     }
 }

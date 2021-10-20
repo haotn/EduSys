@@ -44,14 +44,16 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
+        <Component class="javax.swing.JTextArea" name="txtGioiThieu">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
             </Property>
+            <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="C&#xf2;n n&#x1eef;a!!!"/>
+            <Property name="text" type="java.lang.String" value="EduSys - Management l&#xe0; s&#x1ea3;n ph&#x1ea9;m cu&#x1ed1;i m&#xf4;n c&#x1ee7;a nh&#xf3;m 5, bao g&#x1ed3;m c&#xe1;c th&#xe0;nh vi&#xea;n: Ti&#xea;u Nh&#x1ef1;t H&#xe0;o, Nguy&#x1ec5;n Tr&#x1ecd;ng Nh&#xe2;n, &#x110;&#xe0;o Thi&#xea;n Qu&#x1ed1;c v&#xe0; Tr&#x1ea7;n Th&#x1ebf; K&#x1ef7;.&#xa;EduSys - Management tr&#xea;n c&#x1a1; b&#x1ea3;n &#x111;&#xe1;p &#x1ee9;ng &#x111;&#x1b0;&#x1ee3;c c&#xe1;c y&#xea;u c&#x1ea7;u v&#x1ec1; qu&#x1ea3;n l&#xfd; quy m&#xf4; nh&#x1ecf;, v&#x1edb;i giao di&#x1ec7;n &#x111;&#x1a1;n gi&#x1ea3;n th&#xe2;n thi&#x1ec7;n v&#x1edb;i ng&#x1b0;&#x1edd;i d&#xf9;ng, m&#x1ee5;c ti&#xea;u th&#x1ef1;c hi&#x1ec7;n d&#x1ef1; &#xe1;n h&#x1b0;&#x1edb;ng d&#x1eab;n cho sinh vi&#xea;n c&#xe1;ch t&#x1ea1;o ra m&#x1ed9;t ph&#x1ea7;n m&#x1ec1;m th&#x1ef1;c t&#x1ebf;, quy tr&#xec;nh th&#x1ef1;c hi&#x1ec7;n t&#x1eeb; khi b&#x1eaf;t &#x111;&#x1ea7;u &#x111;&#x1ebf;n khi ho&#xe0;n th&#xe0;nh d&#x1ef1; &#xe1;n.&#xa;"/>
+            <Property name="wrapStyleWord" type="boolean" value="true"/>
           </Properties>
         </Component>
       </SubComponents>

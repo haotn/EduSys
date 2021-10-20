@@ -3,25 +3,12 @@ GO
 CREATE DATABASE EDUSYS
 USE EDUSYS 
 GO
+
 CREATE TABLE EMAIL(
 EMAIL NVARCHAR(100) PRIMARY KEY,
 MATKHAU NVARCHAR(100) NOT NULL
 );
-create TABLE CHUCVU(
-MACV NVARCHAR(10) PRIMARY KEY,
-CHUCVU NVARCHAR(50),
-PHANQUYEN NVARCHAR(100)
-);
 
-
-GO 
-
-create TABLE PHANQUYEN(
-TENQUYEN NVARCHAR(100),
-MAQUYEN INT PRIMARY KEY
-);
-
-GO
 
 CREATE TABLE NHOMATKHAU(
 TAIKHOAN NVARCHAR(50) PRIMARY KEY,
@@ -31,18 +18,12 @@ MATKHAU NVARCHAR(50) NOT NULL
 GO
 
 
-
-
 create TABLE NHANVIEN(
 	MANV NVARCHAR(50) PRIMARY KEY,
 	MATKHAU NVARCHAR(50) NOT NULL,
 	HOTEN NVARCHAR(50) NOT NULL,
-	MACV NVARCHAR(10) NOT NULL,
 	EMAIL NVARCHAR(250) NOT NULL,
-	--VAITRO BIT DEFAULT 0,
-	FOREIGN KEY (MACV) REFERENCES CHUCVU(MACV) ON DELETE NO ACTION ON UPDATE CASCADE
-
-
+	VAITRO BIT DEFAULT 0,
 );
 
 
@@ -95,7 +76,7 @@ CREATE TABLE HOCVIEN(
 	MANH NVARCHAR(7) NOT NULL,
 	DIEM FLOAT NOT NULL,
 	FOREIGN KEY (MANH) REFERENCES NGUOIHOC(MANH) ON DELETE NO ACTION ON UPDATE CASCADE,
-	FOREIGN KEY (MAKH) REFERENCES KHOAHOC(MAKH) ON DELETE NO ACTION ON UPDATE NO ACTION
+	FOREIGN KEY (MAKH) REFERENCES KHOAHOC(MAKH) ON DELETE NO ACTION --ON UPDATE CASCADE
 );
 --SET IDENTITY_INSERT HOCVIEN ON
 
@@ -174,77 +155,43 @@ CREATE PROCEDURE SP_THONGKENGUOIHOC
 
 
 
-	insert into HOCPHI values(20000000, 'admin', '2021-10-16')
-	--INSERT DAT
-		Insert into CHUCVU (MACV,CHUCVU,PHANQUYEN)
-values ('adminQT',N'Quản Trị Viên','1,2,3,4,5,6'),
-('adminNV', N'Nhân Viên','11,12,14,21,22,24,31,32,34,41,42,44,51,52,54,61,62,63')
 
-INSERT INTO PHANQUYEN (MAQUYEN , TENQUYEN)
-VALUES ( 1, N'Quản Lý Nhân Viên'),
- ( 11, N'Thêm Nhân Viên'),
-  ( 12, N'Sửa Nhân Viên'),
-   ( 13, N'Xóa Nhân Viên'),
-    ( 14, N'Xem danh sách Nhân Viên'),
-	 ( 2, N'Quản Lý Chuyên Đề'),
-	 ( 21, N'Thêm Chuyên Đề'),
-	 ( 22, N'Sửa Chuyên Đề'),
-	 ( 23, N'Xóa Chuyên Đề'),
-	 ( 24, N'Xem danh sách Chuyên Đề'),
-	 ( 3, N'Quản Lý Khoa Học'),
-	 ( 31, N'Thêm Chuyên Đề'),
-	 ( 32, N'Sửa Chuyên Đề'),
-	 ( 33, N'Xóa Chuyên Đề'),
-	 ( 34, N'Xem danh sách Chuyên Đề'),
-	 ( 4, N'Quản Lý Người Học'),
-	  ( 41, N'Thêm Người Học'),
-	   ( 42, N'Sửa Người Học'),
-	    ( 43, N'Xóa Người Học'),
-		 ( 44, N'Xem danh sách Người Học'),
-		 ( 5, N'Quản Lý Học Viên'),
-		 ( 51, N'Thêm Học Viên'),
-		 ( 52, N'Sửa Học Viên'),
-		 ( 53, N'Xóa Học Viên'),
-		 ( 54, N'Xem danh sách Học Viên'),
-		 (6,N'Thông Kê'),
-		 (61,N'Bảng Điểm'),
-		 (62,N'Lượng Người Học'),
-		 (63,N'Điểm Thi Chuyên Đề'),
-		 (64,N'Doanh Thu')
-
-
-
+	--insert Email
+	INSERT INTO EMAIL (EMAIL, MATKHAU) VALUES('haotnfpoly@gmail.com', '0123a456789@abc')
 
 	--THEM DU LIEU NHAN VIEN
-	SELECT * FROM NHANVIEN
-			INSERT INTO NHANVIEN (MANV , MATKHAU , HOTEN , MACV , EMAIL)
+			INSERT INTO NHANVIEN (MANV , MATKHAU , HOTEN  , EMAIL, VAITRO)
 			VALUES	
-			('NV001', 'admin123', N'Trần Thị Thúy', 'adminQT','thuytt@fpt.edu.vn'),
-			('NV002', 'admin123', N'Trần Chấn Phong', 'adminNV','phongtc@fpt.edu.vn'),
-			('TP001', 'admin123', N'Hồ Thế Khải', 'adminNV','khaiht@fpt.edu.vn'),
-			('NV003', 'admin123', N'Trương Gia Khiêm', 'adminQT','khiemtg@fpt.edu.vn'),
-			('NV004', 'admin123', N'Nguyễn Đặng Tùng Lâm', 'adminNV','Lamndt@fpt.edu.vn'),
-			('TP002', 'admin123', N'Lê Thị Thu Hà', 'adminNV','haltt@fpt.edu.vn'),
-			('NV005', 'admin123', N'Phan Khiêm','adminNV','khiemp@fpt.edu.vn'),
-			('NV006', 'admin123', N'Lê Hoàng Gia Khang', 'adminNV','khanglhg@fpt.edu.vn'),
-			('TP003', 'admin123', N'Đặng Lâm Tùng Anh', 'adminQT','anhdlt@fpt.edu.vn'),
-			('NV007', 'admin123', N'Trần Hoàng Lương', 'adminNV','luongth@fpt.edu.vn'),
-			('NV008', 'admin123',N'Tống Phước Quan','adminNV','quantp@fpt.edu.vn'),
-			('admin', 'admin123', N'Tô Linh', 'adminNV','linht@fpt.edu.vn')
+			('NV001', 'admin123', N'Trần Thị Thúy','thuytt@fpt.edu.vn', 0),
+			('NV002', 'admin123', N'Trần Chấn Phong','phongtc@fpt.edu.vn',0),
+			('TP001', 'admin123', N'Hồ Thế Khải','khaiht@fpt.edu.vn',0),
+			('NV003', 'admin123', N'Trương Gia Khiêm','khiemtg@fpt.edu.vn',1),
+			('NV004', 'admin123', N'Nguyễn Đặng Tùng Lâm','Lamndt@fpt.edu.vn',0),
+			('TP002', 'admin123', N'Lê Thị Thu Hà','haltt@fpt.edu.vn',0),
+			('NV005', 'admin123', N'Phan Khiêm','khiemp@fpt.edu.vn',0),
+			('NV006', 'admin123', N'Lê Hoàng Gia Khang','khanglhg@fpt.edu.vn',0),
+			('TP003', 'admin123', N'Đặng Lâm Tùng Anh','anhdlt@fpt.edu.vn',0),
+			('NV007', 'admin123', N'Trần Hoàng Lương','luongth@fpt.edu.vn',1),
+			('NV008', 'admin123',N'Tống Phước Quan','quantp@fpt.edu.vn',1),
+			('nhanvien1', 'nhanvien123', N'Lê Thanh Hoài','hoailt@fpt.edu.vn',1),
+			('admin', 'admin123', N'Tô Linh','linht@fpt.edu.vn',1)
+
+			--Insert HocPhi
+			insert into HOCPHI values(20000000, 'admin', '2021-10-16')
 			--THEM DU LIEN CHUYEN DE
 			INSERT INTO CHUYENDE (MACD , TENCD , HOCPHI , THOILUONG , HINH , MOTA)
 			values 
-			('CD02', 'Java1',360000,120,'HINH.PNG','Lập Trình Java1'),
-			('CD03', 'Java2',360000,120,'HINH.PNG','Lập Trình Java2'),
-			('CD04', 'Java3',360000,120,'HINH.PNG','Lập Trình Java3'),
-			('CD05', 'Java4',360000,120,'HINH.PNG','Lập Trình Java4'),
-			('CD06', 'Java5',360000,120,'HINH.PNG','Lập Trình Java5'),
-			('CD07', 'Java6',360000,120,'HINH.PNG','Lập Trình Java6'),
-			('CD08', 'Nhập Môn Kỹ Thật Phần Mềm',360000,120,'HINH.PNG','Nhập Môn Kỹ Thật Phần Mềm'),
-			('CD09', 'Kỹ Năng Học Tập',360000,120,'HINH.PNG','Kỹ Năng Học Tập'),
-			('CD10', 'Chính Trị Phát Luật',360000,120,'HINH.PNG','Chính Trị Pháp Luật'),
-			('CD11', 'HTML & CSS',360000,120,'HINH.PNG','Lập Trình HTML & CSS'),
-			('CD12', 'Nhập Môn LẬp Trình',360000,120,'HINH.PNG','Lập Trình C++')
+			('CD02', 'Java1',360000,120,'HINH.PNG',N'Lập Trình Java1'),
+			('CD03', 'Java2',360000,120,'HINH.PNG',N'Lập Trình Java2'),
+			('CD04', 'Java3',360000,120,'HINH.PNG',N'Lập Trình Java3'),
+			('CD05', 'Java4',360000,120,'HINH.PNG',N'Lập Trình Java4'),
+			('CD06', 'Java5',360000,120,'HINH.PNG',N'Lập Trình Java5'),
+			('CD07', 'Java6',360000,120,'HINH.PNG',N'Lập Trình Java6'),
+			('CD08', N'Nhập Môn Kỹ Thật Phần Mềm',360000,120,'HINH.PNG',N'Nhập Môn Kỹ Thật Phần Mềm'),
+			('CD09', N'Kỹ Năng Học Tập',360000,120,'HINH.PNG',N'Kỹ Năng Học Tập'),
+			('CD10', N'Chính Trị Phát Luật',360000,120,'HINH.PNG',N'Chính Trị Pháp Luật'),
+			('CD11', N'HTML & CSS',360000,120,'HINH.PNG',N'Lập Trình HTML & CSS'),
+			('CD12', N'Nhập Môn LẬp Trình',360000,120,'HINH.PNG',N'Lập Trình C++')
 			-- Them du lieu khoa hoc
 			INSERT INTO KHOAHOC ( MACD, HOCPHI, THOILUONG, NGAYKG, GHICHU, MANV, NGAYTAO)
 			values 
@@ -272,7 +219,7 @@ VALUES ( 1, N'Quản Lý Nhân Viên'),
 			('NH009',N'Trần Thanh Xu','2001-4-3','0218293721','xuth@fpt.edu.vn','NV003','2020-10-1'),
 			('NH010',N'Trần Hổ Báo','2002-12-23','0935281923','baoth@fpt.edu.vn','NV002','2021-10-1')
 			--truyen du lieu hoc vien	
-			SET IDENTITY_INSERT HOCVIEN OFF
+			--SET IDENTITY_INSERT HOCVIEN OFF
 			INSERT INTO HOCVIEN(MAKH,MANH,DIEM)
 			values 
 			(2,'NH006',8),
@@ -284,11 +231,11 @@ VALUES ( 1, N'Quản Lý Nhân Viên'),
 			(8,'NH007',8),
 			(9,'NH008',10),
 			(10,'NH009',4),
-			(11,'NH010',7),
+			(1,'NH010',7),
 			(2,'NH011',5),
 			(5,'NH002',4),
 			(6,'NH003',9),
-			(11,'NH004',8),
+			(1,'NH004',8),
 			(4,'NH004',7),
 			(3,'NH006',7),
 			(7,'NH007',9),
@@ -296,6 +243,9 @@ VALUES ( 1, N'Quản Lý Nhân Viên'),
 			(9,'NH009',9),
 			(5,'NH010',8)
 
+
+
+--SELECT * FROM NHANVIEN 
 
 --select * from KHOAHOC
 
@@ -411,4 +361,46 @@ BEGIN
 	DELETE FROM KHOAHOC WHERE MACD IN (SELECT MACD FROM INSERTED)
 	DELETE FROM CHUYENDE WHERE MACD IN (SELECT MACD FROM INSERTED)
 END
-DROP TRIGGER TRG_XOACHUYENDE*/
+DROP TRIGGER TRG_XOACHUYENDE
+INSERT INTO PHANQUYEN (MAQUYEN , TENQUYEN)
+VALUES ( 1, N'Quản Lý Nhân Viên'),
+ ( 11, N'Thêm Nhân Viên'),
+  ( 12, N'Sửa Nhân Viên'),
+   ( 13, N'Xóa Nhân Viên'),
+    ( 14, N'Xem danh sách Nhân Viên'),
+	 ( 2, N'Quản Lý Chuyên Đề'),
+	 ( 21, N'Thêm Chuyên Đề'),
+	 ( 22, N'Sửa Chuyên Đề'),
+	 ( 23, N'Xóa Chuyên Đề'),
+	 ( 24, N'Xem danh sách Chuyên Đề'),
+	 ( 3, N'Quản Lý Khóa Học'),
+	 ( 31, N'Thêm Khóa Học'),
+	 ( 32, N'Sửa Khóa Học'),
+	 ( 33, N'Xóa Khóa Học'),
+	 ( 34, N'Xem danh sách Khóa Học'),
+	 ( 4, N'Quản Lý Người Học'),
+	  ( 41, N'Thêm Người Học'),
+	   ( 42, N'Sửa Người Học'),
+	    ( 43, N'Xóa Người Học'),
+		 ( 44, N'Xem danh sách Người Học'),
+		 ( 5, N'Quản Lý Học Viên'),
+		 ( 51, N'Thêm Vào Khóa Học'),
+		 ( 52, N'Xóa Khỏi Khóa Học'),
+		 ( 53, N'Cập Nhật Điểm'),
+		 ( 54, N'Xem danh sách Học Viên'),
+		 (6,N'Thông Kê'),
+		 (61,N'Bảng Điểm'),
+		 (62,N'Lượng Người Học'),
+		 (63,N'Điểm Thi Chuyên Đề'),
+		 (64,N'Doanh Thu')
+
+
+		 		Insert into CHUCVU (MACV,CHUCVU,PHANQUYEN)
+	values ('adminQT',N'Quản Trị Viên','1,2,3,4,5,6'),
+	('adminNV', N'Nhân Viên','11,12,14,21,22,24,31,32,34,41,42,44,51,52,54,61,62,63')
+
+
+
+
+*/
+

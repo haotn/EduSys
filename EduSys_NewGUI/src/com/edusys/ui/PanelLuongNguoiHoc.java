@@ -22,15 +22,20 @@ public class PanelLuongNguoiHoc extends javax.swing.JPanel {
     /**
      * Creates new form PanelLuongNguoihoc
      */
-    DefaultTableModel model;
-    JTableHeader header;
-    
+    static DefaultTableModel model;
+    static JTableHeader header;
+
     public PanelLuongNguoiHoc() {
         initComponents();
         setModelTable();
         fillTableLuongNguoiHoc();
     }
-    
+
+    public static void refresh() {
+        fillTableLuongNguoiHoc();
+
+    }
+
     public void setModelTable() {
         model = new DefaultTableModel(new Object[][]{}, new Object[]{"Năm", "Số lượng người học", "Ngày đăng ký sớm nhất", "Ngày đăng ký muộn nhất"});
         tblThongKeNguoiHoc.setModel(model);
@@ -88,12 +93,12 @@ public class PanelLuongNguoiHoc extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel38;
     private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JTable tblThongKeNguoiHoc;
+    private static javax.swing.JTable tblThongKeNguoiHoc;
     // End of variables declaration//GEN-END:variables
 
-    ThongKeDAO tkDAO = new ThongKeDAO();
-    
-    public void fillTableLuongNguoiHoc() {
+    static ThongKeDAO tkDAO = new ThongKeDAO();
+
+    static public void fillTableLuongNguoiHoc() {
         //DefaultTableModel model = (DefaultTableModel) tblThongKeNguoiHoc.getModel();
         model.setRowCount(0);
         List<Object[]> list = tkDAO.getLuongNguoiHoc();

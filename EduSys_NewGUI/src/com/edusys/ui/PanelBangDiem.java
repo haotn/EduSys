@@ -27,7 +27,7 @@ public class PanelBangDiem extends javax.swing.JPanel {
      * Creates new form PanelBangDiem
      */
     static DefaultTableModel model;
-    JTableHeader header;
+    static JTableHeader header;
     static DefaultComboBoxModel modelCboKhoHoc = new DefaultComboBoxModel();
 
     public PanelBangDiem() {

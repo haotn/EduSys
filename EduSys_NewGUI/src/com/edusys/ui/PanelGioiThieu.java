@@ -16,6 +16,7 @@ public class PanelGioiThieu extends javax.swing.JPanel {
      */
     public PanelGioiThieu() {
         initComponents();
+        txtGioiThieu.setEditable(false);
     }
 
     /**
@@ -28,7 +29,7 @@ public class PanelGioiThieu extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane14 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtGioiThieu = new javax.swing.JTextArea();
         lblGioThieu = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
@@ -39,11 +40,13 @@ public class PanelGioiThieu extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1200, 750));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Còn nữa!!!");
-        jScrollPane14.setViewportView(jTextArea1);
+        txtGioiThieu.setColumns(20);
+        txtGioiThieu.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtGioiThieu.setLineWrap(true);
+        txtGioiThieu.setRows(5);
+        txtGioiThieu.setText("EduSys - Management là sản phẩm cuối môn của nhóm 5, bao gồm các thành viên: Tiêu Nhựt Hào, Nguyễn Trọng Nhân, Đào Thiên Quốc và Trần Thế Kỷ.\nEduSys - Management trên cơ bản đáp ứng được các yêu cầu về quản lý quy mô nhỏ, với giao diện đơn giản thân thiện với người dùng, mục tiêu thực hiện dự án hướng dẫn cho sinh viên cách tạo ra một phần mềm thực tế, quy trình thực hiện từ khi bắt đầu đến khi hoàn thành dự án.\n");
+        txtGioiThieu.setWrapStyleWord(true);
+        jScrollPane14.setViewportView(txtGioiThieu);
 
         add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 580, 320));
 
@@ -66,7 +69,7 @@ public class PanelGioiThieu extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JScrollPane jScrollPane14;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblGioThieu;
+    private javax.swing.JTextArea txtGioiThieu;
     // End of variables declaration//GEN-END:variables
 }

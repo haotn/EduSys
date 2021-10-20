@@ -57,10 +57,9 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
         fillTable();
         updateStatus();
         generateDatePicker();
-        //clearForm();
     }
 
-    public static void refesh() {
+    public static void refresh() {
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboLocChuyenDe.getModel();
         model.removeAllElements();
         ChuyenDeDAO cdDAO = new ChuyenDeDAO();
@@ -179,7 +178,7 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
 
         btnLast.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnLast.setForeground(new java.awt.Color(102, 102, 102));
-        btnLast.setText(">|");
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Last.png"))); // NOI18N
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLastActionPerformed(evt);
@@ -189,7 +188,7 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
 
         btnFirst.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnFirst.setForeground(new java.awt.Color(102, 102, 102));
-        btnFirst.setText("|<");
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/First.png"))); // NOI18N
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFirstActionPerformed(evt);
@@ -199,7 +198,7 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
 
         btnPrev.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnPrev.setForeground(new java.awt.Color(102, 102, 102));
-        btnPrev.setText("<<");
+        btnPrev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Previous.png"))); // NOI18N
         btnPrev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrevActionPerformed(evt);
@@ -209,7 +208,7 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
 
         btnNext.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnNext.setForeground(new java.awt.Color(102, 102, 102));
-        btnNext.setText(">>");
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Next.png"))); // NOI18N
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -453,7 +452,7 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
         txtChuyenDe.setText(chuyenDe.getTenCD());
         txtHocPhi.setText(String.valueOf((long) kh.getHocPhi()));
         txtThoiLuong.setText(String.valueOf(kh.getThoiLuong()));
-        String date = XDate.toString(kh.getNgayKG(), "yyyy/MM/dd");
+//        String date = XDate.toString(kh.getNgayKG(), "yyyy/MM/dd");
 //        int year = Integer.parseInt(date.substring(0, 4));
 //        int month = Integer.parseInt(date.substring(5, 7)) - 1;
 //        int day = Integer.parseInt(date.substring(8, 10));
@@ -461,7 +460,7 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
         datePickerModel.setValue(kh.getNgayKG());
 
         //txtNgayKhaiGiang.setText(XDate.toString(kh.getNgayKG(), "yyyy/MM/dd"));
-        txtNgayTao.setText(XDate.toString(kh.getNgayTao(), "yyyy/MM/dd"));
+        txtNgayTao.setText(XDate.toString(kh.getNgayTao(), "dd/MM/yyyy"));
         txtNguoiTao.setText(kh.getMaNV());
         txtGhiChu.setText(kh.getGhiChu());
     }
@@ -595,25 +594,12 @@ public class PanelQuanLyKhoaHoc extends javax.swing.JPanel {
     }
 
     public void fillComboBoxChuyenDe() {
-        //Dùng để đổ dữ liệu vào cboChuyenDe_KhoaHoc 
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                while (true) {
-//                    try {
-        //Thread.sleep(3000);
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboLocChuyenDe.getModel();
         model.removeAllElements();
         List<ChuyenDe> list = chuyenDeDAO.selectAll();
         for (ChuyenDe cd : list) {
             model.addElement(cd);
         }
-//                    } catch (InterruptedException ex) {
-//                        Logger.getLogger(PanelQuanLyKhoaHoc.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-//                }
-//            }
-//        }).start();
     }
 
     public void fillTable() {

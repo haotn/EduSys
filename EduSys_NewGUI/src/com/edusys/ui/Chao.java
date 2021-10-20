@@ -5,9 +5,15 @@
  */
 package com.edusys.ui;
 
+import com.edusys.dao.NhanVienDAO;
+import com.edusys.dao.UserDAO;
+import com.edusys.entity.NhanVien;
+import com.edusys.entity.User;
+import com.edusys.helper.Auth;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 
@@ -20,11 +26,16 @@ public class Chao extends javax.swing.JFrame {
     /**
      * Creates new form Progress
      */
+    static String taiKhoan = null;
+    static String matKhau = null;
+    static NhanVien user = null;
+
     public Chao() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
         Run();
+
     }
     Timer timer;
 
@@ -41,11 +52,28 @@ public class Chao extends javax.swing.JFrame {
                     timer.stop();
                     dispose();
                     //  JOptionPane.showMessageDialog(rootPane, "Successfully!");
-                    new DangNhap().setVisible(true);
+                    kiemTraTaiKhoan();
+                  
                 }
             }
         });
         timer.start();
+    }
+    static public void kiemTraTaiKhoan() {
+        UserDAO urDao = new UserDAO();
+        List<User> list = urDao.selectAll();
+
+        if (list.size() > 0) {
+            User user = urDao.selectAll().get(0);
+            taiKhoan = user.getTaiKhoan();
+            matKhau = user.getMatKhau();
+            NhanVienDAO nvDAO = new NhanVienDAO();
+            Chao.user = nvDAO.selectById(taiKhoan);
+            Auth.user = Chao.user;
+            new MainGUI().setVisible(true);
+        }else{
+          new DangNhap().setVisible(true);
+        }
     }
 
     /**

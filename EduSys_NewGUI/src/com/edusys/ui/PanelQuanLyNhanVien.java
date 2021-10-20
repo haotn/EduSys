@@ -25,13 +25,16 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
     /**
      * Creates new form PanelQuanLyNhanVien
      */
-    JTableHeader header;
+    static JTableHeader header;
     boolean isUpdate = false;
 
     public PanelQuanLyNhanVien() {
         initComponents();
         setModelTable();
-        fillCboChucVu();
+        fillTable();
+    }
+
+    public static void refresh() {
         fillTable();
     }
 
@@ -54,8 +57,6 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
     private void initComponents() {
 
         brgVaiTro = new javax.swing.ButtonGroup();
-        rdoTruongPhong = new javax.swing.JRadioButton();
-        rdoNhanVien = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblNhanVien = new javax.swing.JTable();
         pnlFormNhanVien = new javax.swing.JPanel();
@@ -72,7 +73,10 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
         btnThem = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
         btnCapNhat = new javax.swing.JButton();
-        cboChucVu = new javax.swing.JComboBox<>();
+        lblEmail = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        rdoTruongPhong = new javax.swing.JRadioButton();
+        rdoNhanVien = new javax.swing.JRadioButton();
         jLabel18 = new javax.swing.JLabel();
         txtTimNhanVien = new javax.swing.JTextField();
         pnlCongCuBangNhanVien = new javax.swing.JPanel();
@@ -80,19 +84,6 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
         btnFirst = new javax.swing.JButton();
         btnPrev = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
-
-        rdoTruongPhong.setBackground(new java.awt.Color(255, 255, 255));
-        brgVaiTro.add(rdoTruongPhong);
-        rdoTruongPhong.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        rdoTruongPhong.setForeground(new java.awt.Color(102, 102, 102));
-        rdoTruongPhong.setText("Trưởng phòng");
-
-        rdoNhanVien.setBackground(new java.awt.Color(255, 255, 255));
-        brgVaiTro.add(rdoNhanVien);
-        rdoNhanVien.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        rdoNhanVien.setForeground(new java.awt.Color(102, 102, 102));
-        rdoNhanVien.setSelected(true);
-        rdoNhanVien.setText("Nhân viên");
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1200, 750));
@@ -135,7 +126,7 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
         lblVaiTro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblVaiTro.setForeground(new java.awt.Color(102, 102, 102));
         lblVaiTro.setText("Vai trò");
-        pnlFormNhanVien.add(lblVaiTro, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, -1, -1));
+        pnlFormNhanVien.add(lblVaiTro, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 50, -1));
 
         txtHoTenNV.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         pnlFormNhanVien.add(txtHoTenNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 250, -1));
@@ -217,9 +208,28 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
         });
         pnlFormNhanVien.add(btnCapNhat, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, -1, -1));
 
-        cboChucVu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        cboChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnlFormNhanVien.add(cboChucVu, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 340, 30));
+        lblEmail.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(102, 102, 102));
+        lblEmail.setText("Email");
+        pnlFormNhanVien.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 50, -1));
+
+        txtEmail.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        pnlFormNhanVien.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 150, 230, -1));
+
+        rdoTruongPhong.setBackground(new java.awt.Color(255, 255, 255));
+        brgVaiTro.add(rdoTruongPhong);
+        rdoTruongPhong.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        rdoTruongPhong.setForeground(new java.awt.Color(102, 102, 102));
+        rdoTruongPhong.setText("Trưởng phòng");
+        pnlFormNhanVien.add(rdoTruongPhong, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
+
+        rdoNhanVien.setBackground(new java.awt.Color(255, 255, 255));
+        brgVaiTro.add(rdoNhanVien);
+        rdoNhanVien.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        rdoNhanVien.setForeground(new java.awt.Color(102, 102, 102));
+        rdoNhanVien.setSelected(true);
+        rdoNhanVien.setText("Nhân viên");
+        pnlFormNhanVien.add(rdoNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, -1, -1));
 
         add(pnlFormNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 1200, 300));
 
@@ -238,11 +248,6 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtTimNhanVienFocusLost(evt);
-            }
-        });
-        txtTimNhanVien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTimNhanVienActionPerformed(evt);
             }
         });
         txtTimNhanVien.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -302,10 +307,6 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
         // TODO add your handling code here:
         first();
     }//GEN-LAST:event_btnFirstActionPerformed
-
-    private void txtTimNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimNhanVienActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTimNhanVienActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
@@ -381,13 +382,13 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
     private javax.swing.JButton btnPrev;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
-    private javax.swing.JComboBox<String> cboChucVu;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblVaiTro;
     private javax.swing.JPanel pnlCongCuBangNhanVien;
     private javax.swing.JPanel pnlFormNhanVien;
@@ -395,14 +396,15 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
     private javax.swing.JPasswordField pwdXacNhanMatKhau;
     private javax.swing.JRadioButton rdoNhanVien;
     private javax.swing.JRadioButton rdoTruongPhong;
-    private javax.swing.JTable tblNhanVien;
+    private static javax.swing.JTable tblNhanVien;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtHoTenNV;
     private javax.swing.JTextField txtMaNV;
-    private javax.swing.JTextField txtTimNhanVien;
+    private static javax.swing.JTextField txtTimNhanVien;
     // End of variables declaration//GEN-END:variables
 
-    DefaultTableModel model;
-    NhanVienDAO dao = new NhanVienDAO();
+    static DefaultTableModel model;
+    static NhanVienDAO dao = new NhanVienDAO();
     int row = -1;
 
     public void focusGained() {
@@ -419,55 +421,36 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
         }
     }
 
-    public void fillCboChucVu() {
-        DefaultComboBoxModel model = (DefaultComboBoxModel) cboChucVu.getModel();
-        model.removeAllElements();
-        ChucVuDAO cvDAO = new ChucVuDAO();
-        List<ChucVu> list = cvDAO.selectAll();
-        for (ChucVu cv : list) {
-            model.addElement(cv);
-        }
-    }
-
-    public void fillTable() {
-        //DefaultTableModel model = (DefaultTableModel) tblNhanVien.getModel();
-        model.setRowCount(0); // Xóa tất cả các hàng trên JTable
+    static public void fillTable() {
+        model.setRowCount(0);
         try {
             List<NhanVien> list;
             if (txtTimNhanVien.getText().equals("") || txtTimNhanVien.getText().equals("Tìm kiếm nhân viên")) {
-                list = dao.selectAll(); // Đọc dữ liệu từ CSDL
+                list = dao.selectAll();
             } else {
                 list = dao.selectByKeyWord(txtTimNhanVien.getText());
             }
-            ChucVuDAO cvDAO = new ChucVuDAO();
             for (NhanVien nv : list) {
-                Object[] row = {nv.getMaNV(), nv.getHoTen(), cvDAO.selectById(nv.getMaCV()).getTenCV()};
-                model.addRow(row); // Thêm một hàng vào JTable
+                if (nv.getMaNV().equals("admin")) {
+                } else {
+                    Object[] row = {nv.getMaNV(), nv.getHoTen(), nv.isVaiTro() ? "Trưởng phòng" : "Nhân vên"};
+                    model.addRow(row);
+                }
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
-//JOptionPane.showMessageDialog(this, "Lỗi truy vấn dữ liệu!");
         }
     }
 
     public void setForm(NhanVien nv) {
         txtMaNV.setText(nv.getMaNV());
         txtHoTenNV.setText(nv.getHoTen());
-        //pwdMatKhau.setText(nv.getMatKhau());
-        //pwdXacNhanMatKhau.setText(nv.getMatKhau());
-        cboChucVu.setSelectedItem(selectItem(nv));
-    }
-
-    public ChucVu selectItem(NhanVien nv) {
-        ChucVuDAO cvDAO = new ChucVuDAO();
-        List<ChucVu> list = cvDAO.selectAll();
-        ChucVu cv = null;
-        for (int i = 0; i < list.size(); i++) {
-            if (nv.getMaCV().equals(list.get(i).getMaCV())) {
-                cv = list.get(i);
-            }
+        if (nv.isVaiTro()) {
+            rdoTruongPhong.setSelected(true);
+        } else {
+            rdoNhanVien.setSelected(true);
         }
-        return cv;
+        txtEmail.setText(nv.getEmail());
     }
 
     public NhanVien getForm() {
@@ -475,16 +458,18 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
         nv.setMaNV(txtMaNV.getText());
         nv.setHoTen(txtHoTenNV.getText());
         nv.setMatKhau(String.valueOf(pwdMatKhau.getPassword()));
-        //nv.setVaiTro(rdoTruongPhong.isSelected());
+        nv.setVaiTro(rdoTruongPhong.isSelected());
+        nv.setEmail(txtEmail.getText());
         return nv;
     }
 
     public void clearForm() {
         NhanVien nv = new NhanVien();
         this.setForm(nv);
-        //if(txtHoTenNV.getText().equals("nullnull")){
         txtHoTenNV.setText("");
-        // }
+        rdoNhanVien.setSelected(true);
+        pwdMatKhau.setText("");
+        pwdXacNhanMatKhau.setText("");
         this.row = -1;
         this.updateStatus();
     }
@@ -504,7 +489,7 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
             this.clearForm();
             MsgBox.alert(this, "thêm mới thành công!");
         } catch (Exception e) {
-            //System.out.println(e);
+            System.out.println(e);
             MsgBox.alert(this, "Thêm mới thất bại!");
         }
     }
@@ -517,19 +502,18 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
                 dao.update(nv);
                 this.fillTable();
                 clearForm();
-                //MsgBox.alert(this, "Cập nhật thành công!");
             } catch (Exception e) {
-                MsgBox.alert(this, "Cập nhật thất bại!");
+                System.out.println(e);
+                // MsgBox.alert(this, "Cập nhật thất bại!");
             }
         }
-
     }
 
     public boolean checkForm() {
         NhanVien nv = getForm();
         if (isUpdate == false) {
             if (txtMaNV.getText().equals("") || txtHoTenNV.getText().equals("")
-                    || String.valueOf(pwdMatKhau.getPassword()).equals("") || String.valueOf(pwdXacNhanMatKhau.getPassword()).equals("")) {
+                    || String.valueOf(pwdMatKhau.getPassword()).equals("") || String.valueOf(pwdXacNhanMatKhau.getPassword()).equals("")||txtEmail.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin trước khi nhấn nút thêm!", "Error", 1);
                 return false;
             } else if (!txtHoTenNV.getText().contains(" ")) {
@@ -541,12 +525,12 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
             } else if (!String.valueOf(pwdMatKhau.getPassword()).equals(String.valueOf(pwdXacNhanMatKhau.getPassword()))) {
                 JOptionPane.showMessageDialog(this, "Xác nhận mật khẩu không đúng!", "Error", 1);
                 return false;
+            } else if (!PanelQuanLyNguoiHoc.validate(txtEmail.getText())) {
+                JOptionPane.showMessageDialog(this, "Email không đúng định dạng!", "Error", 1);
+                return false;
             }
         } else {
-            if (nv.getMaCV().equals("adminNV") && !nv.getMaNV().equals(Auth.user.getMaNV())) {
-                JOptionPane.showMessageDialog(this, "Bạn không thể thay đổi thông tin của trưởng phòng!", "Error", 1);
-                return false;
-            } else if (nv.getMaNV().equals("adminQT")) {
+            if (nv.getMaNV().equals("admin")) {
                 JOptionPane.showMessageDialog(this, "Không thể thao tác với tài khoản admin!", "Error", 1);
                 return false;
             }
@@ -570,7 +554,7 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
             String manv = txtMaNV.getText();
             if (manv.equals(Auth.user.getMaNV())) {
                 JOptionPane.showMessageDialog(this, "Không thể xóa tài khoản đang sử dụng phần mềm!", "Error", 1);
-            } else if ((dao.selectById(txtMaNV.getText()).getMaCV().equals("adminQT")) && (!dao.selectById(txtMaNV.getText()).getMaNV().equals(Auth.user.getMaNV()))) {
+            } else if ((dao.selectById(manv).isVaiTro() == true) && (!dao.selectById(txtMaNV.getText()).getMaNV().equals(Auth.user.getMaNV()))) {
                 JOptionPane.showMessageDialog(this, "Không thể thao tác với tài khoản của trưởng phòng!", "Error", 1);
             } else if (txtMaNV.getText().equals("admin")) {
                 JOptionPane.showMessageDialog(this, "Không thể xóa tài khoản admin!", "Error", 1);
@@ -579,9 +563,8 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
                     dao.delete(manv);
                     this.fillTable();
                     this.clearForm();
-                    //MsgBox.alert(this, "Xóa thành công!");
                 } catch (Exception e) {
-                    MsgBox.alert(this, "Xóa thất bại!");
+                    MsgBox.alert(this, "Nhân viên đã có thao tác đến dữ liệu hệ thống, không thể xóa!");
                 }
             }
         }
@@ -631,6 +614,5 @@ public class PanelQuanLyNhanVien extends javax.swing.JPanel {
         btnPrev.setEnabled(edit && !first);
         btnNext.setEnabled(edit && !last);
         btnLast.setEnabled(edit && !last);
-
     }
 }

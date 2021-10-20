@@ -77,7 +77,7 @@ public class HocVienDAO extends EduSysDAO<HocVien, Integer> {
                 entity.setMaHV(result.getInt("MAHV"));
                 entity.setMaKH(result.getInt("MAKH"));
                 entity.setMaNH(result.getString("MANH"));
-                entity.setDiem(result.getInt("Diem"));
+                entity.setDiem(result.getFloat("Diem"));
                 list.add(entity);
             }
             result.getStatement().getConnection().close();

@@ -14,7 +14,7 @@ public class HocVien {
     private int maHV;
     private int maKH;
     private String maNH;
-    private double diem = -1.0;
+    private float diem = (float) -1.0;
 
     @Override
     public String toString() {
@@ -45,11 +45,11 @@ public class HocVien {
         this.maNH = maNH;
     }
 
-    public double getDiem() {
+    public float getDiem() {
         return diem;
     }
 
-    public void setDiem(double diem) {
+    public void setDiem(float diem) {
         this.diem = diem;
     }
     

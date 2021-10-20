@@ -1,10 +1,17 @@
 package com.edusys.ui;
 
+import com.edusys.dao.EmailDAO;
+import com.edusys.dao.NhanVienDAO;
+import com.edusys.entity.Email;
+import com.edusys.entity.NhanVien;
 import com.edusys.helper.MailSender;
 import com.edusys.helper.MailSender;
+import static com.edusys.ui.PanelQuanLyNhanVien.dao;
+import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
@@ -13,6 +20,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
 
@@ -34,7 +42,6 @@ public class QuenMatKhau extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        txtTo.setText("haotnpc01545@fpt.edu.vn");
 
     }
 
@@ -48,11 +55,11 @@ public class QuenMatKhau extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        txtTo = new javax.swing.JTextField();
+        txtTaiKhoan = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         txtXacNhan = new javax.swing.JTextField();
         btnLayMa = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnBuocTiepTheo = new javax.swing.JButton();
         lblSetTime = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
 
@@ -74,19 +81,43 @@ public class QuenMatKhau extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, -1));
 
-        jTextField1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField1.setText("Username");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 117, 308, 40));
+        txtTaiKhoan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        txtTaiKhoan.setForeground(new java.awt.Color(153, 153, 153));
+        txtTaiKhoan.setText("Tài khoản");
+        txtTaiKhoan.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtTaiKhoanFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTaiKhoanFocusLost(evt);
+            }
+        });
+        getContentPane().add(txtTaiKhoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 117, 308, 40));
 
-        txtTo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        txtTo.setForeground(new java.awt.Color(153, 153, 153));
-        txtTo.setText("Email");
-        getContentPane().add(txtTo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 185, 308, 40));
+        txtEmail.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(153, 153, 153));
+        txtEmail.setText("Email khôi phục");
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEmailFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEmailFocusLost(evt);
+            }
+        });
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 185, 308, 40));
 
         txtXacNhan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         txtXacNhan.setForeground(new java.awt.Color(153, 153, 153));
         txtXacNhan.setText("Mã xác nhận");
+        txtXacNhan.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtXacNhanFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtXacNhanFocusLost(evt);
+            }
+        });
         getContentPane().add(txtXacNhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 255, 100, 36));
 
         btnLayMa.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -98,15 +129,15 @@ public class QuenMatKhau extends javax.swing.JFrame {
         });
         getContentPane().add(btnLayMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 261, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 255));
-        jButton2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jButton2.setText("NEXT");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnBuocTiepTheo.setBackground(new java.awt.Color(0, 0, 255));
+        btnBuocTiepTheo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        btnBuocTiepTheo.setText("Bước tiếp theo");
+        btnBuocTiepTheo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnBuocTiepTheoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 327, -1, -1));
+        getContentPane().add(btnBuocTiepTheo, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 327, -1, -1));
 
         lblSetTime.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblSetTime.setForeground(new java.awt.Color(51, 51, 51));
@@ -128,17 +159,50 @@ public class QuenMatKhau extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (check()) {
+    private void btnBuocTiepTheoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuocTiepTheoActionPerformed
+
+        if (checkCode()) {
             new LayLaiMatKhau().setVisible(true);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnBuocTiepTheoActionPerformed
 
     private void btnLayMaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLayMaActionPerformed
-        GuiMess();
-        setTime();
-        btnLayMa.setText("Gửi lại mã");
+        if (checkForm()) {
+            GuiMess();
+            setTime();
+            btnLayMa.setText("Gửi lại mã");
+        }
     }//GEN-LAST:event_btnLayMaActionPerformed
+
+    private void txtTaiKhoanFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTaiKhoanFocusGained
+        // TODO add your handling code here:
+        focusGained(txtTaiKhoan, "Tài khoản");
+    }//GEN-LAST:event_txtTaiKhoanFocusGained
+
+    private void txtTaiKhoanFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTaiKhoanFocusLost
+        // TODO add your handling code here:
+        focusLost(txtTaiKhoan, "Tài khoản");
+    }//GEN-LAST:event_txtTaiKhoanFocusLost
+
+    private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
+        // TODO add your handling code here:
+        focusGained(txtEmail, "Email khôi phục");
+    }//GEN-LAST:event_txtEmailFocusGained
+
+    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+        // TODO add your handling code here:
+        focusLost(txtEmail, "Email khôi phục");
+    }//GEN-LAST:event_txtEmailFocusLost
+
+    private void txtXacNhanFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtXacNhanFocusGained
+        // TODO add your handling code here:
+        focusGained(txtXacNhan, "Mã xác nhận");
+    }//GEN-LAST:event_txtXacNhanFocusGained
+
+    private void txtXacNhanFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtXacNhanFocusLost
+        // TODO add your handling code here:
+        focusLost(txtXacNhan, "Mã xác nhận");
+    }//GEN-LAST:event_txtXacNhanFocusLost
 
     /**
      * @param args the command line arguments
@@ -183,19 +247,35 @@ public class QuenMatKhau extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuocTiepTheo;
     private javax.swing.JButton btnLayMa;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblSetTime;
-    private javax.swing.JTextField txtTo;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtTaiKhoan;
     private javax.swing.JTextField txtXacNhan;
     // End of variables declaration//GEN-END:variables
-   
+
     int randomInt;
     int second = 90;
     Thread t;
+
+    public void focusGained(JTextField txt, String text) {
+        if (txt.getText().equals(text)) {
+            txt.setText("");
+        }
+        txt.setForeground(Color.black);
+    }
+
+    public void focusLost(JTextField txt, String text) {
+        if (txt.getText().equals("")) {
+            txt.setText(text);
+            txt.setForeground(new Color(102,102,102));
+        }else{
+        txt.setForeground(Color.black);
+        }
+    }
 
     public void GuiMess() {
         for (int i = 1; i < 2; i++) {
@@ -204,8 +284,10 @@ public class QuenMatKhau extends javax.swing.JFrame {
             randomInt = (int) randomDouble;
         }
         try {
-            String taiKhoan = "playtogether386@gmail.com";
-            String matKhau = "0769331203ok";
+            EmailDAO mailDAO = new EmailDAO();
+            Email email = mailDAO.selectAll().get(0);
+            String taiKhoan = email.getEmail();
+            String matKhau = email.getMatKhau();
 
             Properties prop = new Properties();
             prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -220,8 +302,8 @@ public class QuenMatKhau extends javax.swing.JFrame {
                 }
             });
 
-            String from = "nhanbtpc01721@fpt.edu.vn";
-            String to = txtTo.getText();
+            String from = "haotnpc01545@fpt.edu.vn";
+            String to = txtEmail.getText();
             String subject = "Mã xác nhận ";
             String body = "Mã xác nhận của bạn là : " + randomInt;
 
@@ -245,9 +327,30 @@ public class QuenMatKhau extends javax.swing.JFrame {
         }
     }
 
-    boolean check() {
-        if (Integer.parseInt(txtXacNhan.getText()) != randomInt) {
+    boolean checkCode() {
+        if (Integer.parseInt(txtXacNhan.getText().trim()) != randomInt) {
             JOptionPane.showMessageDialog(this, "Mã xác nhận chưa chính xác vui lòng kiểm tra lại !!!");
+            return false;
+        }
+        return true;
+    }
+
+    boolean checkForm() {
+        //NhanVienDAO nvDAO = new NhanVienDAO();
+        NhanVien nv = null;
+        int exist = 0;
+        for (int i = 0; i < dao.selectAll().size(); i++) {
+            if (txtTaiKhoan.getText().equals(dao.selectAll().get(i).getMaNV())) {
+                nv = dao.selectAll().get(i);
+                exist++;
+            }
+        }
+        if (exist == 0) {
+            JOptionPane.showMessageDialog(this, "Tài khoản không tồn tại!", "Error", 1);
+            return false;
+        }
+        if (!txtEmail.getText().trim().equals(nv.getEmail())) {
+            JOptionPane.showMessageDialog(this, "Email khôi phục không đúng!", "Error", 1);
             return false;
         }
         return true;
@@ -262,11 +365,18 @@ public class QuenMatKhau extends javax.swing.JFrame {
                         second--;
                         t.sleep(1000);  // interval duoc cung cap bang gia tri mili giay 
                         lblSetTime.setText("Mã xác nhận còn hiệu lực trong " + String.valueOf(second) + "!");
+                        if (second == 0) {
+                            randomInt = 0;
+                            lblSetTime.setText("Mã xác nhận đã hết hiệu lực!");
+                            break;
+                        }
+
                     }
                 } catch (Exception e) {
                 }
             }
-        });
+        }
+        );
         t.start();
     }
 }

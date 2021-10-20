@@ -10,11 +10,12 @@ package com.edusys.entity;
  * @author KI
  */
 public class NhanVien {
+
     private String maNV;
     private String matKhau;
     private String hoTen;
-    private String maCV;
     private String email;
+    private boolean vaiTro = false;
 
     /**
      * @return the maNV
@@ -58,19 +59,6 @@ public class NhanVien {
         this.hoTen = hoTen;
     }
 
-    /**
-     * @return the maCV
-     */
-    public String getMaCV() {
-        return maCV;
-    }
-
-    /**
-     * @param maCV the maCV to set
-     */
-    public void setMaCV(String maCV) {
-        this.maCV = maCV;
-    }
 
     /**
      * @return the email
@@ -86,7 +74,18 @@ public class NhanVien {
         this.email = email;
     }
 
+    /**
+     * @return the vaiTro
+     */
+    public boolean isVaiTro() {
+        return vaiTro;
+    }
 
+    /**
+     * @param vaiTro the vaiTro to set
+     */
+    public void setVaiTro(boolean vaiTro) {
+        this.vaiTro = vaiTro;
+    }
 
-    
 }

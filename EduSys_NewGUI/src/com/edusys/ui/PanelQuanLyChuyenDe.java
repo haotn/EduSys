@@ -38,7 +38,7 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
     /**
      * Creates new form PanelQuanLyChuyenDe
      */
-    DefaultTableModel model;
+    static DefaultTableModel model;
     JTableHeader header;
 
     public PanelQuanLyChuyenDe() {
@@ -46,6 +46,10 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
         setModelTable();
         fillTable();
         updateStatus();
+    }
+
+    public static void refresh() {
+        fillTable();
     }
 
     public void setModelTable() {
@@ -271,7 +275,7 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
 
         btnLast.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnLast.setForeground(new java.awt.Color(102, 102, 102));
-        btnLast.setText(">|");
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Last.png"))); // NOI18N
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLastActionPerformed(evt);
@@ -281,7 +285,7 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
 
         btnFirst.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnFirst.setForeground(new java.awt.Color(102, 102, 102));
-        btnFirst.setText("|<");
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/First.png"))); // NOI18N
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFirstActionPerformed(evt);
@@ -291,7 +295,7 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
 
         btnPrev.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnPrev.setForeground(new java.awt.Color(102, 102, 102));
-        btnPrev.setText("<<");
+        btnPrev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Previous.png"))); // NOI18N
         btnPrev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrevActionPerformed(evt);
@@ -301,7 +305,7 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
 
         btnNext.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnNext.setForeground(new java.awt.Color(102, 102, 102));
-        btnNext.setText(">>");
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/edusys/images/Next.png"))); // NOI18N
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -411,17 +415,17 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
     private javax.swing.JLabel lblLogoChuyenDe;
     private javax.swing.JPanel pnlCongCuBangChuyenDe;
     private javax.swing.JPanel pnlFormChuyenDe;
-    private javax.swing.JTable tblChuyenDe;
+    private static javax.swing.JTable tblChuyenDe;
     private javax.swing.JTextField txtHocPhi;
     private javax.swing.JTextField txtMaChuyenDe;
     private javax.swing.JTextArea txtMoTa;
     private javax.swing.JTextField txtTenChuyenDe;
     private javax.swing.JTextField txtThoiLuong;
-    private javax.swing.JTextField txtTimCD;
+    private static javax.swing.JTextField txtTimCD;
     // End of variables declaration//GEN-END:variables
 
     JFileChooser filenChooser = new JFileChooser();
-    ChuyenDeDAO dao = new ChuyenDeDAO();
+    static ChuyenDeDAO dao = new ChuyenDeDAO();
     int index = -1;
     boolean isUpdate = false;
 
@@ -449,7 +453,7 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
         }
     }
 
-    void fillTable() {
+    static public void fillTable() {
         //DefaultTableModel model = (DefaultTableModel) tblChuyenDe.getModel();
         model.setRowCount(0);
 
@@ -472,7 +476,6 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
                 model.addRow(row);
             }
         } catch (Exception e) {
-            MsgBox.alert(this, "Lỗi truy vấn dữ liệu!");
         }
     }
 
@@ -631,7 +634,7 @@ public class PanelQuanLyChuyenDe extends javax.swing.JPanel {
             txtHocPhi.requestFocus();
             return false;
         } else if (Float.parseFloat(txtHocPhi.getText()) > hp.getHocPhi()) {
-            JOptionPane.showMessageDialog(this, "Học phí giới hạn là " + hp.getHocPhi() + "!", "Error", 1);
+            JOptionPane.showMessageDialog(this, "Học phí giới hạn là " + (long)hp.getHocPhi() + "!", "Error", 1);
             return false;
         }
         List<ChuyenDe> list = dao.selectAll();

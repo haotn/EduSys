@@ -27,21 +27,25 @@ public class PanelDoanhThu extends javax.swing.JPanel {
     /**
      * Creates new form PanelDoanhThu
      */
-    DefaultTableModel model;
-    JTableHeader header;
-    DefaultComboBoxModel modelCboNam = new DefaultComboBoxModel<>();
+    static DefaultTableModel model;
+    static JTableHeader header;
+    static DefaultComboBoxModel modelCboNam = new DefaultComboBoxModel<>();
 
     public PanelDoanhThu() {
         initComponents();
         cboNam.setModel(modelCboNam);
-
         setModelTable();
         fillComboBoxNam();
         fillTableDoanhThu();
     }
 
+    public static void refresh() {
+        fillComboBoxNam();
+        fillTableDoanhThu();
+    }
+
     public void setModelTable() {
-        
+
         model = new DefaultTableModel(new Object[][]{}, new Object[]{"Chuyên đề", "Số khóa học", "Doanh thu", "Học phí thấp nhất", "Học phí cao nhất", "Học phí trung bình"});
         tblDoanhThu.setModel(model);
         header = tblDoanhThu.getTableHeader();
@@ -125,18 +129,18 @@ public class PanelDoanhThu extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cboNam;
+    private static javax.swing.JComboBox<String> cboNam;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JPanel pnlDoanhThu;
-    private javax.swing.JTable tblDoanhThu;
+    private static javax.swing.JTable tblDoanhThu;
     // End of variables declaration//GEN-END:variables
 
-    ThongKeDAO tkDAO = new ThongKeDAO();
-    KhoaHocDAO khDAO = new KhoaHocDAO();
+    static ThongKeDAO tkDAO = new ThongKeDAO();
+    static KhoaHocDAO khDAO = new KhoaHocDAO();
 
-    public void fillComboBoxNam() {
+    static public void fillComboBoxNam() {
         //DefaultComboBoxModel model = (DefaultComboBoxModel) cboNam.getModel();
         modelCboNam.removeAllElements();
         List<Integer> list = khDAO.selectYears();
@@ -145,13 +149,21 @@ public class PanelDoanhThu extends javax.swing.JPanel {
         }
     }
 
-    public void fillTableDoanhThu() {
+    static public void fillTableDoanhThu() {
         // DefaultTableModel model = (DefaultTableModel) tblDoanhThu.getModel();
-        model.setRowCount(0);
-        int nam = (Integer) cboNam.getSelectedItem();
-        List<Object[]> list = tkDAO.getDoanhThu(nam);
-        for (Object[] row : list) {
-            model.addRow(row);
+        int nam = -1;
+        try {
+            nam = (Integer) cboNam.getSelectedItem();
+        } catch (Exception e) {
+        }
+
+        if (nam != -1) {
+            model.setRowCount(0);
+
+            List<Object[]> list = tkDAO.getDoanhThu(nam);
+            for (Object[] row : list) {
+                model.addRow(row);
+            }
         }
     }
 }
